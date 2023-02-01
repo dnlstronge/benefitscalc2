@@ -1,0 +1,16 @@
+.container {
+    font-weight: bold;
+    margin-left: 2rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.LCWRA_couple {
+    flex-direction: column;
+    margin-bottom: 1rem;;
+}
+
+.LCWRA_select {
+    flex-direction: column;
+    margin-left: 1rem;
+}

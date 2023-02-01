@@ -1,0 +1,30 @@
+.container {
+    display: flex;
+    height: auto;
+    align-items: flex-start;
+}
+
+
+.label_housing {
+    display: flex;
+    flex-direction: column;
+    height: 4rem;
+    width: 90%;
+    margin: 1rem 1rem 1rem 2rem;
+    font-weight: bold;
+    border: 1px solid transparent;
+    padding: 0
+}
+.select_housing {
+    display: flex;
+    flex-direction: column;
+    font-size: 16px;
+    font-weight: bold;
+    width: 90%;
+    height: 2.4rem;
+    margin: 1rem 1rem 1rem 1rem;
+    padding-top: 0.5rem;
+    
+    text-align: center;
+}
+

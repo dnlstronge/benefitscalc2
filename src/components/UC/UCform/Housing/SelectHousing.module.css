@@ -1,0 +1,5 @@
+.container {
+    display: flexbox;
+    flex-direction: column;
+    height: auto;
+}

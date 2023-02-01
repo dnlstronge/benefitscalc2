@@ -1,0 +1,51 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    background: rgb(180, 212, 212);
+    width: 90%;
+    height: auto;
+    margin: 1rem 1rem 1rem 1rem;
+    width: 25rem;
+    border-radius: 5px;;
+}
+
+.calcPA {
+   font-weight: bold;
+   height: 4rem;
+   width: auto ;
+   background-color: white;
+   margin: 1rem 1rem 1rem 1rem;
+   border: 1px solid black;
+   border-radius: 5px;
+}
+
+.calcWCA {
+   font-weight: bold;
+   height: 4rem;
+   width: auto ;
+   background-color: white;
+   margin: 1rem 1rem 1rem 1rem;
+   border: 1px solid black;
+   border-radius: 5px;
+}
+
+.calcChild { 
+   font-weight: bold;
+   height: 4rem;
+   width: auto ;
+   background-color: white;
+   margin: 1rem 1rem 1rem 1rem;
+   border: 1px solid black;
+   border-radius: 5px;
+
+}
+
+.calcHousing {
+   font-weight: bold;
+   height: 4rem;
+   width: auto ;
+   background-color: white;
+   margin: 1rem 1rem 1rem 1rem;
+   border: 1px solid black;
+   border-radius: 5px;
+}

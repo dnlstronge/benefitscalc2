@@ -1,0 +1,19 @@
+.label_SSSC {
+    display: flex;
+    height: 20px;
+    width: auto;
+    margin: 2rem 0rem 1rem 2rem;
+    font-weight: bold;
+
+
+}
+
+.select_SSSC {  
+    display: flex;
+    height: 20px;
+    width: 8rem;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    margin-bottom: 1rem;
+}
+

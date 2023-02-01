@@ -1,0 +1,32 @@
+.LCWRA_container {
+    display: flex;
+    flex-direction: row;
+    font-weight: bold;
+}
+
+.LCWRA_label {
+    margin: 1rem 1rem 1rem 2rem;
+}
+
+
+.LCWRA_select {
+    margin-left: 1rem;
+}
+
+
+
+
+
+.LCWRA_carer_container {
+    display: flex;
+    flex-direction: column;
+    font-weight: bold;
+}
+
+.LCWRA_carer_label {
+    margin: 1rem 1rem 1rem 2rem;
+}
+
+.LCWRA_carer_select {
+    margin-left: 1rem;
+}

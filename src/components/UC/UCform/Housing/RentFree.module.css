@@ -1,0 +1,13 @@
+.label_rentfree {
+ font-weight: bold;
+ margin-left: 2rem;
+
+}
+
+.input_rentfree {
+    height: 18px;
+    font-weight: bold;
+    width: 3rem;
+    margin: 1rem 2rem 1rem 2rem;
+    
+}

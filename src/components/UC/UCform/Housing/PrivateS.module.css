@@ -1,0 +1,39 @@
+.container {
+    display: flex;
+    width: 90%;
+    margin: 1rem 1rem 1rem 1rem;
+    flex-direction: column;
+    font-weight: bold;
+}
+.info {
+
+}
+.link {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+
+.freq_label {
+    margin-bottom: 0.5rem;
+
+}
+.freq_select {
+    height: 26px;
+
+}
+.amount_input {
+    margin-bottom: 0.5rem;
+}
+.amount {
+    height: 20px;
+}
+
+.ND_label {
+    margin-bottom: 0.5rem;
+}
+
+.ND_input {
+    margin-top: 0.5rem;
+    height: 20px;
+}

@@ -1,0 +1,61 @@
+table {
+    height: 18px;
+    width: 90%;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    
+}
+.amount {
+    height: 17px;
+    width: 4rem;
+    font-weight: bold;
+    font-size: 18px;
+    margin-right: 4rem;
+    margin-left: 2rem;
+    
+}
+.title {
+    display: flex;
+    margin-top: 1rem;
+    font-weight: bold;
+    
+    margin-left: 2rem;
+    margin-bottom: 1rem;
+    
+}
+.select_freq {
+    height: 23px;
+    margin-left: 1rem;
+    width: 5rem;
+    
+} 
+.warning {
+    color: red;
+    font-weight: bold;
+    margin-left: 2rem;
+    margin-right: 2rem;
+}
+
+.warning2 {
+    display: block;
+    color: red;
+    font-weight: bold;
+    margin-left: 2rem;
+    margin-right: 2rem;
+}
+
+.ND_label {
+    font-weight: bold;
+    display: flex;
+    margin-bottom: 0.5rem;
+    flex-direction: column;
+    margin-left: 2rem;
+}
+
+.ND_input {
+    display: flex;
+    flex-direction: column;
+    margin-top: 0.5rem;
+    margin-left: 2rem;
+    height: 20px;
+}

@@ -1,0 +1,46 @@
+.head {
+    text-align: center;
+}
+
+
+
+.WCA_container {
+    display: flex;
+    flex-direction: column;
+    background: rgb(180, 212, 212);
+    width: 90%;
+    height: auto;
+    margin: 1rem 1rem 1rem 1rem;
+    width: 25rem;
+    border-radius: 5px;;
+}
+
+.ESA_mig_label {
+    font-weight: bold;
+    margin-left: 2rem;
+    margin-bottom: 0.2rem;
+}
+
+.select_couple {
+    color: red;
+    font-weight: bold;
+    margin-top: 1rem;
+    margin-left: 2rem;
+}
+
+
+.ESA_mig_input {
+    margin-left: 1rem;
+}
+
+.LCW_label {
+  font-weight: bold;
+  margin-left: 2rem;
+  margin-bottom: 1rem;
+  margin-top: 1.5rem;
+ 
+}
+
+.LCW_select {
+    margin-left: 1rem;
+}
