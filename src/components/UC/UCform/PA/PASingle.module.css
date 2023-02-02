@@ -1,3 +1,24 @@
 .container {
-    
+    font-weight: bold;
+    margin: 1rem 1rem 1rem 1rem;
+    background: whitesmoke;
+
 }
+.age_label {
+    margin-left: 1rem
+}
+.age_select {
+    margin-left: 1rem
+}
+.age_warning {
+    color: red;
+    margin-left: 1rem
+}
+
+.couple_label {
+    margin-left: 1rem;
+}
+.couple_select {
+    margin-left: 1rem
+}
+
