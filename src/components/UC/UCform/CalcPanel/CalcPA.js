@@ -12,7 +12,7 @@ return (
 
   <React.Fragment>
     <div>
-     <p>{state_PA.PERSONAL_VALUE}</p>
+     <p>{state_PA.PERSONAL_ALLOWANCE}</p>
 
         
         

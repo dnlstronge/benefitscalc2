@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import classes from "./PASingle.module.css"
+import UCElements from "../../UCElements/UCElements";
 
-const PASingle = () => {
+const UC_elements = UCElements
+
+const PASingle = ({PA_state, set_PA_state}) => {
     // local state
     const [age, setAge] = useState("")
 
@@ -10,7 +13,20 @@ const PASingle = () => {
 
     const handleAge = (e) => {
         setAge(e.target.value)
+        set_PA_state({...PA_state, PERSONAL_ALLOWANCE: 0})
     }
+    const handlePA_under = (e) => {
+        if(e.target.value === "SINGLE") {
+            return set_PA_state({...PA_state, PERSONAL_ALLOWANCE: UC_elements.single_under25})
+        }
+       else if(e.target.value === "COUPLE") {
+            return set_PA_state({...PA_state, PERSONAL_ALLOWANCE: UC_elements.joint_under25})
+        }
+        else {
+            return set_PA_state({...PA_state, PERSONAL_ALLOWANCE: 0})
+        }
+    } 
+    const handlePA_over = (e) => {}
     return (
         <React.Fragment>
             <div className={classes.container}> 
@@ -29,7 +45,7 @@ const PASingle = () => {
 
 {/* stream 1 - under 25 */}
                 {age === "UNDER" &&
-                <label htmlFor={classes.couple_select}>Couple/Single
+                <label onChange={handlePA_under} htmlFor={classes.couple_select}>Couple/Single
                     <select>
                         <option value="NONE">--select--</option>
                         <option value="SINGLE">Single</option>

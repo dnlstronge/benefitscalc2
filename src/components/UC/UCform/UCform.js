@@ -27,15 +27,9 @@ const UCform = (props) => {
         rentFree: 0,
         NDD: 0,
         housingPM: 0,
-        rates_pw: 0,
-        ESA_mig: 0,
-        LCW: 0, // amount
-        WC: "No",
-        LCWRA: 0,
-        isLCWRA: "no",
-        carer: 0,
-        isCarer: "no",
-        PERSONAL_VALUE: 0,
+        
+        
+        PERSONAL_ALLOWANCE: 0,
         total: 0,
     })
 
