@@ -2,8 +2,11 @@ import React, { useState } from "react";
 import classes from "./PASingle.module.css"
 
 const PASingle = () => {
-    //local state
+    // local state
     const [age, setAge] = useState("")
+
+
+    // handlers
 
     const handleAge = (e) => {
         setAge(e.target.value)
@@ -25,7 +28,7 @@ const PASingle = () => {
 
 {/* stream 1 - under 25 */}
                 {age === 0 &&
-                <label htmlFor={couple_select}>
+                <label htmlFor={classes.couple_select}>
                     <select>
                         <option value="NONE">--select--</option>
                         <option value="SINGLE">Single</option>
@@ -34,7 +37,7 @@ const PASingle = () => {
                 </label> }
 {/* stream 2 - over 25 */}
                 {age === 25 &&     
-                <label htmlFor={couple_select}>
+                <label htmlFor={classes.couple_select}>
                     <select>
                         <option value="NONE">--select--</option>
                         <option value="SINGLE">Single</option>
