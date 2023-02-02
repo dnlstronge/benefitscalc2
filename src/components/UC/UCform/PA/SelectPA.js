@@ -47,6 +47,20 @@ const Select_PA = ({ state_GLOBAL, set_state_GLOBAL }) => {
                 ESA_mig: false, WC: "no", LCW: 0, LCWRA: 0, icLCWRA: "no", isCarer: "no", carer: "0",
                 PERSONAL_VALUE: 0})
         }
+        if (e.target.value === "SINGLE" && state_GLOBAL.over25 === "NONE") {
+            set_state_GLOBAL({
+                ...state_GLOBAL, 
+                couple: "NONE", 
+                ESA_mig: false, WC: "no", LCW: 0, LCWRA: 0, icLCWRA: "no", isCarer: "no", carer: "0",
+                PERSONAL_VALUE: 0})
+        }
+        if (e.target.value === "COUPLE" && state_GLOBAL.over25 === "NONE") {
+            set_state_GLOBAL({
+                ...state_GLOBAL, 
+                couple: "NONE", 
+                ESA_mig: false, WC: "no", LCW: 0, LCWRA: 0, icLCWRA: "no", isCarer: "no", carer: "0",
+                PERSONAL_VALUE: 0})
+        }
         
       
         
