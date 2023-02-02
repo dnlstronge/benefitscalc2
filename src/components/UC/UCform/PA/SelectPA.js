@@ -34,30 +34,51 @@ const Select_PA = ({ state_GLOBAL, set_state_GLOBAL }) => {
                 ESA_mig: false, WC: "no", LCW: 0, LCWRA: 0, icLCWRA: "no", isCarer: "no", carer: "0",
                 PERSONAL_VALUE: 0})
         }
+        if(e.target.value === "25+") {
+            set_state_GLOBAL({...state_GLOBAL, over25: "25+"})
+        }
+        if(e.target.value === "under 25") {
+            set_state_GLOBAL({...state_GLOBAL, over25: "under 25"})
+        }
         if(e.target.value === "25+" && state_GLOBAL.couple === "NONE") { 
-        return set_state_GLOBAL({...state_GLOBAL, over25: "25+", couple: "NONE", PERSONAL_VALUE: 0})
+            console.log("why is the state not changing")
+        return set_state_GLOBAL({...state_GLOBAL, 
+                over25: "25+", couple: "NONE", 
+                ESA_mig: false, WC: "no", LCW: 0, LCWRA: 0, icLCWRA: "no", isCarer: "no", carer: "0",
+                PERSONAL_VALUE: 0})
         
     }
         if(e.target.value === "under 25" && state_GLOBAL.couple === "NONE") {
-        return set_state_GLOBAL({...state_GLOBAL, over25: "under 25", couple: "NONE", PERSONAL_VALUE: 0})
+        return set_state_GLOBAL({...state_GLOBAL, 
+            over25: "under 25", couple: "NONE", 
+            ESA_mig: false, WC: "no", LCW: 0, LCWRA: 0, icLCWRA: "no", isCarer: "no", carer: "0",
+            PERSONAL_VALUE: 0,})
         
     }
 
     if (e.target.value === "under 25" && state_GLOBAL.couple === "SINGLE") {
-       return set_state_GLOBAL({...state_GLOBAL, over25: "under 25", couple: "SINGLE", PERSONAL_VALUE: UC_elements.single_under25,
-        ESA_mig: false, WC: "no", LCW: 0, LCWRA: 0, icLCWRA: "no", isCarer: "no", carer: "0",})
+       return set_state_GLOBAL({...state_GLOBAL, 
+            over25: "under 25", couple: "SINGLE", 
+            ESA_mig: false, WC: "no", LCW: 0, LCWRA: 0, icLCWRA: "no", isCarer: "no", carer: "0",
+            PERSONAL_VALUE: UC_elements.single_under25})
     }
     if (e.target.value === "25+" && state_GLOBAL.over25 === "SINGLE") {
-    return  set_state_GLOBAL({...state_GLOBAL, over25: "25+", couple: "SINGLE", PERSONAL_VALUE: UC_elements.single_over25,
-        ESA_mig: false, WC: "no", LCW: 0, LCWRA: 0, icLCWRA: "no", isCarer: "no", carer: "0",})
+      return  set_state_GLOBAL({...state_GLOBAL, 
+            over25: "25+", couple: "SINGLE", 
+            ESA_mig: false, WC: "no", LCW: 0, LCWRA: 0, icLCWRA: "no", isCarer: "no", carer: "0",
+            PERSONAL_VALUE: UC_elements.single_over25})
     }
     if (e.target.value === "under 25" && state_GLOBAL.over25 === "COUPLE") {
-        return set_state_GLOBAL({...state_GLOBAL, over25: "under 25", couple: "COUPLE", PERSONAL_VALUE: UC_elements.joint_under25,
-        ESA_mig: false, WC: "no", LCW: 0, LCWRA: 0, icLCWRA: "no", isCarer: "no", carer: "0",})
+        return set_state_GLOBAL({...state_GLOBAL, 
+            over25: "under 25", couple: "COUPLE", 
+            ESA_mig: false, WC: "no", LCW: 0, LCWRA: 0, icLCWRA: "no", isCarer: "no", carer: "0",
+            PERSONAL_VALUE: UC_elements.joint_under25})
     }
     if (e.target.value === "25+" && state_GLOBAL.over25 === "COUPLE") {
-        return set_state_GLOBAL({...state_GLOBAL, over25: "25+", couple: "COUPLE", PERSONAL_VALUE: UC_elements.joint_over25,
-        ESA_mig: false, WC: "no", LCW: 0, LCWRA: 0, icLCWRA: "no", isCarer: "no", carer: "0",})
+        return set_state_GLOBAL({...state_GLOBAL, 
+            over25: "25+", couple: "COUPLE", 
+            ESA_mig: false, WC: "no", LCW: 0, LCWRA: 0, icLCWRA: "no", isCarer: "no", carer: "0",
+            PERSONAL_VALUE: UC_elements.joint_over25})
     }
    
     }
@@ -160,7 +181,7 @@ const Select_PA = ({ state_GLOBAL, set_state_GLOBAL }) => {
 
         <label htmlFor="couple-select">Single or Couple: </label>
 
-        <select onChange={handleCouple}name="couple" id="couple-select">
+        <select onChange={handleCouple} name="couple" id="couple-select">
                 <option value="NONE">--Please choose an option--</option>
                 <option value="SINGLE">Single</option>
                 <option value="COUPLE">Couple</option>

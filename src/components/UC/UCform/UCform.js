@@ -17,8 +17,8 @@ const UCform = (props) => {
 
     const [CLIENT_GLOBAL, setCLIENT_GLOBAL] = useState({ 
 
-        PERSONAL_VALUE: 0,
-        over25: null,
+        
+        over25: "NONE",
         couple: "NONE",
         QYP: null,
         eldest: "no",
@@ -35,6 +35,7 @@ const UCform = (props) => {
         isLCWRA: "no",
         carer: 0,
         isCarer: "no",
+        PERSONAL_VALUE: 0,
         total: 0,
     })
 
