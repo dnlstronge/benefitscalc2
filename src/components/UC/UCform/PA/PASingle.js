@@ -48,7 +48,7 @@ const PASingle = ({PA_state, set_PA_state}) => {
                         <option value="NONE">--select--</option>
                         <option value="UNDER">Under 25</option>
                         <option value="OVER">Over 25+</option>
-                        <option value="OVER">Mixed Age Couple</option>
+                        <option value="MIX">Mixed Age Couple</option>
                         <option value="SRP">Pensioner (single)</option>
                         </select>
                         {age === "SRP" &&
@@ -74,7 +74,14 @@ const PASingle = ({PA_state, set_PA_state}) => {
                         <option value="COUPLE">Couple</option>
                     </select>
                 </label>}
-
+{/* handle mixed age */}
+                {age === "MIX" &&     
+                <label onChange={handlePA_over}htmlFor={classes.couple_select}>Couple/Single
+                    <select>
+                        <option value="NONE">--select--</option>
+                        <option value="COUPLE">Couple</option>
+                    </select>
+                </label>}
             
             </div>
         </React.Fragment>
