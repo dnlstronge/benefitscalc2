@@ -8,76 +8,73 @@ const Select_PA = ({ state_GLOBAL, set_state_GLOBAL }) => {
     
 
     const handleAge = (e) => {
+        set_state_GLOBAL({...state_GLOBAL, over25: e.target.value})
 
         if (e.target.value === "NONE" && state_GLOBAL.couple === "NONE") {
-            return set_state_GLOBAL({
+            set_state_GLOBAL({
                 ...state_GLOBAL,
                 over25: "NONE", 
                 couple: "NONE", 
-                ESA_mig: false, WC: "no", LCW: 0, LCWRA: 0, icLCWRA: "no", isCarer: "no", carer: "0",
+                
                 PERSONAL_VALUE: 0})
         }
 
         if (e.target.value === "NONE" && state_GLOBAL.couple === "COUPLE") {
-            return set_state_GLOBAL({
+            set_state_GLOBAL({
                 ...state_GLOBAL,
                 over25: "NONE", 
                 couple: "COUPLE", 
-                ESA_mig: false, WC: "no", LCW: 0, LCWRA: 0, icLCWRA: "no", isCarer: "no", carer: "0",
+                
                 PERSONAL_VALUE: 0})
         }
         if (e.target.value === "NONE" && state_GLOBAL.couple === "SINGLE") {
-           return set_state_GLOBAL({
+                set_state_GLOBAL({
                 ...state_GLOBAL,
                 over25: "NONE", 
                 couple: "SINGLE", 
-                ESA_mig: false, WC: "no", LCW: 0, LCWRA: 0, icLCWRA: "no", isCarer: "no", carer: "0",
+                
                 PERSONAL_VALUE: 0})
         }
-        if(e.target.value === "25+") {
-            set_state_GLOBAL({...state_GLOBAL, over25: "25+"})
-        }
-        if(e.target.value === "under 25") {
-            set_state_GLOBAL({...state_GLOBAL, over25: "under 25"})
-        }
+       
+        
         if(e.target.value === "25+" && state_GLOBAL.couple === "NONE") { 
-            console.log("why is the state not changing")
-        return set_state_GLOBAL({...state_GLOBAL, 
+            
+                set_state_GLOBAL({...state_GLOBAL, 
                 over25: "25+", couple: "NONE", 
-                ESA_mig: false, WC: "no", LCW: 0, LCWRA: 0, icLCWRA: "no", isCarer: "no", carer: "0",
+               
                 PERSONAL_VALUE: 0})
         
     }
         if(e.target.value === "under 25" && state_GLOBAL.couple === "NONE") {
-        return set_state_GLOBAL({...state_GLOBAL, 
+            set_state_GLOBAL({...state_GLOBAL, 
             over25: "under 25", couple: "NONE", 
-            ESA_mig: false, WC: "no", LCW: 0, LCWRA: 0, icLCWRA: "no", isCarer: "no", carer: "0",
+            
             PERSONAL_VALUE: 0,})
         
     }
 
     if (e.target.value === "under 25" && state_GLOBAL.couple === "SINGLE") {
-       return set_state_GLOBAL({...state_GLOBAL, 
+        set_state_GLOBAL({...state_GLOBAL, 
             over25: "under 25", couple: "SINGLE", 
-            ESA_mig: false, WC: "no", LCW: 0, LCWRA: 0, icLCWRA: "no", isCarer: "no", carer: "0",
+            
             PERSONAL_VALUE: UC_elements.single_under25})
     }
     if (e.target.value === "25+" && state_GLOBAL.over25 === "SINGLE") {
-      return  set_state_GLOBAL({...state_GLOBAL, 
+         set_state_GLOBAL({...state_GLOBAL, 
             over25: "25+", couple: "SINGLE", 
             ESA_mig: false, WC: "no", LCW: 0, LCWRA: 0, icLCWRA: "no", isCarer: "no", carer: "0",
             PERSONAL_VALUE: UC_elements.single_over25})
     }
     if (e.target.value === "under 25" && state_GLOBAL.over25 === "COUPLE") {
-        return set_state_GLOBAL({...state_GLOBAL, 
+         set_state_GLOBAL({...state_GLOBAL, 
             over25: "under 25", couple: "COUPLE", 
-            ESA_mig: false, WC: "no", LCW: 0, LCWRA: 0, icLCWRA: "no", isCarer: "no", carer: "0",
+            
             PERSONAL_VALUE: UC_elements.joint_under25})
     }
     if (e.target.value === "25+" && state_GLOBAL.over25 === "COUPLE") {
-        return set_state_GLOBAL({...state_GLOBAL, 
+        set_state_GLOBAL({...state_GLOBAL, 
             over25: "25+", couple: "COUPLE", 
-            ESA_mig: false, WC: "no", LCW: 0, LCWRA: 0, icLCWRA: "no", isCarer: "no", carer: "0",
+            
             PERSONAL_VALUE: UC_elements.joint_over25})
     }
    
@@ -86,83 +83,84 @@ const Select_PA = ({ state_GLOBAL, set_state_GLOBAL }) => {
  
 
     const handleCouple = (e) => {
+        set_state_GLOBAL({...state_GLOBAL, couple: e.target.value})
 
         if (e.target.value === "NONE" && state_GLOBAL.over25 === "NONE") {
-            return set_state_GLOBAL({
+             set_state_GLOBAL({
                 ...state_GLOBAL,
                 over25: "NONE", 
                 couple: "NONE", 
-                ESA_mig: false, WC: "no", LCW: 0, LCWRA: 0, icLCWRA: "no", isCarer: "no", carer: "0",
+               
                 PERSONAL_VALUE: 0})
 
         }
         if (e.target.value === "NONE" && state_GLOBAL.over25 === "25+") {
-            return set_state_GLOBAL({
+             set_state_GLOBAL({
                 ...state_GLOBAL,
                 over25: "25+", 
                 couple: "NONE", 
-                ESA_mig: false, WC: "no", LCW: 0, LCWRA: 0, icLCWRA: "no", isCarer: "no", carer: "0",
+                
                 PERSONAL_VALUE: 0})
         }
         if (e.target.value === "NONE" && state_GLOBAL.over25 === "under 25") {
-            return set_state_GLOBAL({
+             set_state_GLOBAL({
                 ...state_GLOBAL,
                 over25: "under 25", 
                 couple: "NONE", 
-                ESA_mig: false, WC: "no", LCW: 0, LCWRA: 0, icLCWRA: "no", isCarer: "no", carer: "0",
+                
                 PERSONAL_VALUE: 0})
             }
         if (e.target.value === "SINGLE" && state_GLOBAL.over25 === "NONE") {
-            return set_state_GLOBAL({
+             set_state_GLOBAL({
                 ...state_GLOBAL,
                 over25: "NONE", 
                 couple: "SINGLE", 
-                ESA_mig: false, WC: "no", LCW: 0, LCWRA: 0, icLCWRA: "no", isCarer: "no", carer: "0",
+                
                 PERSONAL_VALUE: 0})
         }
         if (e.target.value === "COUPLE" && state_GLOBAL.over25 === "NONE") {
-            return set_state_GLOBAL({
+             set_state_GLOBAL({
                 ...state_GLOBAL, 
                 over25: "NONE",
                 couple: "COUPLE", 
-                ESA_mig: false, WC: "no", LCW: 0, LCWRA: 0, icLCWRA: "no", isCarer: "no", carer: "0",
+               
                 PERSONAL_VALUE: 0})
         }
         
       
         
         if (e.target.value === "SINGLE" && state_GLOBAL.over25 === "under 25") {
-            return set_state_GLOBAL({
+                set_state_GLOBAL({
                 ...state_GLOBAL,
                 over25: "under 25", 
                 couple: "SINGLE", 
                 PERSONAL_VALUE: UC_elements.single_under25,
-                ESA_mig: false, WC: "no", LCW: 0, LCWRA: 0, isLCWRA: "no", isCarer: "no", carer: "0"
+                
             })
         }
         if (e.target.value === "SINGLE" && state_GLOBAL.over25 === "25+") {
-            return set_state_GLOBAL({
+                set_state_GLOBAL({
                 ...state_GLOBAL,
                 over25: "25+", 
                 couple: "SINGLE",
                 PERSONAL_VALUE: UC_elements.single_over25,
-                ESA_mig: false, WC: "no", LCW: 0, LCWRA: 0, isLCWRA: "no", isCarer: "no", carer: "0"})
+                })
         }
         if (e.target.value === "COUPLE" && state_GLOBAL.over25 === "under 25") {
-            return set_state_GLOBAL({
+                set_state_GLOBAL({
                 ...state_GLOBAL, 
                 over25: "under 25",
                 couple: "COUPLE",
                 PERSONAL_VALUE: UC_elements.joint_under25,
-                ESA_mig: false, WC: "no", LCW: 0, LCWRA: 0, isLCWRA: "no", isCarer: "no", carer: "0"})
+                })
         }
         if (e.target.value === "COUPLE" && state_GLOBAL.over25 === "25+") {
-            return set_state_GLOBAL({
+                set_state_GLOBAL({
                 ...state_GLOBAL,
                 over25: "25+", 
                 couple: "COUPLE", 
                 PERSONAL_VALUE: UC_elements.joint_over25,
-                ESA_mig: false, WC: "no", LCW: 0, LCWRA: 0, isLCWRA: "no", isCarer: "no", carer: "0"})
+            })
         }
         
         
