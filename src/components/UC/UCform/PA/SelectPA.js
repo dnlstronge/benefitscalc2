@@ -12,6 +12,7 @@ const Select_PA = ({ state_GLOBAL, set_state_GLOBAL }) => {
  return (
         <React.Fragment>
         <PASingle PA_state={state_GLOBAL} set_PA_state ={set_state_GLOBAL}/>
+        
         </React.Fragment>
     )
 }

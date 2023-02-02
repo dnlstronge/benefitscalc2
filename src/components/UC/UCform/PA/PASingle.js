@@ -7,7 +7,7 @@ const UC_elements = UCElements
 const PASingle = ({PA_state, set_PA_state}) => {
     // local state
     const [age, setAge] = useState("")
-
+    const [couple, setCouple] = useState("")
 
     // handlers
 
@@ -16,9 +16,11 @@ const PASingle = ({PA_state, set_PA_state}) => {
         set_PA_state({...PA_state, PERSONAL_ALLOWANCE: 0})
     }
     const handlePA_under = (e) => {
+        setCouple(e.target.value)
         if(e.target.value === "SINGLE") {
             return set_PA_state({...PA_state, PERSONAL_ALLOWANCE: UC_elements.single_under25})
         }
+        
        else if(e.target.value === "COUPLE") {
             return set_PA_state({...PA_state, PERSONAL_ALLOWANCE: UC_elements.joint_under25})
         }
@@ -27,6 +29,7 @@ const PASingle = ({PA_state, set_PA_state}) => {
         }
     } 
     const handlePA_over = (e) => {
+        setCouple(e.target.value)
         if(e.target.value === "SINGLE") {
             return set_PA_state({...PA_state, PERSONAL_ALLOWANCE: UC_elements.single_over25})
         }
