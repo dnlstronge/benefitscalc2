@@ -26,7 +26,19 @@ const PASingle = ({PA_state, set_PA_state}) => {
             return set_PA_state({...PA_state, PERSONAL_ALLOWANCE: 0})
         }
     } 
-    const handlePA_over = (e) => {}
+    const handlePA_over = (e) => {
+        if(e.target.value === "SINGLE") {
+            return set_PA_state({...PA_state, PERSONAL_ALLOWANCE: UC_elements.single_over25})
+        }
+       else if(e.target.value === "COUPLE") {
+            return set_PA_state({...PA_state, PERSONAL_ALLOWANCE: UC_elements.joint_over25})
+        }
+        else {
+            return set_PA_state({...PA_state, PERSONAL_ALLOWANCE: 0})
+        }
+    }
+
+
     return (
         <React.Fragment>
             <div className={classes.container}> 
@@ -36,7 +48,8 @@ const PASingle = ({PA_state, set_PA_state}) => {
                         <option value="NONE">--select--</option>
                         <option value="UNDER">Under 25</option>
                         <option value="OVER">Over 25+</option>
-                        <option value="SRP">Pension Age</option>
+                        <option value="OVER">Mixed Age Couple</option>
+                        <option value="SRP">Pensioner (single)</option>
                         </select>
                         {age === "SRP" &&
                         <p className={classes.age_warning}>Claim State pension and pension credit</p>}
@@ -54,7 +67,7 @@ const PASingle = ({PA_state, set_PA_state}) => {
                 </label> }
 {/* stream 2 - over 25 */}
                 {age === "OVER" &&     
-                <label htmlFor={classes.couple_select}>Couple/Single
+                <label onChange={handlePA_over}htmlFor={classes.couple_select}>Couple/Single
                     <select>
                         <option value="NONE">--select--</option>
                         <option value="SINGLE">Single</option>
