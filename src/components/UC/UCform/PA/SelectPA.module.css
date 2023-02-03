@@ -21,9 +21,9 @@
     font-weight: bold;;
     flex-direction: column;
     margin-left: 1rem;
-    margin-right: 3rem;
-    width: 90%;
-    height: 5rem;
+    margin-right: 1rem;
+    width: auto;
+    height: auto;
     background-color: whitesmoke;
 }
 .stateLabel {

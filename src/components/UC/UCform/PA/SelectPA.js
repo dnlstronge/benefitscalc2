@@ -10,7 +10,8 @@ const Select_PA = ({ state_GLOBAL, set_state_GLOBAL }) => {
 
     const [local, setLocal] = useState( {
         couple: '',
-        LCW: "",
+        LCW_LCWRA: '',
+        
     })
 
              
@@ -34,6 +35,12 @@ const Select_PA = ({ state_GLOBAL, set_state_GLOBAL }) => {
         <div className={classes.localstatelog_container}>
             <label className={classes.stateLabel} htmlFor="P_couple">
                 Couple status: <p id="P_couple" className={classes.stateP}>{local.couple}</p>
+            </label>
+            <label className={classes.stateLabel} htmlFor="P_couple">
+                LCW_LCWRA: <p id="P_couple" className={classes.stateP}>{local.LCW_LCWRA}</p>
+            </label>
+            <label className={classes.stateLabel} htmlFor="P_couple">
+                LCW amount: <p id="P_couple" className={classes.stateP}>{state_GLOBAL.LCW}</p>
             </label>
         </div>
         </container>

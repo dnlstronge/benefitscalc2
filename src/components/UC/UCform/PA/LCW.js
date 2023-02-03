@@ -7,15 +7,16 @@ const UC_elements = UCElements
 const LCW = ({ lift_state, set_lift_state, PA_state, set_PA_state }) => {
 
    const LCW_LCWRA_handler = (e) => {
+         set_PA_state({...PA_state, LCW: 0})
          set_lift_state({...lift_state, LCW_LCWRA: e.target.value})
     }
 
    const LCW_handler = (e) => {
         if(e.target.value === "YES") {
-            set_PA_state({PA_state, LCW: UC_elements.LCW})
+            set_PA_state({...PA_state, LCW: UC_elements.LCW})
         }
         if(e.target.value === "NO") {
-            set_PA_state({PA_state, LCW: 0})
+            set_PA_state({...PA_state, LCW: 0})
         }
     }
 
@@ -35,8 +36,8 @@ const LCW = ({ lift_state, set_lift_state, PA_state, set_PA_state }) => {
             <label className={classes.LCW_label} htmlFor="selectLCW">Add LCW to claim 
             <select onChange={LCW_handler} className={classes.LCW_select} id="selectLCW">
                 <option value="NO">--select--</option>
-                <option value="YES (LCW element payable)">Yes</option>
-                <option value="NO (has LCW status only)">No</option>
+                <option value="YES">Yes (LCW element payable)</option>
+                <option value="NO">No (has LCW status only)</option>
                 
             </select>
             </label>}
