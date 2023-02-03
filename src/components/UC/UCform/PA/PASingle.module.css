@@ -3,7 +3,7 @@
     flex-direction: column;
     font-weight: bold;
     margin: 1rem 1rem 1rem 1rem;
-    padding-bottom: 2rem;
+   
     background: whitesmoke;
     width: 90%;
     height: auto;
@@ -11,12 +11,12 @@
 }
 .pa_label {
     
-    margin: 1rem 1rem 1rem 1rem;
+    margin: 0.5rem 1rem 0.5rem 1rem;
 
 
 }
 .pa_select {
-    margin: 1rem 1rem 1rem 1rem;
+    margin: 0.5rem 1rem 0.5rem 1rem;
 }
 .age_warning {
     color: red;

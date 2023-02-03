@@ -18,12 +18,13 @@
 
 .localstatelog_container {
     display: flex;
-    border: 3px solid black;
+   
     flex-direction: column;
     margin-left: 1rem;
     margin-right: 3rem;
     width: 90%;
     height: 5rem;
+    background-color: whitesmoke;
 }
 .stateLabel {
     display: flex;

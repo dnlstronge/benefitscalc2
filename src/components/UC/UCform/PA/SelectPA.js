@@ -8,7 +8,7 @@ const UC_elements = UCElements;
 const Select_PA = ({ state_GLOBAL, set_state_GLOBAL }) => {
 
     const [local, setLocal] = useState( {
-        couple: '',
+        couple: 'ducts',
     })
 
              
@@ -24,7 +24,9 @@ const Select_PA = ({ state_GLOBAL, set_state_GLOBAL }) => {
 
 
         <div className={classes.localstatelog_container}>
-            <label className={classes.stateLabel} htmlFor="P_couple"><p id="P_couple" className={classes.stateP}></p></label>
+            <label className={classes.stateLabel} htmlFor="P_couple">
+                Couple status: <p id="P_couple" className={classes.stateP}>{local.couple}</p>
+            </label>
         </div>
         </container>
         </React.Fragment>

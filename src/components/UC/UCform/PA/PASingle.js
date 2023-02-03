@@ -12,38 +12,35 @@ const PASingle = ({lift_state, set_lift_state, PA_state, set_PA_state}) => {
     // handlers
 
     const handleAge = (e) => {
+        set_lift_state({...lift_state, couple: ""})
         setAge(e.target.value)
         set_PA_state({...PA_state, PERSONAL_ALLOWANCE: 0})
 
     }
     const handlePA_under = (e) => {
         setCouple(e.target.value)
+        set_lift_state({...lift_state, couple: e.target.value})
         if(e.target.value === "SINGLE") {
-            set_lift_state({...lift_state, COUPLE: e.target.value})
             return set_PA_state({...PA_state, PERSONAL_ALLOWANCE: UC_elements.single_under25})
         }
         
        else if(e.target.value === "COUPLE") {
-            set_lift_state({...lift_state, COUPLE: e.target.value})
             return set_PA_state({...PA_state, PERSONAL_ALLOWANCE: UC_elements.joint_under25})
         }
         else {
-            set_lift_state({...lift_state, COUPLE: e.target.value})
             return set_PA_state({...PA_state, PERSONAL_ALLOWANCE: 0})
         }
     } 
     const handlePA_over = (e) => {
         setCouple(e.target.value)
+        set_lift_state({...lift_state, couple: e.target.value})
         if(e.target.value === "SINGLE") {
-            set_lift_state({...lift_state, COUPLE: e.target.value})
             return set_PA_state({...PA_state, PERSONAL_ALLOWANCE: UC_elements.single_over25})
         }
        else if(e.target.value === "COUPLE") {
-            set_lift_state({...lift_state, COUPLE: e.target.value})
             return set_PA_state({...PA_state, PERSONAL_ALLOWANCE: UC_elements.joint_over25})
         }
         else {
-            set_lift_state({...lift_state, COUPLE: e.target.value})
             return set_PA_state({...PA_state, PERSONAL_ALLOWANCE: 0})
         }
     }
@@ -78,7 +75,7 @@ const PASingle = ({lift_state, set_lift_state, PA_state, set_PA_state}) => {
 {/* stream 2 - over 25 */}
                 {age === "OVER" &&     
                 <label className={classes.pa_label} onChange={handlePA_over} htmlFor="couple_select1">Couple/Single
-                    <select className={pa_select} id="couple_select1">
+                    <select className={classes.pa_select} id="couple_select1">
                         <option value="NONE">--select--</option>
                         <option value="SINGLE">Single</option>
                         <option value="COUPLE">Couple</option>
