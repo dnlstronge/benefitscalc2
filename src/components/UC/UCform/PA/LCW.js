@@ -9,7 +9,7 @@ const LCW = ({ lift_state, set_lift_state, PA_state, set_PA_state }) => {
    const LCW_LCWRA_handler = (e) => {
          set_lift_state({...lift_state, LCW_LCWRA: e.target.value})
     }
-    
+
    const LCW_handler = (e) => {
         if(e.target.value === "YES") {
             set_PA_state({PA_state, LCW: UC_elements.LCW})
@@ -24,10 +24,10 @@ const LCW = ({ lift_state, set_lift_state, PA_state, set_PA_state }) => {
         <div className={classes.LCW_container}>
         <label className={classes.LCW_label} htmlFor="LCW_LCWRA"></label>
         Does the claim include LCW or LCWRA
-        <select onChange={LCW_LCWRA_handler}className={classes.LCW_select} id="LCW_LCWRA">
+        <select onChange={LCW_LCWRA_handler} className={classes.LCW_select} id="LCW_LCWRA">
             <option value="NO">--select--</option>
             <option value="LCW">LCW only</option>
-            <option value="LCWRA">LCWWRA</option>
+            <option value="LCWRA">LCWRA</option>
             <option value="NO">Neither</option>
         </select>
        
