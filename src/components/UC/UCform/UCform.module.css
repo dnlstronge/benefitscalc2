@@ -43,7 +43,7 @@
 
 .UC_form_children {
     
-        display: flexbox;
+        display: flex;
         flex-direction: column;
         margin: 1rem 1rem 1rem 1rem;
        
