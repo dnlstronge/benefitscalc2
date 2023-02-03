@@ -7,13 +7,9 @@ const UC_elements = UCElements
 const LCW = ({ lift_state, set_lift_state, PA_state, set_PA_state }) => {
 
    const LCW_LCWRA_handler = (e) => {
-        if(e.target.value === "NO") {
-            set_lift_state({...lift_state, LCW_LCWRA: e.target.value})
-        }
-        if(e.target.value === "YES") {
-            set_lift_state({...lift_state, LCW_LCWRA: e.target.value})
-        }
-   }
+         set_lift_state({...lift_state, LCW_LCWRA: e.target.value})
+    }
+    
    const LCW_handler = (e) => {
         if(e.target.value === "YES") {
             set_PA_state({PA_state, LCW: UC_elements.LCW})
