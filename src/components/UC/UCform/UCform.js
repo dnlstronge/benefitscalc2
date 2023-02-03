@@ -49,34 +49,25 @@ const UCform = (props) => {
         <React.Fragment> 
             <header className={classes.header}><h1>Universal Credit Calculator (expert)</h1></header>  
             <div className={classes.form_container_row}>
+          
+            
+
             <div className={classes.form_container_column}>
-            
-
-        {/* =============================PERSONAL ALLOWANCE============================= */}
-            <form className={classes.UC_form_PA}>
-            <h2>Personal Allowance</h2>
-            <SelectPA state_GLOBAL={CLIENT_GLOBAL} set_state_GLOBAL={setCLIENT_GLOBAL}/>
-            </form>
-                
-        {/* ==================================CHILDREN==================================== */}
-            
-
-       
+                <form className={classes.UC_form_PA}>
+                    <h2>Personal Allowance</h2>
+                    <SelectPA state_GLOBAL={CLIENT_GLOBAL} set_state_GLOBAL={setCLIENT_GLOBAL}/>
+                </form>
             </div>
-            <form className={classes.UC_form_children}>
-            <SelectChild state_GLOBAL={CLIENT_GLOBAL} set_state_GLOBAL={setCLIENT_GLOBAL}/>
-
-
-            </form>  
-       
+            
 
             <div className={classes.form_container_column}>
                  <WCA state_GLOBAL={CLIENT_GLOBAL} set_state_GLOBAL={setCLIENT_GLOBAL}/>
+                 <form className={classes.UC_form_children}>
+                    <SelectChild state_GLOBAL={CLIENT_GLOBAL} set_state_GLOBAL={setCLIENT_GLOBAL}/>
+                </form>  
                  <form className={classes.UC_form_housing}>
-        {/* ==================================HOUSING================================== */}
-                
-                <SelectHousing state_GLOBAL={CLIENT_GLOBAL} set_state_GLOBAL={setCLIENT_GLOBAL}/>
-            </form>
+                    <SelectHousing state_GLOBAL={CLIENT_GLOBAL} set_state_GLOBAL={setCLIENT_GLOBAL}/>
+                </form>
             </div>
             
 
