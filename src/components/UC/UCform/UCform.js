@@ -59,16 +59,16 @@ const UCform = (props) => {
             </form>
                 
         {/* ==================================CHILDREN==================================== */}
+            
+
+       
+            </div>
             <form className={classes.UC_form_children}>
             <SelectChild state_GLOBAL={CLIENT_GLOBAL} set_state_GLOBAL={setCLIENT_GLOBAL}/>
 
 
             </form>  
        
-
-       
-            </div>
-            
 
             <div className={classes.form_container_column}>
                  <WCA state_GLOBAL={CLIENT_GLOBAL} set_state_GLOBAL={setCLIENT_GLOBAL}/>

@@ -1,4 +1,33 @@
-.localstatelog_container {
+.component_container {
 
-    border: 2px solid black
+    margin: 1rem 1rem 1rem 1rem;
+    padding-top: 2rem;
+    column-gap: 1rem;
+    column-count: 1;
+    Width: 25rem;
+    height: fit-content;
+    background: rgb(180, 212, 212);
+    border-radius: 2%;
+
+}
+
+
+
+
+
+.localstatelog_container {
+    display: flex;
+    border: 3px solid black;
+    flex-direction: column;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    width: 80%;
+    height: 3rem;
+}
+.stateLabel {
+
+}
+
+.stateP {
+    color: red
 }

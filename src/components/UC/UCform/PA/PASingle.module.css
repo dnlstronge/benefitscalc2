@@ -1,11 +1,17 @@
 .container {
+    display: flex;
+    flex-direction: column;
     font-weight: bold;
     margin: 1rem 1rem 1rem 1rem;
     background: whitesmoke;
+    width: 80%;
+    height: 3rem;
 
 }
 .age_label {
     margin-left: 1rem
+
+
 }
 .age_select {
     margin-left: 1rem

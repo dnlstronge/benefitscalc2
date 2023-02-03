@@ -12,6 +12,15 @@
 .form_container_row {
     display: flex;
     flex-direction: row;
+    margin: 1rem 1rem 1rem 1rem;
+ 
+    Width: 25rem;
+    row-gap: 2rem;
+    height: fit-content;
+    background: rgb(180, 212, 212);
+    
+    border: 2px solid black;
+    border-radius: 2%;
 }
 
 
@@ -22,63 +31,11 @@
 }
 
 
-
-
-
-
-
-.UC_form_PA {
-    display: inline-block;
-    margin: 1rem 1rem 1rem 1rem;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-    column-gap: 1rem;
-    column-count: 1;
-    column-span: all;
-    Width: 25rem;
-    height: auto;
-    background: rgb(180, 212, 212);
-    border: 2px solid black;
-    border-radius: 2%;
-    box-shadow: inset;
     
     
     
     
-    
-}
 
-.UC_form_PA h2 {
-    text-align: center;
-   
-}
-
-
-.UC_form_PA label {
-    
-    color: black;
-    font-weight: bold;
-    font-size: 18px;
-    width: 90%;
-    height: 5rem;
-    margin-top: 1.2rem;
-    margin-bottom: 1.2rem;
-    margin-right: 0.7rem;
-    margin-left: 0.7rem;
-    padding-top: 0.5rem;
-    padding-bottom: 1.2rem;
-}
-
-.UC_form_PA select {
-    font-size: 16px;
-    font-weight: bold;
-    width: 90%;
-    height: 2.4rem;
-    margin-top: 0.5rem;
-    margin-bottom: 0.5rem;
-    margin-right: 0.7rem;
-    margin-left: 0.7rem;
-}
 
 
 /*=================children======================*/
