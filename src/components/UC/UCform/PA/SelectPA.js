@@ -10,6 +10,7 @@ const Select_PA = ({ state_GLOBAL, set_state_GLOBAL }) => {
 
     const [local, setLocal] = useState( {
         couple: '',
+        LCW: "",
     })
 
              
