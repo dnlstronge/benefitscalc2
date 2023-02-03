@@ -77,7 +77,7 @@ const PASingle = ({lift_state, set_lift_state, PA_state, set_PA_state}) => {
                 </label> }
 {/* stream 2 - over 25 */}
                 {age === "OVER" &&     
-                <label className={classes.pa_label} onChange={handlePA_over} htmlFor="coupleselect1">Couple/Single
+                <label className={classes.pa_label} onChange={handlePA_over} htmlFor="couple_select1">Couple/Single
                     <select className={pa_select} id="couple_select1">
                         <option value="NONE">--select--</option>
                         <option value="SINGLE">Single</option>
