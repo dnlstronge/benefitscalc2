@@ -7,8 +7,7 @@ const UC_elements = UCElements;
 const Select_PA = ({ state_GLOBAL, set_state_GLOBAL }) => {
 
     const [local, setLocal] = useState( {
-        age: '',
-        couple: ''
+        couple: '',
     })
 
              
@@ -20,6 +19,9 @@ const Select_PA = ({ state_GLOBAL, set_state_GLOBAL }) => {
             PA_state={state_GLOBAL} 
             set_PA_state ={set_state_GLOBAL}/>
 
+
+
+        <div className={classes.localstatelog_container}></div>
         </React.Fragment>
     )
 }

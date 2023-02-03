@@ -4,7 +4,7 @@ import UCElements from "../../UCElements/UCElements";
 
 const UC_elements = UCElements
 
-const PASingle = ({PA_state, set_PA_state}) => {
+const PASingle = ({lift_state, set_lift_state, PA_state, set_PA_state}) => {
     // local state
     const [age, setAge] = useState("")
     const [couple, setCouple] = useState("")
@@ -14,29 +14,36 @@ const PASingle = ({PA_state, set_PA_state}) => {
     const handleAge = (e) => {
         setAge(e.target.value)
         set_PA_state({...PA_state, PERSONAL_ALLOWANCE: 0})
+
     }
     const handlePA_under = (e) => {
         setCouple(e.target.value)
         if(e.target.value === "SINGLE") {
+            set_lift_state({...lift_state, COUPLE: e.target.value})
             return set_PA_state({...PA_state, PERSONAL_ALLOWANCE: UC_elements.single_under25})
         }
         
        else if(e.target.value === "COUPLE") {
+            set_lift_state({...lift_state, COUPLE: e.target.value})
             return set_PA_state({...PA_state, PERSONAL_ALLOWANCE: UC_elements.joint_under25})
         }
         else {
+            set_lift_state({...lift_state, COUPLE: e.target.value})
             return set_PA_state({...PA_state, PERSONAL_ALLOWANCE: 0})
         }
     } 
     const handlePA_over = (e) => {
         setCouple(e.target.value)
         if(e.target.value === "SINGLE") {
+            set_lift_state({...lift_state, COUPLE: e.target.value})
             return set_PA_state({...PA_state, PERSONAL_ALLOWANCE: UC_elements.single_over25})
         }
        else if(e.target.value === "COUPLE") {
+            set_lift_state({...lift_state, COUPLE: e.target.value})
             return set_PA_state({...PA_state, PERSONAL_ALLOWANCE: UC_elements.joint_over25})
         }
         else {
+            set_lift_state({...lift_state, COUPLE: e.target.value})
             return set_PA_state({...PA_state, PERSONAL_ALLOWANCE: 0})
         }
     }
