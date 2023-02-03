@@ -53,8 +53,8 @@ const PASingle = ({lift_state, set_lift_state, PA_state, set_PA_state}) => {
         <React.Fragment>
             <div className={classes.container}> 
            
-                <label className={classes.age_label} htmlFor="age-selecter">Age group
-                    <select className={classes.age_select} onChange={handleAge} id="age-selecter">
+                <label className={classes.pa_label} htmlFor="age-selecter">Age group
+                    <select className={classes.pa_select} onChange={handleAge} id="age-selecter">
                         <option value="NONE">--select--</option>
                         <option value="UNDER">Under 25</option>
                         <option value="OVER">Over 25+</option>
@@ -68,8 +68,8 @@ const PASingle = ({lift_state, set_lift_state, PA_state, set_PA_state}) => {
 
 {/* stream 1 - under 25 */}
                 {age === "UNDER" &&
-                <label onChange={handlePA_under} htmlFor={classes.couple_select}>Couple/Single
-                    <select>
+                <label className={classes.pa_label} onChange={handlePA_under} htmlFor="selectcouple">Couple/Single
+                    <select className={classes.pa_select} id="selectcouple">
                         <option value="NONE">--select--</option>
                         <option value="SINGLE">Single</option>
                         <option value="COUPLE">Couple</option>
@@ -77,8 +77,8 @@ const PASingle = ({lift_state, set_lift_state, PA_state, set_PA_state}) => {
                 </label> }
 {/* stream 2 - over 25 */}
                 {age === "OVER" &&     
-                <label onChange={handlePA_over}htmlFor={classes.couple_select}>Couple/Single
-                    <select>
+                <label className={classes.pa_label} onChange={handlePA_over} htmlFor="coupleselect1">Couple/Single
+                    <select className={pa_select} id="couple_select1">
                         <option value="NONE">--select--</option>
                         <option value="SINGLE">Single</option>
                         <option value="COUPLE">Couple</option>
@@ -86,8 +86,8 @@ const PASingle = ({lift_state, set_lift_state, PA_state, set_PA_state}) => {
                 </label>}
 {/* handle mixed age */}
                 {age === "MIX" &&     
-                <label onChange={handlePA_over}htmlFor={classes.couple_select}>Couple/Single
-                    <select>
+                <label className={classes.pa_label} onChange={handlePA_over}htmlFor={classes.couple_select2}>Couple/Single
+                    <select className={classes.pa_select} id="couple_select2">
                         <option value="NONE">--select--</option>
                         <option value="COUPLE">Couple</option>
                     </select>

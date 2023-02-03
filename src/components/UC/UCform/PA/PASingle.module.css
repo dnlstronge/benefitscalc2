@@ -3,28 +3,25 @@
     flex-direction: column;
     font-weight: bold;
     margin: 1rem 1rem 1rem 1rem;
+    padding-bottom: 2rem;
     background: whitesmoke;
-    width: 80%;
-    height: 3rem;
+    width: 90%;
+    height: auto;
 
 }
-.age_label {
-    margin-left: 1rem
+.pa_label {
+    
+    margin: 1rem 1rem 1rem 1rem;
 
 
 }
-.age_select {
-    margin-left: 1rem
+.pa_select {
+    margin: 1rem 1rem 1rem 1rem;
 }
 .age_warning {
     color: red;
     margin-left: 1rem
 }
 
-.couple_label {
-    margin-left: 1rem;
-}
-.couple_select {
-    margin-left: 1rem
-}
+
 
