@@ -18,7 +18,7 @@
 
 .localstatelog_container {
     display: flex;
-   
+    font-weight: bold;;
     flex-direction: column;
     margin-left: 1rem;
     margin-right: 3rem;
@@ -28,9 +28,11 @@
 }
 .stateLabel {
     display: flex;
+    margin-left: 1rem;
 
 }
 
 .stateP {
-    color: red
+    color: red;
+    margin-left: 1rem;
 }
