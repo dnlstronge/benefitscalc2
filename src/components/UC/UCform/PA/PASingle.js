@@ -37,7 +37,7 @@ const PASingle = ({lift_state, set_lift_state, PA_state, set_PA_state}) => {
         if(e.target.value === "SINGLE") {
             return set_PA_state({...PA_state, PERSONAL_ALLOWANCE: UC_elements.single_over25})
         }
-       else if(e.target.value === "COUPLE") {
+        else if(e.target.value === "COUPLE") {
             return set_PA_state({...PA_state, PERSONAL_ALLOWANCE: UC_elements.joint_over25})
         }
         else {
