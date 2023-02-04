@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import UCElements from "../../UCElements/UCElements"
 import LCW from "./LCW";
-import LCW from "./LCW";
+import LCWRA from "./LCWRA";
 import PASingle from "./PASingle";
 import classes from "./SelectPA.module.css"
 
