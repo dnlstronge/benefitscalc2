@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import UCElements from "../../UCElements/UCElements"
 import LCW from "./LCW";
+import LCW from "./LCW";
 import PASingle from "./PASingle";
 import classes from "./SelectPA.module.css"
 
@@ -27,6 +28,11 @@ const Select_PA = ({ state_GLOBAL, set_state_GLOBAL }) => {
             set_lift_state={setLocal} 
             PA_state={state_GLOBAL} 
             set_PA_state ={set_state_GLOBAL}/>
+        <LCWRA lift_state={local} 
+            set_lift_state={setLocal} 
+            PA_state={state_GLOBAL} 
+            set_PA_state ={set_state_GLOBAL}/>
+
 
       
 
