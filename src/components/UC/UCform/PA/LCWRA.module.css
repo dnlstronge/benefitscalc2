@@ -1,9 +1,19 @@
 .container {
-
+    display: flex;
+    flex-direction: column;
+    width: auto;
+    margin: 1rem 1rem 1rem 1rem;
+ 
+    background: whitesmoke;
+    font-weight: bold;
 }
 .LCWRA_label {
+    display: flex;
+    margin: 0.5rem 2rem 0.5rem 1rem;
+    flex-direction: column;
 
 }
 .LCWRA_select {
-    
+    margin: 1rem 1rem 1rem 2rem;
+
 }
