@@ -10,6 +10,9 @@ const LCWRA = ( {set_lift_state, PA_state, set_PA_state }) => {
             if(e.target.value === "NONE") {
                 set_PA_state({...PA_state, LCWRA: 0})
             }
+            else {
+                set_PA_state({...PA_state, LCWRA: UC_elements.LCWRA})
+            }
     }
     return (
 

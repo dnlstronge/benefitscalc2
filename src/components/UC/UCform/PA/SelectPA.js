@@ -48,6 +48,9 @@ const Select_PA = ({ state_GLOBAL, set_state_GLOBAL }) => {
             <label className={classes.stateLabel} htmlFor="P_couple">
                 LCW amount: <p id="P_couple" className={classes.stateP}>{state_GLOBAL.LCW}</p>
             </label>
+            <label className={classes.stateLabel} htmlFor="P_couple">
+                LCWRA: <p id="P_couple" className={classes.stateP}>{state_GLOBAL.LCWRA}</p>
+            </label>
         </div>
         </container>
         </React.Fragment>
