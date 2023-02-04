@@ -28,7 +28,8 @@ const Select_PA = ({ state_GLOBAL, set_state_GLOBAL }) => {
             set_lift_state={setLocal} 
             PA_state={state_GLOBAL} 
             set_PA_state ={set_state_GLOBAL}/>
-        <LCWRA lift_state={local} 
+        <LCWRA 
+            lift_state={local} 
             set_lift_state={setLocal} 
             PA_state={state_GLOBAL} 
             set_PA_state ={set_state_GLOBAL}/>
