@@ -14,7 +14,7 @@ const CalcPanel = ({panel_state, set_panel_state}) => {
         <section className={classes.calcPA}>Personal Allowance:
             <CalcPA state_PA={panel_state} set_state_PA={set_panel_state}/>
             </section>
-        <section className={classes.calcWCA}>Work Capability
+        <section className={classes.calcWCA}>Work Capability:
             <CalcWCA state_PA={panel_state} set_state_PA={set_panel_state}/></section>
         <section className={classes.calcChild}>test</section>
         <section className={classes.calcHousing}>test</section>

@@ -8,10 +8,10 @@ const UC_elements = UCElements
 const LCWRA = ( { lift_state, PA_state, set_PA_state }) => {
     const handle_single = (e) => {
             if(e.target.value === "NONE") {
-                set_PA_state({...PA_state, LCWRA: 0})
+                set_PA_state({...PA_state, LCWRA: 0, WORK_CAPABILTY: 0 })
             }
             else {
-                set_PA_state({...PA_state, LCWRA: UC_elements.LCWRA})
+                set_PA_state({...PA_state, LCWRA: UC_elements.LCWRA, WORK_CAPABILTY: UC_elements.LCWRA })
             }
     }
     return (

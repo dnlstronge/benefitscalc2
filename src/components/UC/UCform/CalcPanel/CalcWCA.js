@@ -13,7 +13,7 @@ return (
 
   <React.Fragment>
     <div>
-     <p>{state_PA.WORK_CAPABILITY}</p>
+      <p>{state_PA.WORK_CAPABILTY}</p>
     </div>
     </React.Fragment>
 )

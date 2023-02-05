@@ -13,7 +13,7 @@ return (
 
   <React.Fragment>
     <div>
-     <p>{state_PA.PERSONAL_ALLOWANCE}</p>
+      <p>{state_PA.PERSONAL_ALLOWANCE}</p>
     </div>
     </React.Fragment>
 )
