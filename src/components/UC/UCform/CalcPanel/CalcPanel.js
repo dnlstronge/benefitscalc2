@@ -2,6 +2,7 @@ import React from "react";
 import classes from "./CalcPanel.module.css"
 import UCElements from "../../UCElements/UCElements"
 import CalcPA from "./CalcPA";
+import CalcWCA from "./CalcWCA";
 
 const UC_elements = UCElements
 
@@ -11,9 +12,10 @@ const CalcPanel = ({panel_state, set_panel_state}) => {
         <React.Fragment>
         <div className={classes.container}> 
         <section className={classes.calcPA}>Personal Allowance:
-        <CalcPA state_PA={panel_state} set_state_PA={set_panel_state}/>
+            <CalcPA state_PA={panel_state} set_state_PA={set_panel_state}/>
             </section>
-        <section className={classes.calcWCA}>test</section>
+        <section className={classes.calcWCA}>Work Capability
+            <CalcWCA state_PA={panel_state} set_state_PA={set_panel_state}/></section>
         <section className={classes.calcChild}>test</section>
         <section className={classes.calcHousing}>test</section>
         </div>
