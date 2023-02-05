@@ -18,7 +18,7 @@ const Select_PA = ({ state_GLOBAL, set_state_GLOBAL }) => {
              
  return (
         <React.Fragment>
-        <container className={classes.component_container}>
+        <div className={classes.component_container}>
         <PASingle 
             lift_state={local} 
             set_lift_state={setLocal} 
@@ -53,7 +53,7 @@ const Select_PA = ({ state_GLOBAL, set_state_GLOBAL }) => {
                 LCWRA: <p id="P_couple" className={classes.stateP}>{state_GLOBAL.LCWRA}</p>
             </label>
         </div>
-        </container>
+        </div>
         </React.Fragment>
     )
 }
