@@ -30,6 +30,7 @@ const UCform = (props) => {
         
         
         PERSONAL_ALLOWANCE: 0,
+        LCW_NOPAYMENT: "",
         WORK_CAPABILTY: 0,
         total: 0,
     })

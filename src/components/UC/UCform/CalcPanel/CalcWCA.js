@@ -13,7 +13,12 @@ return (
 
   <React.Fragment>
     <div>
-      <p>{state_PA.WORK_CAPABILTY}</p>
+    {state_PA.LCW_NOPAYMENT === "NO" &&
+      <p>Entitled to LCW status only</p>}
+    {state_PA.LCW_NOPAYMENT === "YES" &&  
+      <p>Limited capabilty for work: £{state_PA.WORK_CAPABILTY}</p>}
+    {state_PA.WORK_CAPABILTY === UC_elements.LCWRA && 
+      <p>Limited capabilty for work & work related activity: £{state_PA.WORK_CAPABILTY}</p>}
     </div>
     </React.Fragment>
 )

@@ -49,3 +49,8 @@
    border: 1px solid black;
    border-radius: 5px;
 }
+
+.LCW_nopayment {
+   color: red;
+   
+}
