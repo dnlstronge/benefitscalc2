@@ -9,6 +9,7 @@ const Totals = ({ propState }) => {
             <label className={classes.label_amount} htmlFor="amount">Personal Allowance: 
                 <p className={classes.label_p} id="amount">{propState.PA}</p>
             </label>
+            
         </div>
     )
 }
