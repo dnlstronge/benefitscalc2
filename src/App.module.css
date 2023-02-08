@@ -1,8 +1,20 @@
 .header {
-  width: 100%;
+  display: flex;
+  width: 90%;
   height: 4rem;
+  background: blanchedalmond;
+  margin: 2rem 2rem 2rem 4rem;
+  border-radius: 5px;
+  box-shadow: inset;
+  border: 3px solid transparent;
 }
-.main_container {
-  margin-left: 4rem;
-  margin-right: 4rem;
+.container {
+  display: flex;
+  background-color: antiquewhite;
+  margin: 2rem 2rem 2rem 4rem;
+  height: 30rem;
+  width: 90%;
+  border-radius: 5px;
+  box-shadow: inset;
+  border: 3px solid transparent;
 }
