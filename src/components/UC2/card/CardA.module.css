@@ -1,6 +1,10 @@
 .CardA_container {
     display: flex;
-    width: 10rem;
-    height: 10rem;
-    
+    flex-direction: column;
+    width: 20rem;
+    height: 90%;
+    margin: 2em 2rem 2rem 2rem;
+    background-color: white;
+    border-radius: 5px;
+    border: 4px solid black;
 }

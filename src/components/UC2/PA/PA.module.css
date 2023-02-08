@@ -1,3 +1,28 @@
 .container {
+    display: flex;
+    flex-direction: column;
+    background: white;
+    width: 10rem;
+    height: 10rem;
+    margin: 1rem 1rem 1rem 1rem;
+    border: 2px solid black;
+    border-radius: 5px;
+}
+
+.dropdown_label {
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    height: 5rem;
+    width: 90%;
+    padding: 1rem 1rem 1rem 1rem;
+}
+
+.dropdown_select {
+    display: flex;
+    flex-direction: column;
+    height: 2rem;
+    width: 90%;
+    margin: 0.5rem 0.5rem 0.5rem 0rem;
     
 }

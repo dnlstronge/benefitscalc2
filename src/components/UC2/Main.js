@@ -2,6 +2,7 @@ import React, {useState} from "react"
 import classes from "./Main.module.css"
 import CardA from "./card/CardA"
 import PA from "./PA/PA"
+import Totals from "./Totals/Totals"
 
 
 
@@ -17,9 +18,9 @@ const Main = (props) => {
 return (
         <React.Fragment>
             <div className={classes.container}>
-                <CardA>
+                
                     <PA propState={MAINSTATE} setPropState={SET_MAINSTATE} />
-                </CardA>
+                    <Totals propState={MAINSTATE} setPropState={SET_MAINSTATE}/>
             </div>
         </React.Fragment>
 )
