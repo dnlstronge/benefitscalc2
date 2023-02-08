@@ -70,7 +70,9 @@ const WCA = ({ propState, setPropState }) => {
          }
     }
 
-
+    useEffect( () => {
+       return setPropState({...propState, WCA: additional.WCA, CE: additional.CE})
+    }, [additional])
 
     return (
         <React.Fragment>
