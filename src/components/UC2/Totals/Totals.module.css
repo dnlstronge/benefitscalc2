@@ -1,9 +1,9 @@
 .container {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     background: white;
     width: auto;
-    height: 10rem;
+    height: 15rem;
     margin: 1rem 1rem 1rem 1rem;
     border: 2px solid black;
     border-radius: 5px;
@@ -14,8 +14,9 @@
     flex-direction: row;
     font-weight: bold;
     margin: 1rem 1rem 1rem 1rem;
-    width: 40%;
-    height: 2rem;
+    width: 90%;
+    height: 2.5rem;
+    border: 1px solid black;
 }
 
 .label_p {

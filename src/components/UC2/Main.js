@@ -3,6 +3,7 @@ import classes from "./Main.module.css"
 import CardA from "./card/CardA"
 import PA from "./PA/PA"
 import Totals from "./Totals/Totals"
+import WCA from "./WCA/WCA"
 
 
 
@@ -11,6 +12,7 @@ const Main = (props) => {
         {
             PA: 0,
             WCA: 0,
+            CARER: 0,
             HC: 0
         }
     )
@@ -21,6 +23,7 @@ return (
                 
                     <PA propState={MAINSTATE} setPropState={SET_MAINSTATE} />
                     <Totals propState={MAINSTATE} setPropState={SET_MAINSTATE}/>
+                    <WCA propState={MAINSTATE} setPropState={SET_MAINSTATE}/>
             </div>
         </React.Fragment>
 )
