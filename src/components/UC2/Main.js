@@ -23,7 +23,7 @@ return (
                 
                     <PA propState={MAINSTATE} setPropState={SET_MAINSTATE} />
                     <Totals propState={MAINSTATE} setPropState={SET_MAINSTATE}/>
-                    <WCA propState={MAINSTATE} setPropState={() => SET_MAINSTATE}/>
+                    <WCA propState={MAINSTATE} setPropState={SET_MAINSTATE}/>
             </div>
         </React.Fragment>
 )

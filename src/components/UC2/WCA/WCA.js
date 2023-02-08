@@ -6,14 +6,7 @@ const UC_elements = UCElements
 
 
 const additionalReducer = (state, action) => {
-    // if(action.type === "NONE") {
-        
-    //     return {...state, WCA: 0, CE: 0}
-    // }
-    // if(action.type === "LCWRA") {
-        
-    //     return {...state, WCA: action.WCA, CE: 0}
-    // }
+   
     switch(action.type) {
         case "NONE" : {
           return  {...state, WCA: 0, CE: 0  }
@@ -70,8 +63,9 @@ const WCA = ({ propState, setPropState }) => {
          }
     }
 
-    useEffect( () => {
-       return setPropState({...propState, WCA: additional.WCA, CE: additional.CE})
+    useEffect(() => {
+       
+       setPropState({...propState, WCA: additional.WCA, CE: additional.CE})
     }, [additional])
 
     return (
