@@ -6,11 +6,33 @@ const UC_elements = UCElements
 
 
 const additionalReducer = (state, action) => {
+    // if(action.type === "NONE") {
+        
+    //     return {...state, WCA: 0, CE: 0}
+    // }
+    // if(action.type === "LCWRA") {
+        
+    //     return {...state, WCA: action.WCA, CE: 0}
+    // }
     switch(action.type) {
         case "NONE" : {
           return  {...state, WCA: 0, CE: 0  }
         }
-        case "LCW"
+        case "LCW_NONE": {
+            return {...state, WCA: 0, CE: 0}
+        }
+        case "LCW": {
+            return {...state, WCA: action.WCA, CE: 0}
+        }
+        case "LCWRA": {
+            return {...state, WCA: action.WCA, CE: 0}
+        }
+        case "CARER": {
+            return {...state, WCA: 0, CE: action.CE}
+        }
+        default : {
+            return {...state, WCA: 0, CE: 0}
+        }
     }
        
     }
@@ -32,28 +54,23 @@ const WCA = ({ propState, setPropState }) => {
 
     const handleElements = (e) => {
         if(e.target.value === "NONE" ) {
-           return dispatchAdditional( {type: "NONE", amount: e.target.value })
+           return dispatchAdditional( {type: "NONE", WCA: 0, CE: 0 })
         }
-        if(e.target.value === 0) {
-           return dispatchAdditional( {type: "LCW_NONE", amount: e.target.value })
+        if(e.target.value === "LCW_NONE") {
+           return dispatchAdditional( {type: "LCW_NONE", WCA: 0, CE: 0 })
         }
-        if(e.target.value === UC_elements.LCW) {
-           return dispatchAdditional( {type: "LCW", amount: e.target.value })
+        if(e.target.value === "LCW") {
+           return dispatchAdditional( {type: "LCW", WCA: UC_elements.LCW, CE: 0 })
         }
-        if(e.target.value === UC_elements.LCWRA) {
-           return dispatchAdditional( {type: "LCWRA", amount: e.target.value})
+        if(e.target.value === "LCWRA") {
+           return dispatchAdditional( {type: "LCWRA", WCA: UC_elements.LCWRA, CE: 0 })
         }
-        if(e.target.value === UC_elements.carer) {
-            return dispatchAdditional( {type: "CARER", amount: e.target.value})
+        if(e.target.value === "CARER") {
+            return dispatchAdditional( {type: "CARER", WCA: 0, CE: UC_elements.carer })
          }
     }
 
 
-    useEffect(() => {
-       
-        return setPropState({...propState, CE: UC_elements.WCA} )
-       
-    }, [additional, propState, setPropState])
 
     return (
         <React.Fragment>
@@ -63,13 +80,15 @@ const WCA = ({ propState, setPropState }) => {
 
                     <select onChange={handleElements}>
                         <option value="NONE">None</option>
-                        <option value={0}>Limited Capabilty (status only)</option>
-                        <option value={UC_elements.LCW}>Limited Capabilty (in payment)</option>
-                        <option value={UC_elements.LCWRA}>LCW and Work Related Activity</option>
-                        <option value={UC_elements.carer}>Carer Element</option>
+                        <option value="LCW_NONE">Limited Capabilty (status only)</option>
+                        <option value="LCW">Limited Capabilty (in payment)</option>
+                        <option value="LCWRA">LCW and Work Related Activity</option>
+                        <option value="CARER">Carer Element</option>
+                        
 
                     </select>
                 </label>
+                <p>TEST VALUE: {additional.WCA} TEST VALUE {additional.CE}</p>
             </div>
         </React.Fragment>
     )

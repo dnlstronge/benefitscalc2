@@ -12,7 +12,7 @@ const Main = (props) => {
         {
             PA: 0,
             WCA: 0,
-            CARER: 0,
+            CE: 0,
             HC: 0
         }
     )
