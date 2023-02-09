@@ -1,6 +1,6 @@
-import React, {useState} from "react"
+import React, {useState, useReducer } from "react"
 import classes from "./Main.module.css"
-import CardA from "./card/CardA"
+
 import PA from "./PA/PA"
 import Totals from "./Totals/Totals"
 import WCA from "./WCA/WCA"
@@ -8,19 +8,19 @@ import WCA from "./WCA/WCA"
 const MAIN_REDUCER = (state, action) => {
     switch(action.type) {
         case "NONE" : {
-
+            return {...state, WCA: action.WCA, CE: action.CE}
         }
-        case "NONE" : {
-
+        case "LCW_NONE" : {
+            return {...state, WCA: action.WCA, CE: action.CE}
         }
-        case "NONE" : {
-
+        case "LCW" : {
+            return {...state, WCA: action.WCA, CE: action.CE}
         }
-        case "NONE" : {
-
+        case "LCWRA" : {
+            return {...state, WCA: action.WCA, CE: action.CE}
         }
-        case "NONE" : {
-
+        case "CARER" : {
+            return {...state, WCA: action.WCA, CE: action.CE}
         }
     }
 }
@@ -46,9 +46,9 @@ return (
         <React.Fragment>
             <div className={classes.container}>
                 
-                    <PA propState={MAINSTATE} setPropState={SET_MAINSTATE} />
-                    <Totals propState={MAINSTATE} setPropState={SET_MAINSTATE}/>
-                    <WCA propState={MAINSTATE} setPropState={SET_MAINSTATE}/>
+                    <PA propState={MAIN_STATE} setPropState={MAIN_DISPATCH} />
+                    <Totals propState={MAIN_STATE}/>
+                    <WCA propState={MAIN_STATE} setPropState={MAIN_DISPATCH}/>
             </div>
         </React.Fragment>
 )

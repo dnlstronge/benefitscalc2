@@ -1,74 +1,31 @@
-import React, { useReducer, useEffect, useCallback } from "react"; 
+import React from "react"; 
 import UCElements from "../UCElements/UCElements";
 import classes from "./WCA.module.css"
 
 const UC_elements = UCElements
 
+const WCA = ({ setPropState }) => {
 
-const additionalReducer = (state, action) => {
-   
-    switch(action.type) {
-        case "NONE" : {
-          return  {...state, WCA: 0, CE: 0  }
-        }
-        case "LCW_NONE": {
-            return {...state, WCA: 0, CE: 0}
-        }
-        case "LCW": {
-            return {...state, WCA: action.WCA, CE: 0}
-        }
-        case "LCWRA": {
-            return {...state, WCA: action.WCA, CE: 0}
-        }
-        case "CARER": {
-            return {...state, WCA: 0, CE: action.CE}
-        }
-        default : {
-            return {...state, WCA: 0, CE: 0}
-        }
-    }
-       
-    }
-
-
-
-
-
-const WCA = ({ propState, setPropState }) => {
-
-
-
-
-    const [additional, dispatchAdditional] = useReducer( additionalReducer, 
-                                                            {
-                                                                WCA: 0,
-                                                                CE: 0
-                                                            })
 
     const handleElements = (e) => {
         if(e.target.value === "NONE" ) {
-           return dispatchAdditional( {type: "NONE", WCA: 0, CE: 0 })
+           return setPropState( {type: "NONE", WCA: 0, CE: 0 })
         }
         if(e.target.value === "LCW_NONE") {
-           return dispatchAdditional( {type: "LCW_NONE", WCA: 0, CE: 0 })
+           return setPropState( {type: "LCW_NONE", WCA: 0, CE: 0 })
         }
         if(e.target.value === "LCW") {
-           return dispatchAdditional( {type: "LCW", WCA: UC_elements.LCW, CE: 0 })
+           return setPropState({type: "LCW", WCA: UC_elements.LCW, CE: 0 })
         }
         if(e.target.value === "LCWRA") {
-           return dispatchAdditional( {type: "LCWRA", WCA: UC_elements.LCWRA, CE: 0 })
+           return setPropState( {type: "LCWRA", WCA: UC_elements.LCWRA, CE: 0 })
         }
         if(e.target.value === "CARER") {
-            return dispatchAdditional( {type: "CARER", WCA: 0, CE: UC_elements.carer })
+            return setPropState( {type: "CARER", WCA: 0, CE: UC_elements.carer })
          }
     }
 
-    useEffect(() => {
-
-        setPropState({...propState, WCA: additional.WCA, CE: additional.CE})
-    }, [additional.WCA, additional.CE])
-
-
+  
    
     return (
         <React.Fragment>
@@ -85,7 +42,7 @@ const WCA = ({ propState, setPropState }) => {
 
                     </select>
                 </label>
-                <p>TEST VALUE: {additional.WCA} TEST VALUE {additional.CE}</p>
+                
             </div>
         </React.Fragment>
     )
