@@ -36,7 +36,7 @@ const WCA = ({propState, setPropState }) => {
 
         }
 
-    // handle CSS: 
+    // DYNAMIC CSS variables: 
 
         const label_dynamic = propState.COUPLE === "RS_COUPLE" ? classes.dropdown_label : classes.dropdown_label_grey
         const label_dynamic_2 = propState.COUPLE === "RS_SINGLE" ? classes.dropdown_label : classes.dropdown_label_grey
@@ -49,32 +49,20 @@ const WCA = ({propState, setPropState }) => {
             <h4 className={classes.heading}>Additional Elements</h4>
             
             <div className={classes.container}>
-            
-                <div className={classes.sub_container}>
-                     
+                  <div className={classes.sub_container}> 
                     <label className={label_dynamic_2} htmlFor="select_WCA">Work Capabilty and carer element: 
-                        
-                        <select className={classes.dropdown_select} 
+                         <select className={classes.dropdown_select} 
                                 disabled={propState.COUPLE !== "RS_SINGLE"} 
                                 onChange={handleElements}>
-                            
                             <option value="NONE">None</option>
-                            
                             <option value="LCW_NONE">Limited Capabilty (status only)</option>
-                            
                             <option value="LCW">Limited Capabilty (in payment)</option>
-                            
                             <option value="LCWRA">LCW and Work Related Activity</option>
-                        
-                        <option value="CARER">Carer Element</option>
-                        </select>
-
-                    </label>
+                            <option value="CARER">Carer Element</option>
+                         </select>
+                     </label>
                     </div>
 
-                    
-                    
-                   
                     <div className={classes.sub_container}>
                         <label className={label_dynamic}>Migration with LCW
                             <input 
@@ -109,8 +97,7 @@ const WCA = ({propState, setPropState }) => {
                                 <option>Both</option>
                             </select>  
                         </label>}
-
-                        </div>
+                     </div>
                 </div>
             
         </React.Fragment>
