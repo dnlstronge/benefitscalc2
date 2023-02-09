@@ -1,4 +1,4 @@
-import React, { useReducer, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import UCElements from "../UCElements/UCElements"
 import classes from "./PA.module.css"
 
@@ -9,14 +9,48 @@ const UC_elements = UCElements;
 
 const PA = ({propState, setPropState}) => {
 
+    const [localState, setLocalState] = useState({
+        COUPLE: "",
+        AGE: ""
+    })
+
     const handleCouple = (e) => {
-        
+        switch(e.target.value) {
+            case "RS_NONE": {
+              return  setLocalState({...localState, COUPLE: e.target.value})
+        }
+            case "RS_SINGLE": {
+              return  setLocalState({...localState, COUPLE: e.target.value})
+        }
+            case "RS_COUPLE": {
+              return setLocalState({...localState, COUPLE: e.target.value})
+        }
+        default :  {
+            setLocalState({...localState, COUPLE: ""})
+        }
+            
     }
+}
+
 
     const handleAge = (e) => {
-
+        switch(e.target.value) {
+            case "AGE_NONE": {
+              return  setLocalState({...localState, COUPLE: e.target.value})
+        }
+            case "AGE_UNDER": {
+              return  setLocalState({...localState, COUPLE: e.target.value})
+        }
+            case "AGE_OVER": {
+              return setLocalState({...localState, COUPLE: e.target.value})
+        }
+        default :  {
+            setLocalState({...localState, COUPLE: ""})
+        }
+            
     }
-    
+}
+
 
     
     return (
