@@ -10,10 +10,10 @@ const UC_elements = UCElements;
 const PA = ({propState, setPropState}) => {
 
    const handleCouple = (e) => {
-    setPropState({type: "COUPLE", RS: e.target.value})
+    setPropState({type: "COUPLE", COUPLE: e.target.value})
    }
    const handleAge = (e) => {
-    setPropState({type: "AGE", RS: e.target.value})
+    setPropState({type: "AGE", AGE: e.target.value})
    }
              
      

@@ -7,8 +7,12 @@ import WCA from "./WCA/WCA"
 
 const MAIN_REDUCER = (state, action) => {
     switch(action.type) {
-        case "PA" : {
-            return {...state, PA: action.val}
+
+        case "COUPLE" : {
+            return {...state, COUPLE: action.COUPLE}
+        }
+        case "AGE" : {
+            return {...state, AGE: action.AGE}
         }
         case "NONE" : {
             return {...state, WCA: action.WCA, CE: action.CE}
@@ -31,13 +35,16 @@ const MAIN_REDUCER = (state, action) => {
 const Main = (props) => {
     const [ MAINSTATE, SET_MAINSTATE ] = useState (
         {
-            PA: 0,
+            AGE: 0,
+            COUPLE: 0,
             WCA: 0,
             CE: 0,
             HC: 0
         }
     )
     const [MAIN_STATE, MAIN_DISPATCH] = useReducer(MAIN_REDUCER, {
+        AGE: 0,
+        COUPLE: 0,
         PA: 0,
         WCA: 0,
         CE: 0,
