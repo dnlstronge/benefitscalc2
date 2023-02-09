@@ -30,15 +30,16 @@ const WCA = ({propState, setPropState }) => {
     return (
         <React.Fragment>
             <div className={classes.container}>
-                <h4>Additional Elements</h4>
-                <label htmlFor="select_WCA">Work Capabilty and carer element: 
+                <h4 className={classes.heading}>Additional Elements</h4>
+                <label className={classes.dropdown_label} htmlFor="select_WCA">Work Capabilty and carer element: 
                     {propState.COUPLE === "RS_SINGLE" &&
-                    <select onChange={handleElements}>
-                        <option value="NONE">None</option>
-                        <option value="LCW_NONE">Limited Capabilty (status only)</option>
-                        <option value="LCW">Limited Capabilty (in payment)</option>
-                        <option value="LCWRA">LCW and Work Related Activity</option>
-                        <option value="CARER">Carer Element</option>
+                    <select className={classes.dropdown_select} onChange={handleElements}>
+                    
+            {propState.AGE !== 0 && <option value="NONE">None</option>}
+            {propState.AGE !== 0 && <option value="LCW_NONE">Limited Capabilty (status only)</option>}
+            {propState.AGE !== 0 && <option value="LCW">Limited Capabilty (in payment)</option>}
+            {propState.AGE !== 0 && <option value="LCWRA">LCW and Work Related Activity</option>}
+            {propState.AGE !== 0 && <option value="CARER">Carer Element</option>}
                     </select>}
                 </label>
                 

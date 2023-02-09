@@ -9,6 +9,11 @@
     border-radius: 5px;
 }
 
+.warning {
+    color: red;
+    
+}
+
 .dropdown_label {
     font-weight: bold;
     display: flex;

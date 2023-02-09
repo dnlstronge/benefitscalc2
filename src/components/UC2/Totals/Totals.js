@@ -7,7 +7,8 @@ import UCElements from "../UCElements/UCElements";
 const Totals = ({
      propState, 
      rs = propState.AGE, 
-     age = propState.COUPLE
+     age = propState.COUPLE,
+     
      }) => {
 
         //local state 
@@ -26,10 +27,12 @@ const Totals = ({
         if(propState.AGE === "AGE_NONE" || propState.COUPLE === "RS_NONE")
             
             setPA(null)
+            
 
         if(propState.AGE === "AGE_UNDER" && propState.COUPLE === "RS_SINGLE")
             
             setPA(S_UNDER)
+            
             
         if(propState.AGE === "AGE_UNDER" && propState.COUPLE === "RS_COUPLE")
             
@@ -59,6 +62,11 @@ const Totals = ({
           setTally(round(a + b + c))              
         }, [ PA, propState.WCA, propState.CE])
 
+        // lift GLOBAL: 
+        
+     
+
+
     return (
         <div className={classes.container}>
             {PA !== null &&
@@ -75,7 +83,7 @@ const Totals = ({
             <label className={classes.label_amount} htmlFor="amount">Max UC: 
                 <p className={classes.label_p} id="amount">{tally}</p>
             </label>
-            
+         
         </div>
     )
 }
