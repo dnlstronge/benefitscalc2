@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import classes from "./Totals.module.css"
 import UCElements from "../UCElements/UCElements";
-import { captureRejectionSymbol } from "events";
+
 
 
 const Totals = ({
@@ -49,9 +49,7 @@ const Totals = ({
 
         useEffect(() => {
             const round = (x) => {
-
                 return Math.ceil( x * 100) /100
-             
              }
 
 

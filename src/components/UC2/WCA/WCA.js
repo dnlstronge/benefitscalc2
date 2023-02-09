@@ -4,7 +4,7 @@ import classes from "./WCA.module.css"
 
 const UC_elements = UCElements
 
-const WCA = ({ setPropState }) => {
+const WCA = ({propState, setPropState }) => {
 
 
     const handleElements = (e) => {
@@ -32,15 +32,14 @@ const WCA = ({ setPropState }) => {
             <div className={classes.container}>
                 <h4>Additional Elements</h4>
                 <label htmlFor="select_WCA">Work Capabilty and carer element: 
-
+                    {propState.COUPLE === "RS_SINGLE" &&
                     <select onChange={handleElements}>
                         <option value="NONE">None</option>
                         <option value="LCW_NONE">Limited Capabilty (status only)</option>
                         <option value="LCW">Limited Capabilty (in payment)</option>
                         <option value="LCWRA">LCW and Work Related Activity</option>
                         <option value="CARER">Carer Element</option>
-
-                    </select>
+                    </select>}
                 </label>
                 
             </div>

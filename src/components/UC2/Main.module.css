@@ -3,3 +3,13 @@
     display: flex;
     flex-direction: row;
 }
+
+.PA_container {
+    display: flex;
+    flex-direction: column;
+    margin: 1rem 1rem 1rem 1rem;
+    background: whitesmoke;
+    border: 2px solid black;
+    width: auto;
+    height: 25rem;
+}
