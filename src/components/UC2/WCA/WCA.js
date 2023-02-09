@@ -1,4 +1,4 @@
-import React, { useReducer, useEffect } from "react"; 
+import React, { useReducer, useEffect, useCallback } from "react"; 
 import UCElements from "../UCElements/UCElements";
 import classes from "./WCA.module.css"
 
@@ -64,10 +64,12 @@ const WCA = ({ propState, setPropState }) => {
     }
 
     useEffect(() => {
-       
-       setPropState({...propState, WCA: additional.WCA, CE: additional.CE})
-    }, [additional])
 
+        setPropState({...propState, WCA: additional.WCA, CE: additional.CE})
+    }, [additional.WCA, additional.CE])
+
+
+   
     return (
         <React.Fragment>
             <div className={classes.container}>
@@ -80,7 +82,6 @@ const WCA = ({ propState, setPropState }) => {
                         <option value="LCW">Limited Capabilty (in payment)</option>
                         <option value="LCWRA">LCW and Work Related Activity</option>
                         <option value="CARER">Carer Element</option>
-                        
 
                     </select>
                 </label>
