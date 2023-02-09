@@ -9,7 +9,7 @@ const WCA = ({propState, setPropState }) => {
     //LOCAL_STATE: 
     const [clickLCW, setClickLCW] = useState(false)
 
-    //Handles SINGLE
+    //Handle SINGLE
 
     const handleElements = (e) => {
         if(e.target.value === "NONE" ) {
@@ -28,7 +28,7 @@ const WCA = ({propState, setPropState }) => {
             return setPropState( {type: "CARER", WCA: 0, CE: UC_elements.carer })
          }
     }
-    // Handles Couple
+    // Handle COUPLE
         const handleClick = (e) => {
             clickLCW ? setClickLCW(false) : setClickLCW(true)
         }

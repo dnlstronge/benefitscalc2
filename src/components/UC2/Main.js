@@ -1,6 +1,5 @@
 import React, {useState, useReducer } from "react"
 import classes from "./Main.module.css"
-import CardA from "../UC2/card/CardA"
 import PA from "./PA/PA"
 import Totals from "./Totals/Totals"
 import WCA from "./WCA/WCA"
@@ -36,11 +35,13 @@ const MAIN_REDUCER = (state, action) => {
 }
 
 const Main = (props) => {
-    const [ MAINSTATE, SET_MAINSTATE ] = useState (
-        {
-         PA: 0
-        }
-    )
+
+    // const [ MAINSTATE, SET_MAINSTATE ] = useState (
+    //     {
+    //      PA: 0
+    //     }
+    // )
+
     const [MAIN_STATE, MAIN_DISPATCH] = useReducer(MAIN_REDUCER, {
         AGE: 0,
         COUPLE: 0,
@@ -53,12 +54,11 @@ const Main = (props) => {
 return (
         <React.Fragment>
             <div className={classes.container}>
-                <div className={classes.PA_container}>
-                    <PA propState={MAIN_STATE} setPropState={MAIN_DISPATCH}/>
-                    <WCA propState={MAIN_STATE} setPropState={MAIN_DISPATCH}/>
-            </div>
-                    <Totals propState={MAIN_STATE}/>
-                    
+               <div className={classes.PA_container}>
+                 <PA propState={MAIN_STATE} setPropState={MAIN_DISPATCH}/>
+                <WCA propState={MAIN_STATE} setPropState={MAIN_DISPATCH}/>
+              </div>
+              <Totals propState={MAIN_STATE}/>
             </div>
         </React.Fragment>
 )

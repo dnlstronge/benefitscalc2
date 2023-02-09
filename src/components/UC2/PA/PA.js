@@ -31,7 +31,6 @@ const PA = ({propState, setPropState}) => {
                         <option value="RS_SINGLE">Single</option>
                         <option value="RS_COUPLE">Couple</option>
                     </select>
-                    
                 </label>
 
                 <label className={classes.dropdown_label} htmlFor="select_status">Age group:
