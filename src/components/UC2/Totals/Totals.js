@@ -9,31 +9,51 @@ const Totals = ({
      age = propState.COUPLE
      }) => {
 
-    const UC_elements = UCElements
+       
+  
    
    
 
     const [PA, setPA ] = useState(null)
          
    useEffect(() => {
+
+     
+    let S_UNDER = UCElements.single_under25
+    let S_OVER = UCElements.single_over25
+    let C_UNDER = UCElements.joint_under25
+    let C_OVER = UCElements.joint_over25
+
     if(propState.AGE === "AGE_NONE" || propState.COUPLE === "RS_NONE")
-        console.log("the amount is zero babe!")
+        
+        setPA(null)
+
     if(propState.AGE === "AGE_UNDER" && propState.COUPLE === "RS_SINGLE")
-        console.log("the amount is dynamic 100")
+        
+        setPA(S_UNDER)
+        
     if(propState.AGE === "AGE_UNDER" && propState.COUPLE === "RS_COUPLE")
-        console.log("the amount is dynamic 200")
+        
+        setPA(C_UNDER)
+        
     if(propState.AGE === "AGE_OVER" && propState.COUPLE === "RS_SINGLE")
-        console.log("Oooooh it be working!!")
+    
+        setPA(S_OVER)
+       
     if(propState.AGE === "AGE_OVER" && propState.COUPLE === "RS_COUPLE")
-        console.log("Hopefully thats it!!!")
-     }, [propState])
+        
+        setPA(C_OVER)
+        
+     }, [propState.AGE, propState.COUPLE, PA])
 
     return (
         <div className={classes.container}>
-            <label className={classes.label_amount} htmlFor="amount">Personal Allowance: 
-            {rs === "RS_SINGLE" &&
-                <p className={classes.label_p} id="amount"> 2000</p>}
+        
+            <label className={classes.label_amount} htmlFor="amount">
+            
+                <p className={classes.label_p} id="amount"> {PA}</p>
             </label>
+            
             <label className={classes.label_amount} htmlFor="amount">Work capability component: 
                 <p className={classes.label_p} id="amount">{propState.WCA}</p>
             </label> <label className={classes.label_amount} htmlFor="amount">Carer element 
