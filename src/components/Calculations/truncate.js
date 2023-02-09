@@ -16,4 +16,4 @@ const round = (x) => {
 // for rounding down and up use: 
 
 const rounded = (value) => {
-    return Math.round(value*Math.pow(10,2))/Math.pow(10,2)
+    return Math.round(value*Math.pow(10,2))/Math.pow(10,2) }
