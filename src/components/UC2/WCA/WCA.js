@@ -1,4 +1,4 @@
-import React from "react"; 
+import React, { useState } from "react"; 
 import UCElements from "../UCElements/UCElements";
 import classes from "./WCA.module.css"
 
@@ -6,6 +6,10 @@ const UC_elements = UCElements
 
 const WCA = ({propState, setPropState }) => {
 
+    //LOCAL_STATE: 
+    const [clickLCW, setClickLCW] = useState(false)
+
+    //Handles SINGLE
 
     const handleElements = (e) => {
         if(e.target.value === "NONE" ) {
@@ -24,46 +28,87 @@ const WCA = ({propState, setPropState }) => {
             return setPropState( {type: "CARER", WCA: 0, CE: UC_elements.carer })
          }
     }
+    // Handles Couple
+        const handleClick = (e) => {
+            clickLCW ? setClickLCW(false) : setClickLCW(true)
+        }
+        const handleLCW_A = (e) => {
 
+        }
+
+    // handle CSS: 
+
+        const label_dynamic = propState.COUPLE === "RS_COUPLE" ? classes.dropdown_label : classes.dropdown_label_grey
+        
   
    
     return (
         <React.Fragment>
-            {propState.COUPLE === "RS_SINGLE" &&
+            <h5 className={label_dynamic}>COLOR ME BABY!</h5>
+            <h4 className={classes.heading}>Additional Elements</h4>
+            
             <div className={classes.container}>
-                <h4 className={classes.heading}>Additional Elements</h4>
-                <label className={classes.dropdown_label} htmlFor="select_WCA">Work Capabilty and carer element: 
-                    {propState.COUPLE === "RS_SINGLE" &&
-                    <select className={classes.dropdown_select} onChange={handleElements}>
-                    
-                     {propState.AGE !== 0 && 
-                     <option value="NONE">None</option>}
-                    {propState.AGE !== 0 && 
-                     <option value="LCW_NONE">Limited Capabilty (status only)</option>}
-                    {propState.AGE !== 0 && 
-                     <option value="LCW">Limited Capabilty (in payment)</option>}
-                    {propState.AGE !== 0 &&
-                     <option value="LCWRA">LCW and Work Related Activity</option>}
-                    {propState.AGE !== 0 && 
-                     <option value="CARER">Carer Element</option>}
-                    </select>}
-
-                </label>
-                </div>}
-
-                {propState.COUPLE === "RS_COUPLE" &&
-                <div className="container">
-                    <h4 className={classes.heading}>Additional Elements</h4>
-                    <label className={classes.dropdown_label}>Migration with LCW
-                        <input className={classes.checkbox}type="checkbox"/>
-                    </label>
-                    
+            
+                <div className={classes.sub_container}>
+                     
                     <label className={classes.dropdown_label} htmlFor="select_WCA">Work Capabilty and carer element: 
-                        {propState.COUPLE === "RS_COUPLE" &&
-                        <select className={classes.dropdown_select} onChange={handleElements}>
-                        </select>}
+                        
+                        <select className={classes.dropdown_select} 
+                                disabled={propState.COUPLE !== "RS_SINGLE"} 
+                                onChange={handleElements}>
+                            
+                            <option value="NONE">None</option>
+                            
+                            <option value="LCW_NONE">Limited Capabilty (status only)</option>
+                            
+                            <option value="LCW">Limited Capabilty (in payment)</option>
+                            
+                            <option value="LCWRA">LCW and Work Related Activity</option>
+                        
+                        <option value="CARER">Carer Element</option>
+                        </select>
+
                     </label>
-                </div>}
+                    </div>
+
+                    
+                    
+                   
+                    <div className={classes.sub_container}>
+                        <label className={label_dynamic}>Migration with LCW
+                            <input 
+                                onClick={handleClick} 
+                                value={true} 
+                                className={classes.checkbox} 
+                                disabled={propState.COUPLE !== "RS_COUPLE"}
+                                type="checkbox"/>
+                        </label>
+                        {clickLCW && 
+                        <label className={label_dynamic}
+                                style= {{color: propState.COUPLE !== "RS_COUPLE" && "grey" }}  
+                                htmlFor="select_WCA">Limited capabilty for work (paid)
+                            <select 
+                                className={classes.dropdown_select}
+                                style= {{color: propState.COUPLE !== "RS_COUPLE" && "grey" }} 
+                                onChange={handleLCW_A}>
+                                <option>--select--</option>
+                                <option>Claimant</option>
+                                <option>Partner</option>
+                                <option>Both</option>
+                            </select>  
+                        </label>}
+                         {!clickLCW && 
+                        <label className={label_dynamic} htmlFor="select_WCA">LCW (Work Allowance only)
+                            <select className={classes.dropdown_select} onChange={handleLCW_A}>
+                                <option>--select--</option>
+                                <option>Claimant</option>
+                                <option>Partner</option>
+                                <option>Both</option>
+                            </select>  
+                        </label>}
+
+                        </div>
+                </div>
             
         </React.Fragment>
     )

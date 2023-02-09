@@ -69,11 +69,11 @@ const Totals = ({
 
     return (
         <div className={classes.container}>
-            {PA !== null &&
+            
             <label className={classes.label_amount} htmlFor="amount">
                 Personal Allowance:
                 <p className={classes.label_p} id="amount"> {PA}</p>
-            </label>}
+            </label>
             
             <label className={classes.label_amount} htmlFor="amount">Work capability component: 
                 <p className={classes.label_p} id="amount">{propState.WCA}</p>
