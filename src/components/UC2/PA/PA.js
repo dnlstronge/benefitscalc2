@@ -1,9 +1,8 @@
 import React from "react";
-import UCElements from "../UCElements/UCElements"
 import classes from "./PA.module.css"
 
 
-const UC_elements = UCElements;
+
 
 
 

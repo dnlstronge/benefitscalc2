@@ -60,8 +60,9 @@ const Totals = ({
             let b = round(propState.WCA)
             let c = round(propState.CE)
             let d = round(propState.LCW)
-          setTally(round(a + b + c + d))              
-        }, [ PA, propState.WCA, propState.CE, propState.LCW])
+            let e = round(propState.TA)
+          setTally(round(a + b + c + d + e))              
+        }, [ PA, propState.WCA, propState.CE, propState.LCW, propState.TA])
 
         // lift GLOBAL: 
         
@@ -76,13 +77,16 @@ const Totals = ({
                 <p className={classes.label_p} id="amount"> {PA}</p>
             </label>
             
-            <label className={classes.label_amount} htmlFor="amount">Limited Capabilty for Work 
+            <label className={classes.label_amount} htmlFor="amount">Limited Capabilty for Work: 
                 <p className={classes.label_p} id="amount">{propState.LCW}</p>
             </label>
-            <label className={classes.label_amount} htmlFor="amount">LCW + Work Related Activity 
+            <label className={classes.label_amount} htmlFor="amount">LCW + Work Related Activity: 
                 <p className={classes.label_p} id="amount">{propState.WCA}</p>
             </label>
-             <label className={classes.label_amount} htmlFor="amount">Carer element 
+            <label className={classes.label_amount} htmlFor="amount">Legacy transitional amount: 
+                <p className={classes.label_p} id="amount">{propState.TA}</p>
+            </label>
+             <label className={classes.label_amount} htmlFor="amount">Carer element: 
                 <p className={classes.label_p} id="amount">{propState.CE}</p>
             </label>
             <label className={classes.label_amount} htmlFor="amount">Max UC: 

@@ -7,7 +7,7 @@ const UC_elements = UCElements
 const WCA = ({propState, setPropState }) => {
 
     //LOCAL_STATE: 
-    const [clickLCW, setClickLCW] = useState(false)
+    
     const [WCA_values, set_WCA_values] = useState({
         LCW: 0,
         LCWRA: 0,
@@ -102,9 +102,10 @@ const WCA = ({propState, setPropState }) => {
     return (
         <React.Fragment>
             
-            <h4 className={classes.heading}>Additional Elements</h4>
+            
             
             <div className={classes.container}>
+                <h4 className={classes.heading}>Additional Elements</h4>
                   <label className={label_dynamic_2} htmlFor="select_WCA">Work Capabilty/Carer element: 
                          <select className={classes.dropdown_select} 
                                 disabled={propState.COUPLE !== "RS_SINGLE"} 

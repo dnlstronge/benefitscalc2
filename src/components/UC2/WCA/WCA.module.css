@@ -7,8 +7,7 @@
     flex-direction: column;
     background: white;
     width: 80%;
-    height: 30rem;
-   
+    height: auto;
     margin: 1rem 1rem 1rem 1rem;
     border: 2px solid black;
     border-radius: 5px;

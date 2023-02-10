@@ -1,24 +1,20 @@
-import React, {useState, useReducer } from "react"
+import React, { useReducer } from "react"
 import classes from "./Main.module.css"
 import PA from "./PA/PA"
 import Totals from "./Totals/Totals"
 import WCA from "./WCA/WCA"
 import Transitional from "./WCA/Transitional"
 
-const round = (x) => {
-    return Math.ceil( x * 100) /100
- }
+
 
 const MAIN_REDUCER = (state, action) => {
     switch(action.type) {
         
-        case "LCW_COUPLE" : {
-            return {...state, LCW: action.val}
-            
+        case "TRANS" : {
+            return {...state, TA: action.val}
         }
         case "LCW_COUPLE" : {
-            return {...state, LCW: action.val}
-            
+            return {...state, LCW: action.val} 
         }
         case "LCWRA_COUPLE" : {
             return {...state, WCA: action.val}
@@ -52,6 +48,7 @@ const MAIN_REDUCER = (state, action) => {
         case "CARER" : {
             return {...state, WCA: action.WCA, CE: action.CE}
         }
+        default :
     }
 }
 
