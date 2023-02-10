@@ -8,6 +8,12 @@ const WCA = ({propState, setPropState }) => {
 
     //LOCAL_STATE: 
     const [clickLCW, setClickLCW] = useState(false)
+    const [WCA_values, set_WCA_values] = useState({
+        LCW_STATUS: '',
+        LCW: '',
+        LWRA: '',
+        CARER: ''
+    })
 
     //Handle SINGLE
 
@@ -28,22 +34,45 @@ const WCA = ({propState, setPropState }) => {
             return setPropState( {type: "CARER", WCA: 0, CE: UC_elements.carer })
          }
     }
-    // Handle COUPLE
+    // Handle COUPLE:
+
         const handleClick = (e) => {
             clickLCW ? setClickLCW(false) : setClickLCW(true)
         }
         const handleLCW_A = (e) => {
-
+                set_WCA_values({...WCA_values, LCW: e.target.value})
         }
         const handleLCW_B = (e) => {
-
+                set_WCA_values({...WCA_values, LCW_STATUS: e.target.value})
         }
         const handleLCWRA = (e) => {
-
+                set_WCA_values({...WCA_values, LCWRA: e.target.value})
         }
         const handleCarer = (e) => {
-
+                set_WCA_values({...WCA_values, CARER: e.target.value})
         }
+
+    // Couple Effects:
+
+        useEffect(() => {
+            if(
+                WCA_values.LCW === "CLAIMANT" && 
+                WCA_values.CARER === "NONE" && 
+                WCA_values.LCWRA === "NONE") {
+                    /*Code to pay */
+                }
+            if(
+                WCA_values.LCW === "CLAIMANT" && 
+                WCA_values.CARER === "PARNTER")
+
+
+        }, [WCA_values])
+
+
+
+
+
+
 
     // DYNAMIC CSS variables: 
 
@@ -63,6 +92,7 @@ const WCA = ({propState, setPropState }) => {
                          <select className={classes.dropdown_select} 
                                 disabled={propState.COUPLE !== "RS_SINGLE"} 
                                 onChange={handleElements}>
+                            <option value="NONE">--select--</option>
                             <option value="NONE">None</option>
                             <option value="LCW_NONE">Limited Capabilty (status only)</option>
                             <option value="LCW">Limited Capabilty (in payment)</option>
@@ -71,7 +101,7 @@ const WCA = ({propState, setPropState }) => {
                          </select>
                      </label>
                     
-
+{/*=======COUPLE========= */}
                    
                         <label className={label_dynamic}>Migration with LCW
                             <input 
@@ -89,10 +119,10 @@ const WCA = ({propState, setPropState }) => {
                                 id="select_WCA1"
                                 className={classes.dropdown_select}
                                 onChange={handleLCW_A}>
-                                <option>--select--</option>
-                                <option>Claimant</option>
-                                <option>Partner</option>
-                                <option>Both</option>
+                                <option value="NONE">--select--</option>
+                                <option value="CLAIMANT">Claimant</option>
+                                <option value="PARTNER">Partner</option>
+                                <option Value="BOTH">Both</option>
                             </select>  
                         </label>}
                          {!clickLCW && 
@@ -102,10 +132,10 @@ const WCA = ({propState, setPropState }) => {
                               className={classes.dropdown_select} 
                               onChange={handleLCW_B}
                               disabled={propState.COUPLE !== "RS_COUPLE"}>
-                                <option>--select--</option>
-                                <option>Claimant</option>
-                                <option>Partner</option>
-                                <option>Both</option>
+                                <option value="NONE">--select--</option>
+                                <option value="CLAIMANT">Claimant</option>
+                                <option value="PARTNER">Partner</option>
+                                <option value="BOTH">Both</option>
                             </select>  
                         </label>}
                         <label className={label_dynamic} htmlFor="select_LCWRA"> LCW + Work Related Activity
@@ -124,7 +154,7 @@ const WCA = ({propState, setPropState }) => {
                             <select
                               id="select_carer" 
                               className={classes.dropdown_select} 
-                              onChange={handleLCWRA}
+                              onChange={handleCarer}
                               disabled={propState.COUPLE !== "RS_COUPLE"}>
                                 <option>--select--</option>
                                 <option>Claimant</option>

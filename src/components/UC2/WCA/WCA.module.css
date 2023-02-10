@@ -62,5 +62,9 @@
 }
 
 .checkbox {
-
+    display: flex;
+    flex-direction: row;
+    margin-top: 1rem;
+    height: 20px;
+    width: 20px;
 }
