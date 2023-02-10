@@ -38,9 +38,6 @@ const WCA = ({propState, setPropState }) => {
     }
     // Handle COUPLE:
 
-    
-
-       
         const handleLCW = (e) => {
             if(WCA_values.LCW_COUPLE === 0) {
                 set_WCA_values({...WCA_values, LCW_COUPLE: e.target.value })
@@ -49,7 +46,7 @@ const WCA = ({propState, setPropState }) => {
                 set_WCA_values({...WCA_values, LCW_COUPLE: 0})
             }
             }
-        const handleLCWRA =(e) => {
+        const handleLCWRA = (e) => {
             if(WCA_values.LCWRA_COUPLE === 0) {
              set_WCA_values({...WCA_values, LCWRA_COUPLE: e.target.value})
             }
@@ -66,7 +63,32 @@ const WCA = ({propState, setPropState }) => {
               }
         }
         
+        useEffect( () => {
+            if(WCA_values.LCW_COUPLE === 0 ) {
+                setPropState({type: "LCW_COUPLE", val: WCA_values.LCW_COUPLE})
+            }
+            if(WCA_values.LCW_COUPLE > 0 ) {
+                setPropState({type: "LCW_COUPLE", val: WCA_values.LCW_COUPLE})
+            }
+            if(WCA_values.LCWRA_COUPLE === 0) {
+                setPropState({type: "LCWRA_COUPLE", val: WCA_values.LCWRA_COUPLE})
+            }
+            if(WCA_values.LCWRA_COUPLE > 0) {
+                setPropState({type: "LCWRA_COUPLE", val: WCA_values.LCWRA_COUPLE})
+            }
+            if(WCA_values.LCW_COUPLE === 0 ) {
+                setPropState({type: "CE", val: WCA_values.CE})
+            }
+            if(WCA_values.LCW_COUPLE > 0 ) {
+                setPropState({type: "CE", val: WCA_values.CE})
+            }
+           
+          
+               
 
+        }, 
+        
+        [WCA_values.LCW_COUPLE, WCA_values.LCWRA_COUPLE, WCA_values.CE, setPropState])
 
 
 
@@ -83,8 +105,7 @@ const WCA = ({propState, setPropState }) => {
             <h4 className={classes.heading}>Additional Elements</h4>
             
             <div className={classes.container}>
-                  <br></br>
-                    <label className={label_dynamic_2} htmlFor="select_WCA">Work Capabilty/Carer element: 
+                  <label className={label_dynamic_2} htmlFor="select_WCA">Work Capabilty/Carer element: 
                          <select className={classes.dropdown_select} 
                                 disabled={propState.COUPLE !== "RS_SINGLE"} 
                                 onChange={handleElements}>
@@ -95,9 +116,11 @@ const WCA = ({propState, setPropState }) => {
                             <option value="LCWRA">LCW and Work Related Activity</option>
                             <option value="CARER">Carer Element</option>
                          </select>
-                     </label>
+                 </label>
                     
 {/*=======COUPLE========= */}
+
+
                         <div className={checkbox_dynamic}>
                             <label className={classes.checkbox_label} htmlFor="additional_elements">Add LCW (paid)
                                 <input 
@@ -133,7 +156,9 @@ const WCA = ({propState, setPropState }) => {
                                   disabled={propState.COUPLE !== "RS_COUPLE"}/>
                             </label>
                         </div>
-                        <div>TEST: {WCA_values.LCW_COUPLE} TEST: {WCA_values.LCWRA_COUPLE} TEST {WCA_values.CE} </div>
+
+                        <div>TEST: {WCA_values.LCW_COUPLE}</div>
+                        <div>TEST: {propState.LCW}</div>
                      </div>
                 
             

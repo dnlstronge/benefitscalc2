@@ -56,11 +56,12 @@ const Totals = ({
              }
 
 
-            let a = PA
-            let b = propState.WCA
-            let c = propState.CE
-          setTally(round(a + b + c))              
-        }, [ PA, propState.WCA, propState.CE])
+            let a = round(PA)
+            let b = round(propState.WCA)
+            let c = round(propState.CE)
+            let d = round(propState.LCW)
+          setTally(round(a + b + c + d))              
+        }, [ PA, propState.WCA, propState.CE, propState.LCW])
 
         // lift GLOBAL: 
         
@@ -75,9 +76,13 @@ const Totals = ({
                 <p className={classes.label_p} id="amount"> {PA}</p>
             </label>
             
-            <label className={classes.label_amount} htmlFor="amount">Work capability component: 
+            <label className={classes.label_amount} htmlFor="amount">Limited Capabilty for Work 
+                <p className={classes.label_p} id="amount">{propState.LCW}</p>
+            </label>
+            <label className={classes.label_amount} htmlFor="amount">LCW + Work Related Activity 
                 <p className={classes.label_p} id="amount">{propState.WCA}</p>
-            </label> <label className={classes.label_amount} htmlFor="amount">Carer element 
+            </label>
+             <label className={classes.label_amount} htmlFor="amount">Carer element 
                 <p className={classes.label_p} id="amount">{propState.CE}</p>
             </label>
             <label className={classes.label_amount} htmlFor="amount">Max UC: 
