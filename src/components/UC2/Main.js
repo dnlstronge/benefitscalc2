@@ -3,6 +3,7 @@ import classes from "./Main.module.css"
 import PA from "./PA/PA"
 import Totals from "./Totals/Totals"
 import WCA from "./WCA/WCA"
+import Transitional from "./WCA/Transitional"
 
 const round = (x) => {
     return Math.ceil( x * 100) /100
@@ -78,6 +79,7 @@ return (
                <div className={classes.PA_container}>
                  <PA propState={MAIN_STATE} setPropState={MAIN_DISPATCH}/>
                 <WCA propState={MAIN_STATE} setPropState={MAIN_DISPATCH}/>
+                <Transitional propState={MAIN_STATE} setPropState={MAIN_DISPATCH}/>
               </div>
               <Totals propState={MAIN_STATE}/>
             </div>

@@ -156,9 +156,6 @@ const WCA = ({propState, setPropState }) => {
                                   disabled={propState.COUPLE !== "RS_COUPLE"}/>
                             </label>
                         </div>
-
-                        <div>TEST: {WCA_values.LCW_COUPLE}</div>
-                        <div>TEST: {propState.LCW}</div>
                      </div>
                 
             
