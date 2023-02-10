@@ -9,10 +9,12 @@ const WCA = ({propState, setPropState }) => {
     //LOCAL_STATE: 
     const [clickLCW, setClickLCW] = useState(false)
     const [WCA_values, set_WCA_values] = useState({
-        LCW_STATUS: '',
-        LCW: '',
-        LCWRA: '',
-        CARER: ''
+        LCW: 0,
+        LCWRA: 0,
+        CARER: 0,
+        LCW_COUPLE: 0,
+        LCWRA_COUPLE: 0,
+        CE: 0,
     })
 
     //Handle SINGLE
@@ -36,29 +38,34 @@ const WCA = ({propState, setPropState }) => {
     }
     // Handle COUPLE:
 
+    
+
        
         const handleLCW = (e) => {
-            WCA_values.LCW === e.target.value ? set_WCA_values({...WCA_values, LCW: 0}) : set_WCA_values({...WCA_values, LCW: e.target.value})    
-        }
-        const handleLCWRA = (e) => {
-            WCA_values.LCWRA === e.target.value ? set_WCA_values({...WCA_values, LCWRA: 0}) : set_WCA_values({...WCA_values, LCWRA: e.target.value})
+            if(WCA_values.LCW_COUPLE === 0) {
+                set_WCA_values({...WCA_values, LCW_COUPLE: e.target.value })
+            }
+            if(WCA_values.LCW_COUPLE > 0 ) {
+                set_WCA_values({...WCA_values, LCW_COUPLE: 0})
+            }
+            }
+        const handleLCWRA =(e) => {
+            if(WCA_values.LCWRA_COUPLE === 0) {
+             set_WCA_values({...WCA_values, LCWRA_COUPLE: e.target.value})
+            }
+            if(WCA_values.LCWRA_COUPLE > 0) {
+             set_WCA_values({...WCA_values, LCWRA_COUPLE: 0})
+                }
         }
         const handleCARER = (e) => {
-            WCA_values.CARER === e.target.value ? set_WCA_values({...WCA_values, CARER: 0}) : set_WCA_values({...WCA_values, CARER: e.target.value})
+            if(WCA_values.CE === 0) {
+                set_WCA_values({...WCA_values, CE: e.target.value})
+               }
+            if(WCA_values.CE > 0) {
+                set_WCA_values({...WCA_values, CE: 0})
+              }
         }
         
-
-    // Couple Effects:
-
-
-        useEffect(() => {
-            setPropState({
-                type: "LCW_COUPLE", 
-                LCW: WCA_values.LCW , 
-                LCWRA: WCA_values.LCWRA ,
-                CE: WCA_values.CARER
-            })
-        }, [WCA_values])
 
 
 
@@ -98,7 +105,7 @@ const WCA = ({propState, setPropState }) => {
                                   value={UC_elements.LCW} 
                                   className="checkbox" 
                                   type="checkbox" 
-                                  disabled={WCA_values.LCWRA > 0}
+                                  disabled={WCA_values.LCWRA_COUPLE > 0}
                                   />
                             </label>
                         </div>
@@ -108,7 +115,9 @@ const WCA = ({propState, setPropState }) => {
                                   onClick={handleLCWRA} 
                                   value={UC_elements.LCWRA} 
                                   className="checkbox" 
-                                  type="checkbox" />
+                                  type="checkbox" 
+                                  disabled={WCA_values.LCW_COUPLE > 0}
+                                  />
                             </label>
                         </div>
                         <div className={classes.checkbox_container}>
@@ -120,7 +129,7 @@ const WCA = ({propState, setPropState }) => {
                                   type="checkbox" />
                             </label>
                         </div>
-
+                        <div>TEST: {WCA_values.LCW_COUPLE} TEST: {WCA_values.LCWRA_COUPLE} TEST {WCA_values.CE} </div>
                      </div>
                 
             

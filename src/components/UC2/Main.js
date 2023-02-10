@@ -6,6 +6,7 @@ import WCA from "./WCA/WCA"
 
 const MAIN_REDUCER = (state, action) => {
     switch(action.type) {
+        
         case "RESET_WCA": {
             return {...state, WCA: null, CE: null}
         }
