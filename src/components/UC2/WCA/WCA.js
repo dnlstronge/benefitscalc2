@@ -72,7 +72,7 @@ const WCA = ({propState, setPropState }) => {
 
     // DYNAMIC CSS variables: 
 
-        const label_dynamic = propState.COUPLE === "RS_COUPLE" ? classes.dropdown_label : classes.dropdown_label_grey
+        const checkbox_dynamic = propState.COUPLE === "RS_COUPLE" ? classes.checkbox_container : classes.checkbox_container_disabled
         const label_dynamic_2 = propState.COUPLE === "RS_SINGLE" ? classes.dropdown_label : classes.dropdown_label_grey
         
   
@@ -98,35 +98,39 @@ const WCA = ({propState, setPropState }) => {
                      </label>
                     
 {/*=======COUPLE========= */}
-                        <div className={classes.checkbox_container}>
-                            <label className={classes.checkbox_label} htmlFor="additional_elements">Add LCW (paid element) to the claim:
+                        <div className={checkbox_dynamic}>
+                            <label className={classes.checkbox_label} htmlFor="additional_elements">Add LCW (paid)
                                 <input 
+                                  id="additional_elements"
                                   onClick={handleLCW} 
                                   value={UC_elements.LCW} 
-                                  className="checkbox" 
+                                  className={classes.checkbox_input} 
                                   type="checkbox" 
-                                  disabled={WCA_values.LCWRA_COUPLE > 0}
+                                  disabled={WCA_values.LCWRA_COUPLE > 0 || propState.COUPLE !== "RS_COUPLE"}
                                   />
                             </label>
                         </div>
-                        <div className={classes.checkbox_container}>
-                            <label className={classes.checkbox_label} htmlFor="additional_elements">Add LCWRA to the claim:
+                        <div className={checkbox_dynamic}>
+                            <label className={classes.checkbox_label} htmlFor="additional_elements">Add LCWRA
                                 <input 
+                                  id="additional_elements"
                                   onClick={handleLCWRA} 
                                   value={UC_elements.LCWRA} 
-                                  className="checkbox" 
+                                  className={classes.checkbox_input}
                                   type="checkbox" 
-                                  disabled={WCA_values.LCW_COUPLE > 0}
+                                  disabled={WCA_values.LCW_COUPLE > 0 || propState.COUPLE !== "RS_COUPLE"}
                                   />
                             </label>
                         </div>
-                        <div className={classes.checkbox_container}>
-                            <label className={classes.checkbox_label} htmlFor="additional_elements">Add Carer Element to the claim:
+                        <div className={checkbox_dynamic}>
+                            <label className={classes.checkbox_label} htmlFor="additional_elements">Add Carer Element
                                 <input 
+                                  id="additional_elements"
                                   onClick={handleCARER} 
                                   value={UC_elements.carer} 
-                                  className="checkbox" 
-                                  type="checkbox" />
+                                  className={classes.checkbox_input} 
+                                  type="checkbox" 
+                                  disabled={propState.COUPLE !== "RS_COUPLE"}/>
                             </label>
                         </div>
                         <div>TEST: {WCA_values.LCW_COUPLE} TEST: {WCA_values.LCWRA_COUPLE} TEST {WCA_values.CE} </div>
