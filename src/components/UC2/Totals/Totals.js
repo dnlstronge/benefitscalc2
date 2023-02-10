@@ -54,17 +54,16 @@ const Totals = ({
             const round = (x) => {
                 return Math.ceil( x * 100) /100
              }
-
-
             let a = round(PA)
             let b = round(propState.WCA)
             let c = round(propState.CE)
             let d = round(propState.LCW)
             let e = round(propState.TA)
-          setTally(round(a + b + c + d + e))              
+
+            setTally(round(a + b + c + d + e))              
         }, [ PA, propState.WCA, propState.CE, propState.LCW, propState.TA])
 
-        // lift GLOBAL: 
+       
         
      
 
