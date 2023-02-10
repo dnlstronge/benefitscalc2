@@ -3,17 +3,20 @@ import classes from "./Transitional.module.css"
 import UCElements from "../UCElements/UCElements";
 
 const UC_elements = UCElements
+const transA = UC_elements.TA_1
+const transB = UC_elements.TA_2
+const transC = UC_elements.TA_3
 
-const Transitional = () => {
+const Transitional = (props) => {
     return (
         <div className={classes.container}>
             <label className={classes.TA_label} htmlFor="transitional_amounts"></label> Transiton from SDP legacy
                 <select id="transitional_amount">
                     <option>--select</option>
                     <option>No</option>
-                    <option>£{UC_elements.TA_1}</option>
-                    <option>£{UC_elements.TA_2}</option>
-                    <option>£{UC_elements.TA_3}</option>
+                    <option>£{transA}</option>
+                    <option>£{transB}</option>
+                    <option>£{transC}</option>
                     
                 </select>
         </div>
