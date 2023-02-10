@@ -50,7 +50,7 @@ const WCA = ({propState, setPropState }) => {
             
             <div className={classes.container}>
                   <div className={classes.sub_container}> 
-                    <label className={label_dynamic_2} htmlFor="select_WCA">Work Capabilty and carer element: 
+                    <label className={label_dynamic_2} htmlFor="select_WCA">Work Capabilty/Carer element: 
                          <select className={classes.dropdown_select} 
                                 disabled={propState.COUPLE !== "RS_SINGLE"} 
                                 onChange={handleElements}>
