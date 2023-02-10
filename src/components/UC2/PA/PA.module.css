@@ -3,14 +3,26 @@
     flex-direction: column;
     background: white;
     width: 80%;
-    height: 15rem;
+    height: 20rem;
     margin: 1rem 1rem 1rem 1rem;
     border: 2px solid black;
     border-radius: 5px;
 }
+.warning_container {
+    margin-left: 1rem;
+    margin-bottom: 0;
+    margin-top: 0.5rem;
+    padding-bottom: 1rem;
+    width: 5rem;
+    height: 3rem;
+}
 
 .warning {
+    display: flex;
     color: red;
+    width: 10rem;
+    height: auto;
+
     
 }
 

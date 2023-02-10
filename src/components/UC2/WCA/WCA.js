@@ -35,6 +35,15 @@ const WCA = ({propState, setPropState }) => {
         const handleLCW_A = (e) => {
 
         }
+        const handleLCW_B = (e) => {
+
+        }
+        const handleLCWRA = (e) => {
+
+        }
+        const handleCarer = (e) => {
+
+        }
 
     // DYNAMIC CSS variables: 
 
@@ -49,7 +58,7 @@ const WCA = ({propState, setPropState }) => {
             <h4 className={classes.heading}>Additional Elements</h4>
             
             <div className={classes.container}>
-                  <div className={classes.sub_container}> 
+                  <br></br>
                     <label className={label_dynamic_2} htmlFor="select_WCA">Work Capabilty/Carer element: 
                          <select className={classes.dropdown_select} 
                                 disabled={propState.COUPLE !== "RS_SINGLE"} 
@@ -61,9 +70,9 @@ const WCA = ({propState, setPropState }) => {
                             <option value="CARER">Carer Element</option>
                          </select>
                      </label>
-                    </div>
+                    
 
-                    <div className={classes.sub_container}>
+                   
                         <label className={label_dynamic}>Migration with LCW
                             <input 
                                 onClick={handleClick} 
@@ -75,8 +84,9 @@ const WCA = ({propState, setPropState }) => {
                         {clickLCW && 
                         <label className={label_dynamic}
                                 style= {{color: propState.COUPLE !== "RS_COUPLE" && "grey" }}  
-                                htmlFor="select_WCA">Limited capabilty for work (paid)
+                                htmlFor="select_WCA1">Limited capabilty for work (paid)
                             <select 
+                                id="select_WCA1"
                                 className={classes.dropdown_select}
                                 onChange={handleLCW_A}>
                                 <option>--select--</option>
@@ -86,10 +96,11 @@ const WCA = ({propState, setPropState }) => {
                             </select>  
                         </label>}
                          {!clickLCW && 
-                        <label className={label_dynamic} htmlFor="select_WCA">LCW (Work Allowance only)
-                            <select 
+                        <label className={label_dynamic} htmlFor="select_WCA2">LCW (Work Allowance only)
+                            <select
+                              id="select_WCA2" 
                               className={classes.dropdown_select} 
-                              onChange={handleLCW_A}
+                              onChange={handleLCW_B}
                               disabled={propState.COUPLE !== "RS_COUPLE"}>
                                 <option>--select--</option>
                                 <option>Claimant</option>
@@ -97,8 +108,32 @@ const WCA = ({propState, setPropState }) => {
                                 <option>Both</option>
                             </select>  
                         </label>}
+                        <label className={label_dynamic} htmlFor="select_LCWRA"> LCW + Work Related Activity
+                            <select
+                              id="select_LCWRA" 
+                              className={classes.dropdown_select} 
+                              onChange={handleLCWRA}
+                              disabled={propState.COUPLE !== "RS_COUPLE"}>
+                                <option>--select--</option>
+                                <option>Claimant</option>
+                                <option>Partner</option>
+                                <option>Both</option>
+                            </select>  
+                        </label>
+                        <label className={label_dynamic} htmlFor="select_carer"> Carer Element
+                            <select
+                              id="select_carer" 
+                              className={classes.dropdown_select} 
+                              onChange={handleLCWRA}
+                              disabled={propState.COUPLE !== "RS_COUPLE"}>
+                                <option>--select--</option>
+                                <option>Claimant</option>
+                                <option>Partner</option>
+                                <option>Both</option>
+                            </select>  
+                        </label>
                      </div>
-                </div>
+                
             
         </React.Fragment>
     )

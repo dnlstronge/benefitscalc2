@@ -2,7 +2,9 @@
 .container {
     display: flex;
     flex-direction: row;
+    
 }
+
 
 .PA_container {
     display: flex;
@@ -10,6 +12,6 @@
     margin: 1rem 1rem 1rem 1rem;
     background: whitesmoke;
     border: 2px solid black;
-    width: 15rem;
-    height: 45rem;
+    width: 20rem;
+    height: 90%;
 }
