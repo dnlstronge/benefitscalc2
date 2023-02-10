@@ -48,7 +48,11 @@ Higher = no eligble housing & LCW or children */
 
  tariff_income: dynamic_value,
 
- NDC: 77.87,
+ /* Transitional amounts fron SDP */
+ 
+ TA_1: 120,
+ TA_2: 285,
+ TA_3: 405,
 }
 
 export default UCElements;
