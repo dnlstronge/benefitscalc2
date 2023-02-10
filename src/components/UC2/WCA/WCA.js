@@ -1,4 +1,4 @@
-import React, { useState } from "react"; 
+import React, { useEffect, useState } from "react"; 
 import UCElements from "../UCElements/UCElements";
 import classes from "./WCA.module.css"
 
@@ -11,7 +11,7 @@ const WCA = ({propState, setPropState }) => {
     const [WCA_values, set_WCA_values] = useState({
         LCW_STATUS: '',
         LCW: '',
-        LWRA: '',
+        LCWRA: '',
         CARER: ''
     })
 
@@ -36,40 +36,29 @@ const WCA = ({propState, setPropState }) => {
     }
     // Handle COUPLE:
 
-        const handleClick = (e) => {
-            clickLCW ? setClickLCW(false) : setClickLCW(true)
-        }
-        const handleLCW_A = (e) => {
-                set_WCA_values({...WCA_values, LCW: e.target.value})
-        }
-        const handleLCW_B = (e) => {
-                set_WCA_values({...WCA_values, LCW_STATUS: e.target.value})
+       
+        const handleLCW = (e) => {
+            WCA_values.LCW === e.target.value ? set_WCA_values({...WCA_values, LCW: 0}) : set_WCA_values({...WCA_values, LCW: e.target.value})    
         }
         const handleLCWRA = (e) => {
-                set_WCA_values({...WCA_values, LCWRA: e.target.value})
+            WCA_values.LCWRA === e.target.value ? set_WCA_values({...WCA_values, LCWRA: 0}) : set_WCA_values({...WCA_values, LCWRA: e.target.value})
         }
-        const handleCarer = (e) => {
-                set_WCA_values({...WCA_values, CARER: e.target.value})
+        const handleCARER = (e) => {
+            WCA_values.CARER === e.target.value ? set_WCA_values({...WCA_values, CARER: 0}) : set_WCA_values({...WCA_values, CARER: e.target.value})
         }
+        
 
     // Couple Effects:
 
+
         useEffect(() => {
-            if(
-                WCA_values.LCW === "CLAIMANT" && 
-                WCA_values.CARER === "NONE" && 
-                WCA_values.LCWRA === "NONE") {
-                    /*Code to pay */
-                }
-            if(
-                WCA_values.LCW === "CLAIMANT" && 
-                WCA_values.CARER === "PARNTER")
-
-
+            setPropState({
+                type: "LCW_COUPLE", 
+                LCW: WCA_values.LCW , 
+                LCWRA: WCA_values.LCWRA ,
+                CE: WCA_values.CARER
+            })
         }, [WCA_values])
-
-
-
 
 
 
@@ -102,66 +91,36 @@ const WCA = ({propState, setPropState }) => {
                      </label>
                     
 {/*=======COUPLE========= */}
-                   
-                        <label className={label_dynamic}>Migration with LCW
-                            <input 
-                                onClick={handleClick} 
-                                value={true} 
-                                className={classes.checkbox} 
-                                disabled={propState.COUPLE !== "RS_COUPLE"}
-                                type="checkbox"/>
-                        </label>
-                        {clickLCW && 
-                        <label className={label_dynamic}
-                                style= {{color: propState.COUPLE !== "RS_COUPLE" && "grey" }}  
-                                htmlFor="select_WCA1">Limited capabilty for work (paid)
-                            <select 
-                                id="select_WCA1"
-                                className={classes.dropdown_select}
-                                onChange={handleLCW_A}>
-                                <option value="NONE">--select--</option>
-                                <option value="CLAIMANT">Claimant</option>
-                                <option value="PARTNER">Partner</option>
-                                <option Value="BOTH">Both</option>
-                            </select>  
-                        </label>}
-                         {!clickLCW && 
-                        <label className={label_dynamic} htmlFor="select_WCA2">LCW (Work Allowance only)
-                            <select
-                              id="select_WCA2" 
-                              className={classes.dropdown_select} 
-                              onChange={handleLCW_B}
-                              disabled={propState.COUPLE !== "RS_COUPLE"}>
-                                <option value="NONE">--select--</option>
-                                <option value="CLAIMANT">Claimant</option>
-                                <option value="PARTNER">Partner</option>
-                                <option value="BOTH">Both</option>
-                            </select>  
-                        </label>}
-                        <label className={label_dynamic} htmlFor="select_LCWRA"> LCW + Work Related Activity
-                            <select
-                              id="select_LCWRA" 
-                              className={classes.dropdown_select} 
-                              onChange={handleLCWRA}
-                              disabled={propState.COUPLE !== "RS_COUPLE"}>
-                                <option>--select--</option>
-                                <option>Claimant</option>
-                                <option>Partner</option>
-                                <option>Both</option>
-                            </select>  
-                        </label>
-                        <label className={label_dynamic} htmlFor="select_carer"> Carer Element
-                            <select
-                              id="select_carer" 
-                              className={classes.dropdown_select} 
-                              onChange={handleCarer}
-                              disabled={propState.COUPLE !== "RS_COUPLE"}>
-                                <option>--select--</option>
-                                <option>Claimant</option>
-                                <option>Partner</option>
-                                <option>Both</option>
-                            </select>  
-                        </label>
+                        <div className={classes.checkbox_container}>
+                            <label className={classes.checkbox_label} htmlFor="additional_elements">Add LCW (paid element) to the claim:
+                                <input 
+                                  onClick={handleLCW} 
+                                  value={UC_elements.LCW} 
+                                  className="checkbox" 
+                                  type="checkbox" 
+                                  disabled={WCA_values.LCWRA > 0}
+                                  />
+                            </label>
+                        </div>
+                        <div className={classes.checkbox_container}>
+                            <label className={classes.checkbox_label} htmlFor="additional_elements">Add LCWRA to the claim:
+                                <input 
+                                  onClick={handleLCWRA} 
+                                  value={UC_elements.LCWRA} 
+                                  className="checkbox" 
+                                  type="checkbox" />
+                            </label>
+                        </div>
+                        <div className={classes.checkbox_container}>
+                            <label className={classes.checkbox_label} htmlFor="additional_elements">Add Carer Element to the claim:
+                                <input 
+                                  onClick={handleCARER} 
+                                  value={UC_elements.carer} 
+                                  className="checkbox" 
+                                  type="checkbox" />
+                            </label>
+                        </div>
+
                      </div>
                 
             
