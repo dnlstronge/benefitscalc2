@@ -90,6 +90,14 @@
     height: 3rem;
     width: 16rem;
 }
+.checkbox_label_disabled {
+    color:rgb(168, 166, 166);
+    display: flex;
+    flex-direction: row;
+    height: 3rem;
+    width: 16rem;
+    
+}
 
 
 
@@ -101,3 +109,5 @@
     margin-left: 1rem;
 
 }
+
+

@@ -1,44 +1,16 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import classes from "./Totals.module.css"
-import UCElements from "../UCElements/UCElements";
+
 
 
 
 const Totals = ({PA, WCA, LCW, CE, TA}) => {
    
         //local state 
-    
-  console.log(typeof(PA))
-  console.log(typeof(WCA))
-  console.log(typeof(LCW))
-  console.log(typeof(CE))
-  console.log(typeof(TA))
-
-    
-   
-            
     const round = (x) => {
                 return Math.ceil( x * 100) /100
              }
-            
-     
 
-        //handle totals: 
-
-        // useEffect(() => {
-        //     const round = (x) => {
-        //         return Math.ceil( x * 100) /100
-        //      }
-        //     let a = round(propState.PA)
-        //     let b = round(propState.WCA)
-        //     let c = round(propState.CE)
-        //     let d = round(propState.LCW)
-        //     let e = round(propState.TA)
-
-        //     setTally(round(a + b + c + d + e))             
-        // }, [ propState.PA, propState.WCA, propState.CE, propState.LCW, propState.TA])
-
-       
         
      
 
@@ -48,7 +20,7 @@ const Totals = ({PA, WCA, LCW, CE, TA}) => {
             
             <label className={classes.label_amount} htmlFor="amount">
                 Personal Allowance:
-                <p className={classes.label_p} id="amount"> {PA}</p>
+                <p className={classes.label_p} id="amount">{PA}</p>
             </label>
             
             <label className={classes.label_amount} htmlFor="amount">Limited Capabilty for Work: 

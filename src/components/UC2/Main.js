@@ -7,35 +7,32 @@ import Transitional from "./WCA/Transitional"
 import CHILD from "./CHILD/CHILD"
 import UCElements from "./UCElements/UCElements"
 
-const UC_elements = UCElements
+
 
       
-const round = (x) => {
-    return Math.ceil( x * 100) /100
- }
 
 
 const MAIN_REDUCER = (state, action) => {
     switch(action.type) {
         
         case "TRANS" : {
-            return {...state, TA: round(action.val)}
+            return {...state, TA: action.val}
         }
         case "LCW_COUPLE" : {
-            return {...state, LCW: round(action.val)} 
+            return {...state, LCW: action.val} 
         }
         case "LCWRA_COUPLE" : {
-            return {...state, WCA: round(action.val)}
+            return {...state, WCA: action.val}
         }
         case "CE" : {
-            return {...state, CE: round(action.val)}
+            return {...state, CE: action.val}
         }
         
         case "RESET_WCA": {
             return {...state, WCA: '', CE: ''}
         }
         case "PA" : {
-            return {...state, PA: round(action.value)}
+            return {...state, PA: action.value}
         }
 
         case "COUPLE" : {
@@ -45,24 +42,28 @@ const MAIN_REDUCER = (state, action) => {
             return {...state, AGE: action.AGE}
         }
         case "NONE" : {
-            return {...state, WCA: round(action.WCA), CE: round(action.CE)}
+            return {...state, WCA: action.WCA, CE: action.CE}
         }
         case "LCW_NONE" : {
-            return {...state, WCA: round(action.WCA), CE: round(action.CE)}
+            return {...state, WCA: action.WCA, CE: action.CE}
         }
         case "LCW" : {
-            return {...state, WCA: round(action.WCA), CE: round(action.CE)}
+            return {...state, WCA: action.WCA, CE: action.CE}
         }
         case "LCWRA" : {
-            return {...state, WCA: round(action.WCA), CE: round(action.CE)}
+            return {...state, WCA: action.WCA, CE: action.CE}
         }
         case "CARER" : {
-            return {...state, WCA: round(action.WCA), CE: round(action.CE)}
+            return {...state, WCA: action.WCA, CE: action.CE}
         }
         default : {
         return }
     }
 }
+
+const round = (x) => {
+    return Math.ceil( x * 100) /100
+ }
 
 const Main = (props) => {
 
@@ -72,33 +73,24 @@ const Main = (props) => {
     //     }
     // )
 
-    useEffect(() => {
-        console.log(typeof(MAIN_STATE.PA))
-        console.log(typeof(MAIN_STATE.WCA))
-        console.log(typeof(MAIN_STATE.LCW))
-        console.log(typeof(MAIN_STATE.CE))
-        console.log(typeof(MAIN_STATE.TA))
-    }, [])
+   
   
 
     const [MAIN_STATE, MAIN_DISPATCH] = useReducer(MAIN_REDUCER, {
-        AGE: '',
-        COUPLE: '',
-        PA: '',
-        WCA: '',
-        CE: '',
-        LCW: '',
-        TA: '',
-        HC: '',
+        AGE: "",
+        COUPLE: "",
+        PA: 0,
+        WCA: 0,
+        CE: 0,
+        LCW: 0,
+        TA: 0,
+        HC: 0,
 
     })
 
     useEffect(() => {
 
-        
-        const round = (x) => {
-            return Math.ceil( x * 100) /100
-         }
+      
          const rs = MAIN_STATE.COUPLE
          const age = MAIN_STATE.AGE
        

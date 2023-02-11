@@ -95,9 +95,9 @@ const WCA = ({propState, setPropState }) => {
     // DYNAMIC CSS variables: 
 
         const checkbox_dynamic = propState.COUPLE === "RS_COUPLE" ? classes.checkbox_container : classes.checkbox_container_disabled
-        const label_dynamic_2 = propState.COUPLE === "RS_SINGLE" ? classes.dropdown_label : classes.dropdown_label_grey
-        
-  
+        const label_dynamic_2 = propState.COUPLE !== "RS_SINGLE" ? classes.dropdown_label_grey : classes.dropdown_label
+        const label_dynamic_3 = propState.WCA > 0 ? classes.checkbox_label_disabled : classes.checkbox_label
+        const label_dynamic_4 = propState.LCW > 0 ? classes.checkbox_label_disabled : classes.checkbox_label
    
     return (
         <React.Fragment>
@@ -123,7 +123,7 @@ const WCA = ({propState, setPropState }) => {
 
 
                         <div className={checkbox_dynamic}>
-                            <label className={classes.checkbox_label} htmlFor="additional_elements">Add LCW (paid)
+                            <label className={label_dynamic_3} htmlFor="additional_elements">Add LCW (paid)
                                 <input 
                                   id="additional_elements"
                                   onClick={handleLCW} 
@@ -135,7 +135,7 @@ const WCA = ({propState, setPropState }) => {
                             </label>
                         </div>
                         <div className={checkbox_dynamic}>
-                            <label className={classes.checkbox_label} htmlFor="additional_elements">Add LCWRA
+                            <label className={label_dynamic_4} htmlFor="additional_elements">Add LCWRA
                                 <input 
                                   id="additional_elements"
                                   onClick={handleLCWRA} 
