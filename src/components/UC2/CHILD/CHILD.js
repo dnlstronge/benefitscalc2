@@ -8,19 +8,23 @@ const postARIL = UCElements.child_2nd
 const CHILD = ({ setPropState }) => {
 
     const[oldest, setOldest] = useState(false)
-
+    const[numChildren, setNumChildren] = useState(0)
     const handleOldest = (e) => {
           oldest ? setOldest(false) : setOldest(true)
           
           
     }
     const calcChildren = (n) => {
-        if(oldest && n === 1) {
+        if(oldest && n == 1) {
             return preARIL 
         }
         if(oldest && n > 1 ) {
             return (n * postARIL - postARIL) + preARIL
         }
+    }
+
+    const handleChildren = (e) => {
+        
     }
     return (
         <React.Fragment>
@@ -36,18 +40,18 @@ const CHILD = ({ setPropState }) => {
           <div className={classes.sub_container}>
             <label className={classes.child_label} htmlFor="children_selection"> Number of Children exempt from 2 child limit
                 <select className={classes.child_select} id="children_selection">
-                    <option>--select--</option>
-                    <option>none</option>
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                    <option>6</option>
-                    <option>7</option>
-                    <option>8</option>
-                    <option>9</option>
-                    <option>10</option>
+                    <option value="0">--select--</option>
+                    <option value="0">none</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
                 </select>
             </label>
           </div>
