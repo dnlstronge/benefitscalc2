@@ -10,28 +10,24 @@ const CHILD = ({ setPropState }) => {
     const[oldest, setOldest] = useState(false)
     const[numChildren, setNumChildren] = useState(0)
     const handleOldest = (e) => {
+          setNumChildren(0)
           oldest ? setOldest(false) : setOldest(true)
           
           
     }
     const calcChildren = (n) => {
-        
-        if(oldest === true && n === 1) {
-            return preAPRIL 
-        }
-        if(oldest === true && n > 1 ) {
             return (n * postAPRIL - postAPRIL) + preAPRIL
-        }
-        else {
-            return n * postAPRIL
-        }
     }
 
     const handleChildren = (e) => {
         if(e.target.value === 0 ) {
             return
-        } else {
+        } 
+        if(oldest === true) {
             return  setNumChildren(calcChildren(e.target.value))
+        }
+        else {
+            setNumChildren(postAPRIL * e.target.value)
         }
     }
     return (
@@ -47,6 +43,7 @@ const CHILD = ({ setPropState }) => {
           {/* oldest born after */}
           <div className={classes.sub_container}>
             <label className={classes.child_label} htmlFor="children_selection"> Number of Children exempt from 2 child limit
+                {!oldest && 
                 <select onChange={handleChildren} className={classes.child_select} id="children_selection">
                     <option value="0">--select--</option>
                     <option value="0">none</option>
@@ -60,7 +57,22 @@ const CHILD = ({ setPropState }) => {
                     <option value="8">8</option>
                     <option value="9">9</option>
                     <option value="10">10</option>
-                </select>
+                </select>}
+                {oldest && 
+                <select onChange={handleChildren} className={classes.child_select} id="children_selection">
+                    <option value="0">--select--</option>
+                    <option value="0">none</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                </select>}
             </label>
             <div>TEST {numChildren} </div>
           </div>
