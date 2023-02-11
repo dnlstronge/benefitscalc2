@@ -4,7 +4,11 @@ import classes from "./CHILD.module.classes"
 const CHILD = ({ setPropState }) => {
     return (
         <React.Fragment>
-            <div className={classes.container}></div>
+            <div className={classes.container}>
+                <h4 className={classes.heading}>Child Elements</h4>
+                
+            </div>
         </React.Fragment>
     )
 }
+export default CHILD;

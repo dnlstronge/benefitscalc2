@@ -79,7 +79,7 @@ return (
                 <WCA propState={MAIN_STATE} setPropState={MAIN_DISPATCH}/>
                 <Transitional propState={MAIN_STATE} setPropState={MAIN_DISPATCH}/>
               </div>
-              <div className={CHILD_container}>
+              <div className={classes.CHILD_container}>
                 <CHILD propState={MAIN_STATE} setPropState={MAIN_DISPATCH}/>
               </div>
               <Totals propState={MAIN_STATE}/>
