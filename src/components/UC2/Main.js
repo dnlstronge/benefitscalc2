@@ -4,6 +4,7 @@ import PA from "./PA/PA"
 import Totals from "./Totals/Totals"
 import WCA from "./WCA/WCA"
 import Transitional from "./WCA/Transitional"
+import CHILD from "./CHILD/CHILD"
 
 
 
@@ -77,6 +78,9 @@ return (
                  <PA propState={MAIN_STATE} setPropState={MAIN_DISPATCH}/>
                 <WCA propState={MAIN_STATE} setPropState={MAIN_DISPATCH}/>
                 <Transitional propState={MAIN_STATE} setPropState={MAIN_DISPATCH}/>
+              </div>
+              <div className={CHILD_container}>
+                <CHILD propState={MAIN_STATE} setPropState={MAIN_DISPATCH}/>
               </div>
               <Totals propState={MAIN_STATE}/>
             </div>
