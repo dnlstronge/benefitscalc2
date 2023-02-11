@@ -4,64 +4,39 @@ import UCElements from "../UCElements/UCElements";
 
 
 
-const Totals = ({
-     propState, 
-     rs = propState.AGE, 
-     age = propState.COUPLE,
-     
-     }) => {
-
+const Totals = ({PA, WCA, LCW, CE, TA}) => {
+   
         //local state 
+    
+  console.log(typeof(PA))
+  console.log(typeof(WCA))
+  console.log(typeof(LCW))
+  console.log(typeof(CE))
+  console.log(typeof(TA))
 
-    const [PA, setPA ] = useState(null)
-    const [tally, setTally] = useState(0)
+    
+   
             
-    useEffect(() => {
-
-        
-        let S_UNDER = UCElements.single_under25
-        let S_OVER = UCElements.single_over25
-        let C_UNDER = UCElements.joint_under25
-        let C_OVER = UCElements.joint_over25
-
-        if(propState.AGE === "AGE_NONE" || propState.COUPLE === "RS_NONE")
+    const round = (x) => {
+                return Math.ceil( x * 100) /100
+             }
             
-            setPA(null)
-            
-
-        if(propState.AGE === "AGE_UNDER" && propState.COUPLE === "RS_SINGLE")
-            
-            setPA(S_UNDER)
-            
-            
-        if(propState.AGE === "AGE_UNDER" && propState.COUPLE === "RS_COUPLE")
-            
-            setPA(C_UNDER)
-            
-        if(propState.AGE === "AGE_OVER" && propState.COUPLE === "RS_SINGLE")
-        
-            setPA(S_OVER)
-        
-        if(propState.AGE === "AGE_OVER" && propState.COUPLE === "RS_COUPLE")
-            
-            setPA(C_OVER)
-            
-        }, [propState.AGE, propState.COUPLE, PA])
+     
 
         //handle totals: 
 
-        useEffect(() => {
-            const round = (x) => {
-                return Math.ceil( x * 100) /100
-             }
-            let a = round(PA)
-            let b = round(propState.WCA)
-            let c = round(propState.CE)
-            let d = round(propState.LCW)
-            let e = round(propState.TA)
+        // useEffect(() => {
+        //     const round = (x) => {
+        //         return Math.ceil( x * 100) /100
+        //      }
+        //     let a = round(propState.PA)
+        //     let b = round(propState.WCA)
+        //     let c = round(propState.CE)
+        //     let d = round(propState.LCW)
+        //     let e = round(propState.TA)
 
-            setTally(round(a + b + c + d + e))              
-        }, [ PA, propState.WCA, propState.CE, propState.LCW, propState.TA])
+        //     setTally(round(a + b + c + d + e))             
+        // }, [ propState.PA, propState.WCA, propState.CE, propState.LCW, propState.TA])
 
        
         
@@ -77,19 +52,26 @@ const Totals = ({
             </label>
             
             <label className={classes.label_amount} htmlFor="amount">Limited Capabilty for Work: 
-                <p className={classes.label_p} id="amount">{propState.LCW}</p>
+                <p className={classes.label_p} id="amount">{LCW}</p>
             </label>
             <label className={classes.label_amount} htmlFor="amount">LCW + Work Related Activity: 
-                <p className={classes.label_p} id="amount">{propState.WCA}</p>
+                <p className={classes.label_p} id="amount">{WCA}</p>
             </label>
             <label className={classes.label_amount} htmlFor="amount">Legacy transitional amount: 
-                <p className={classes.label_p} id="amount">{propState.TA}</p>
+                <p className={classes.label_p} id="amount">{TA}</p>
             </label>
              <label className={classes.label_amount} htmlFor="amount">Carer element: 
-                <p className={classes.label_p} id="amount">{propState.CE}</p>
+                <p className={classes.label_p} id="amount">{CE}</p>
             </label>
             <label className={classes.label_amount} htmlFor="amount">Max UC: 
-                <p className={classes.label_p} id="amount">{tally}</p>
+                <p className={classes.label_p} id="amount">{
+                    round(PA
+                    + WCA
+                    + LCW
+                    + CE
+                    + TA
+                    )
+                }</p>
             </label>
          
         </div>
