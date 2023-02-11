@@ -1,0 +1,50 @@
+.container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background: white;
+    width: 80%;
+    height: auto;
+    margin: 1rem 1rem 1rem 1rem;
+    border: 2px solid black;
+    border-radius: 5px;
+}
+.heading {
+    margin: 1rem 1rem 1rem 1rem;
+    text-align: center;
+}
+.dropdown_label {
+    color: black;
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    height: 3rem;
+    width: 90%;
+    margin: 1rem 0rem 2rem 1rem;
+}
+.dropdown_select {
+    display: flex;
+    flex-direction: column;
+    height: 2rem;
+    width: 90%;
+    margin: 0.5rem 0.5rem 0.5rem 0rem;
+    
+}
+.checkbox_label {
+    color: black;
+    font-weight: bold;
+    display: flex;
+    flex-direction: row;
+    height: 3rem;
+    width: 90%;
+    margin: 1rem 0rem 2rem 1rem;
+
+}
+.checkbox_input {
+    display: flex;
+    flex-direction: row;
+    width: 1rem;
+    height: 1rem;
+    margin-left: 1rem;
+
+}

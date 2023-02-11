@@ -37,14 +37,10 @@ const CHILD = ({ setPropState }) => {
                 <label htmlFor="oldest_checkbox" className={classes.checkbox_label}> Oldest child born before 6-APR-2017
                     <input value={oldest} onClick={handleOldest} id="oldest_checkbox" type="checkbox"></input>
                 </label>
-                <label className={classes.dropdown_label} htmlFor="exempt_child"></label>
-            </div>
-
-          {/* oldest born after */}
-          <div className={classes.sub_container}>
-            <label className={classes.child_label} htmlFor="children_selection"> Number of Children exempt from 2 child limit
+          {/* oldest born after */}     
+            <label className={classes.dropdown_label} htmlFor="children_selection"> Number of Children exempt from 2 child limit
                 {!oldest && 
-                <select onChange={handleChildren} className={classes.child_select} id="children_selection">
+                <select onChange={handleChildren} className={classes.dropdown_select} id="children_selection">
                     <option value="0">--select--</option>
                     <option value="0">none</option>
                     <option value="1">1</option>
@@ -59,7 +55,7 @@ const CHILD = ({ setPropState }) => {
                     <option value="10">10</option>
                 </select>}
                 {oldest && 
-                <select onChange={handleChildren} className={classes.child_select} id="children_selection">
+                <select onChange={handleChildren} className={classes.dropdown_select} id="children_selection">
                     <option value="0">--select--</option>
                     <option value="0">none</option>
                     <option value="1">1</option>
@@ -74,7 +70,9 @@ const CHILD = ({ setPropState }) => {
                     <option value="10">10</option>
                 </select>}
             </label>
-            <div>TEST {numChildren} </div>
+            <label className={classes.dropdown_label} htmlFor="exempt_child"></label>
+            
+          
           </div>
 
             
