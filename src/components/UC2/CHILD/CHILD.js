@@ -50,13 +50,13 @@ const CHILD = ({ setPropState }) => {
     }
     const handleChildcareValue = (e) => {
         if(childcare.children === "1") {
-            console.log("fuckityfuck")
-            setChildCare({...childcare, amount: e.target.value})
+            
+            setChildCare({...childcare, amount: e.target.value * 0.85})
             e.target.value > C1 ? setWarning({...warning, warn1: true}) : setWarning({...warning, warn1: false})
         }
         if(childcare.children === "2") {
             
-            setChildCare({...childcare, amount: e.target.value})
+            setChildCare({...childcare, amount: e.target.value * 0.85})
             e.target.value > C2 ? setWarning({...warning, warn2: true}) : setWarning({...warning, warn2: false})
         }
     }
