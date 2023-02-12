@@ -79,10 +79,26 @@ const CHILD = ({ setPropState }) => {
                     <option value="10">10</option>
                 </select>}
             </label>
-            <label className={classes.dropdown_label} htmlFor="exempt_child"></label>
+            
          {/*Disabiloty */}
             <label htmlFor="child_disabled" className={classes.dropdown_label}>Disability Low
                 <select onChange={handleDLA_LOW} id="child_disabled" className={classes.dropdown_select}>
+                    <option value="0">--select--</option>
+                    <option value="0">None</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                </select>
+            </label>
+            <label htmlFor="child_disabled" className={classes.dropdown_label}>Disability High
+                <select onChange={handleDLA_HIGH} id="child_disabled" className={classes.dropdown_select}>
                     <option value="0">--select--</option>
                     <option value="0">None</option>
                     <option value="1">1</option>
