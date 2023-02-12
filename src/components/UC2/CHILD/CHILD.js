@@ -4,11 +4,17 @@ import UCElements from "../UCElements/UCElements"
 
 const preAPRIL = UCElements.child_1st
 const postAPRIL = UCElements.child_2nd
+const dlaLow = UCElements.disabled_child_lower
+const dlaHigh = UCElements.disabled_child_higher
 
 const CHILD = ({ setPropState }) => {
 
+     /* == Local state == */
+    const [childDLA, setChildDLA ] = useState({ LOW: 0, HIGH: 0})
     const[oldest, setOldest] = useState(false)
     const[numChildren, setNumChildren] = useState(0)
+
+    /* == handlers == */
     const handleOldest = (e) => {
           setNumChildren(0)
           oldest ? setOldest(false) : setOldest(true)
@@ -46,7 +52,7 @@ const CHILD = ({ setPropState }) => {
                     <input value={oldest} onClick={handleOldest} id="oldest_checkbox" type="checkbox"></input>
                 </label>
           {/* oldest born after */}     
-            <label className={classes.dropdown_label} htmlFor="children_selection"> The oldest 2 children plus any who are exempt from 2 child limit
+            <label className={classes.dropdown_labelB} htmlFor="children_selection"> The oldest 2 children plus any who are exempt from 2 child limit
                 {!oldest && 
                 <select onChange={handleChildren} className={classes.dropdown_select} id="children_selection">
                     <option value="0">--select--</option>
@@ -80,7 +86,7 @@ const CHILD = ({ setPropState }) => {
                 </select>}
             </label>
             
-         {/*Disabiloty */}
+         {/*Disability */}
             <label htmlFor="child_disabled" className={classes.dropdown_label}>Disability Low
                 <select onChange={handleDLA_LOW} id="child_disabled" className={classes.dropdown_select}>
                     <option value="0">--select--</option>
