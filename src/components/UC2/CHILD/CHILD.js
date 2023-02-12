@@ -140,7 +140,7 @@ const CHILD = ({ setPropState }) => {
                     </select>
                 </label>
                 <label className={disabled} htmlFor="childcare_value"> Enter childcare amount
-                    <input onChange={handleChildcareValue} className={classes.input_childcare} type="number"></input>
+                    <input disabled={childcare.children === 0} onChange={handleChildcareValue} className={classes.input_childcare} type="number"></input>
                 </label>
                 
            </div>
