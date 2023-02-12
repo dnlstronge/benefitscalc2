@@ -41,8 +41,11 @@ const CHILD = ({ setPropState }) => {
     const handleDLA_HIGH = (e) => {
         setChildDLA({...childDLA, HIGH: dlaHigh * e.target.value})
     }
-    const handleChildcare = () => {
-        
+    const handleChildcare = (e) => {
+
+    }
+    const handleChildcareValue = (e) => {
+
     }
 
     return (
@@ -129,7 +132,9 @@ const CHILD = ({ setPropState }) => {
                         <option value="2">2+ children</option>
                     </select>
                 </label>
-                <label></label>
+                <label className={classes.dropdown_label} htmlFor="childcare_value">
+                    <input onChange={handleChildcareValue} className={classes.input_childcare} type="number"></input>
+                </label>
                 
            </div>
 
