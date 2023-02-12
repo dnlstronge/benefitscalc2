@@ -11,8 +11,9 @@ const CHILD = ({ setPropState }) => {
 
      /* == Local state == */
     const [childDLA, setChildDLA ] = useState({ LOW: 0, HIGH: 0})
-    const[oldest, setOldest] = useState(false)
-    const[numChildren, setNumChildren] = useState(0)
+    const [childcare, setChildCare] = useState({children: 0, amount: 0})
+    const [oldest, setOldest] = useState(false)
+    const [numChildren, setNumChildren] = useState(0)
 
     /* == handlers == */
     const handleOldest = (e) => {
@@ -42,7 +43,7 @@ const CHILD = ({ setPropState }) => {
         setChildDLA({...childDLA, HIGH: dlaHigh * e.target.value})
     }
     const handleChildcare = (e) => {
-
+        
     }
     const handleChildcareValue = (e) => {
 
@@ -132,7 +133,7 @@ const CHILD = ({ setPropState }) => {
                         <option value="2">2+ children</option>
                     </select>
                 </label>
-                <label className={classes.dropdown_label} htmlFor="childcare_value">
+                <label className={classes.dropdown_label} htmlFor="childcare_value"> Enter childcare amount
                     <input onChange={handleChildcareValue} className={classes.input_childcare} type="number"></input>
                 </label>
                 
