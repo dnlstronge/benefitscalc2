@@ -4,7 +4,9 @@ import classes from "./Hous.module.css"
 const Hous = (props) => {
     return (
         <React.Fragment>
-            <div className={classes.container}>
+        <div className={classes.container}>
+        <h4 className={classes.heading}>Housing Costs</h4>
+            <div className={classes.sub_container}>
                 <select className={classes.select_type}>
                     <option>--Housing Type--</option>
                     <option>Social sector</option>
@@ -19,6 +21,16 @@ const Hous = (props) => {
                     <option>Weekly</option>
                     <option>Monthly</option>
                 </select>
+            </div>
+            <label htmlFor="rates">Rates: 
+                <input className={classes.rates_input} id="rates"></input>
+                <select className={classes.rates_select}>
+                <option>--frequency--</option>
+                <option>--Weekly--</option>
+                <option>--Monthly--</option>
+                </select>
+                
+            </label>
             </div>
         </React.Fragment>
     )

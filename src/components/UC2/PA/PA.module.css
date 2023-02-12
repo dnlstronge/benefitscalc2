@@ -8,6 +8,9 @@
     border: 2px solid black;
     border-radius: 5px;
 }
+.heading {
+    text-align: center;
+}
 .warning_container {
     margin-left: 1rem;
     margin-bottom: 0;

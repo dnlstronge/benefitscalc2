@@ -24,6 +24,7 @@ const PA = ({propState, setPropState}) => {
         <React.Fragment>
         
             <div className={classes.container}>
+                <h4 className={classes.heading}>Personal Allowance</h4>
                 <label className={classes.dropdown_label} htmlFor="select_status">Couple/Single:
                     <select onChange={handleCouple} className={classes.dropdown_select}>
                         <option value="RS_NONE">--select--</option>
