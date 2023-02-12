@@ -13,7 +13,7 @@ const CHILD = ({ setPropState }) => {
 
      /* == Local state == */
     const [childDLA, setChildDLA ] = useState({ LOW: '', HIGH: ''})
-    const [childcare, setChildCare] = useState({children: 0, amount: 0})
+    const [childcare, setChildCare] = useState({children: "0", amount: 0})
     const [warning, setWarning] = useState({warn1: false, warn2: false})
     const [oldest, setOldest] = useState(false)
     const [numChildren, setNumChildren] = useState(0)
