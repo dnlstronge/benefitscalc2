@@ -6,13 +6,16 @@ const preAPRIL = UCElements.child_1st
 const postAPRIL = UCElements.child_2nd
 const dlaLow = UCElements.disabled_child_lower
 const dlaHigh = UCElements.disabled_child_higher
+const C1 = UCElements.childcare_1
+const C2 = UCElements.childcare_2
 
 const CHILD = ({ setPropState }) => {
 
      /* == Local state == */
     const [childDLA, setChildDLA ] = useState({ LOW: 0, HIGH: 0})
     const [childcare, setChildCare] = useState({children: 0, amount: 0})
-    const [oldest, setOldest] = useState(false)
+    const [warning, setWarning] = useState({warn1: false, warn2: false})
+     const [oldest, setOldest] = useState(false)
     const [numChildren, setNumChildren] = useState(0)
 
     /* == handlers == */
@@ -46,8 +49,18 @@ const CHILD = ({ setPropState }) => {
         setChildCare({...childcare, children: e.target.value})
     }
     const handleChildcareValue = (e) => {
-
+        if(childcare.children === "1") {
+            console.log("fuckityfuck")
+            setChildCare({...childcare, amount: e.target.value})
+            e.target.value > C1 ? setWarning({...warning, warn1: true}) : setWarning({...warning, warn1: false})
+        }
+        if(childcare.children === "2") {
+            
+            setChildCare({...childcare, amount: e.target.value})
+            e.target.value > C2 ? setWarning({...warning, warn2: true}) : setWarning({...warning, warn2: false})
+        }
     }
+        
 
 
 
@@ -139,9 +152,19 @@ const CHILD = ({ setPropState }) => {
                         <option value="2">2+ children</option>
                     </select>
                 </label>
+                
+                
                 <label className={disabled} htmlFor="childcare_value"> Enter childcare amount
-                    <input disabled={childcare.children === 0} onChange={handleChildcareValue} className={classes.input_childcare} type="number"></input>
+                    <input disabled={childcare.children === "0"} onChange={handleChildcareValue} className={classes.input_childcare} type="number"></input>
                 </label>
+                <div className={classes.warning_container}>
+                    {warning.warn1 && 
+                    <p>Error: childcare for one child cannot exceed £{C1}</p>}
+                    {warning.warn2 && 
+                    <p>Error: childcare for two children cannot exceeed £{C2}</p>}
+                </div>
+                
+
                 
            </div>
 
