@@ -162,7 +162,7 @@ const CHILD = ({ setPropState }) => {
                     </select>
                 </label>
         {/* Childcare Costs */}
-                <label htmlFor="childcare1" className={classes.dropdown_label}>Select childcare
+                <label htmlFor="childcare1" className={classes.dropdown_label}>Enter monthly childcare
                     <select id="childcare1" onChange={handleChildcare} className={classes.dropdown_childcare}>
                         <option value="0">--select--</option>
                         <option value="0">None</option>
