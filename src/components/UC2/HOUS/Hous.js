@@ -22,12 +22,12 @@ const Hous = (props) => {
                     <option>Monthly</option>
                 </select>
             </div>
-            <label htmlFor="rates">Rates: 
-                <input className={classes.rates_input} id="rates"></input>
-                <select className={classes.rates_select}>
-                <option>--frequency--</option>
-                <option>--Weekly--</option>
-                <option>--Monthly--</option>
+            <label htmlFor="rates" className={classes.rates_label}>Rates: 
+                <input className={classes.rates_input} id="rates" type="number"></input>
+                <select className={classes.rates_freq}>
+                    <option>--frequency--</option>
+                    <option>--Weekly--</option>
+                    <option>--Monthly--</option>
                 </select>
                 
             </label>

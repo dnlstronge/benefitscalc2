@@ -4,7 +4,7 @@
     flex-direction: row;
     background: white;
     width: 90%;
-    height: 10rem;
+    height: 12rem;
     margin: 1rem 1rem 1rem 1rem;
     border: 2px solid black;
     border-radius: 5px;
@@ -30,7 +30,7 @@
 .select_amount {
     display: flex;
     width: 4rem;
-    height: 2rem;
+    height: 1.7rem;
     margin-left: 1rem;
     margin-top: 1rem;
 }
@@ -41,4 +41,24 @@
     margin-left: 1rem;
     margin-top: 1rem;
     margin-right: 1rem;
+}
+
+.rates_label {
+    display: flex;
+    font-weight: bold;
+    width: 90%;
+    padding-right: 1rem;
+    padding-left: 1rem;
+    margin-top: 2rem;
+}
+.rates_input {
+    display: flex;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    width: 5rem;
+}
+.rates_freq {
+   display: flex;
+   width: 6rem;
+   
 }
