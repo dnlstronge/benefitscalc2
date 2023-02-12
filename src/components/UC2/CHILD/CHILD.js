@@ -17,9 +17,7 @@ const CHILD = ({ setPropState }) => {
     /* == handlers == */
     const handleOldest = (e) => {
           setNumChildren(0)
-          oldest ? setOldest(false) : setOldest(true)
-          
-          
+          oldest ? setOldest(false) : setOldest(true)  
     }
     const calcChildren = (n) => {
             return (n * postAPRIL - postAPRIL) + preAPRIL
@@ -38,10 +36,10 @@ const CHILD = ({ setPropState }) => {
     }
 
     const handleDLA_LOW = (e) => {
-
+        setChildDLA({...childDLA, LOW: dlaLow * e.target.value})
     }
     const handleDLA_HIGH = (e) => {
-        
+        setChildDLA({...childDLA, HIGH: dlaHigh * e.target.value})
     }
 
     return (
@@ -119,6 +117,8 @@ const CHILD = ({ setPropState }) => {
                         <option value="10">10</option>
                     </select>
                 </label>
+
+                <div>TEST: {childDLA.LOW} TEST: {childDLA.HIGH}</div>
            </div>
 
             
