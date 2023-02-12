@@ -69,7 +69,7 @@ const CHILD = ({ setPropState }) => {
        
         setPropState({
 
-            type: "CHILD_ELEMENTS" , 
+            type: "CHILD_ELEMENTS", 
             children: numChildren, 
             disability_low: childDLA.LOW,
             disability_high: childDLA.HIGH,
@@ -179,9 +179,6 @@ const CHILD = ({ setPropState }) => {
                     {warning.warn2 && 
                     <p>Error: childcare for two children cannot exceeed £{C2}</p>}
                 </div>
-                
-
-                
            </div>
 
             
