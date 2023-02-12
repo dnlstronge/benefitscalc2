@@ -52,9 +52,9 @@ const CHILD = ({ setPropState }) => {
                     <input value={oldest} onClick={handleOldest} id="oldest_checkbox" type="checkbox"></input>
                 </label>
           {/* oldest born after */}     
-            <label className={classes.dropdown_labelB} htmlFor="children_selection"> The oldest 2 children plus any who are exempt from 2 child limit
-                {!oldest && 
-                <select onChange={handleChildren} className={classes.dropdown_select} id="children_selection">
+                <label className={classes.dropdown_labelB} htmlFor="children_selection"> The oldest 2 children plus any who are exempt from 2 child limit
+                  {!oldest && 
+                   <select onChange={handleChildren} className={classes.dropdown_select} id="children_selection">
                     <option value="0">--select--</option>
                     <option value="0">none</option>
                     <option value="1">1</option>
@@ -67,10 +67,10 @@ const CHILD = ({ setPropState }) => {
                     <option value="8">8</option>
                     <option value="9">9</option>
                     <option value="10">10</option>
-                </select>}
+                  </select>}
           {/* oldest born before */}   
-                {oldest && 
-                <select onChange={handleChildren} className={classes.dropdown_select} id="children_selection">
+                  {oldest && 
+                  <select onChange={handleChildren} className={classes.dropdown_select} id="children_selection">
                     <option value="0">--select--</option>
                     <option value="0">none</option>
                     <option value="1">1</option>
@@ -83,44 +83,43 @@ const CHILD = ({ setPropState }) => {
                     <option value="8">8</option>
                     <option value="9">9</option>
                     <option value="10">10</option>
-                </select>}
-            </label>
+                 </select>}
+               </label>
             
          {/*Disability */}
-            <label htmlFor="child_disabled" className={classes.dropdown_label}>Disability Low
-                <select onChange={handleDLA_LOW} id="child_disabled" className={classes.dropdown_select}>
-                    <option value="0">--select--</option>
-                    <option value="0">None</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                    <option value="7">7</option>
-                    <option value="8">8</option>
-                    <option value="9">9</option>
-                    <option value="10">10</option>
-                </select>
-            </label>
-            <label htmlFor="child_disabled" className={classes.dropdown_label}>Disability High
-                <select onChange={handleDLA_HIGH} id="child_disabled" className={classes.dropdown_select}>
-                    <option value="0">--select--</option>
-                    <option value="0">None</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                    <option value="7">7</option>
-                    <option value="8">8</option>
-                    <option value="9">9</option>
-                    <option value="10">10</option>
-                </select>
-            </label>
-          
-          </div>
+                <label htmlFor="child_disabled" className={classes.dropdown_label}>Disability Low
+                    <select onChange={handleDLA_LOW} id="child_disabled" className={classes.dropdown_select}>
+                        <option value="0">--select--</option>
+                        <option value="0">None</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                    </select>
+                </label>
+                <label htmlFor="child_disabled" className={classes.dropdown_label}>Disability High
+                    <select onChange={handleDLA_HIGH} id="child_disabled" className={classes.dropdown_select}>
+                        <option value="0">--select--</option>
+                        <option value="0">None</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                    </select>
+                </label>
+           </div>
 
             
         </React.Fragment>
