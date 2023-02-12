@@ -43,11 +43,17 @@ const CHILD = ({ setPropState }) => {
         setChildDLA({...childDLA, HIGH: dlaHigh * e.target.value})
     }
     const handleChildcare = (e) => {
-        
+        setChildCare({...childcare, children: e.target.value})
     }
     const handleChildcareValue = (e) => {
 
     }
+
+
+
+    /* conditional Style */
+
+    const disabled  = childcare.children > 0 ? classes.childcare_label : classes.childcare_label_disabled
 
     return (
         <React.Fragment>
@@ -133,7 +139,7 @@ const CHILD = ({ setPropState }) => {
                         <option value="2">2+ children</option>
                     </select>
                 </label>
-                <label className={classes.dropdown_label} htmlFor="childcare_value"> Enter childcare amount
+                <label className={disabled} htmlFor="childcare_value"> Enter childcare amount
                     <input onChange={handleChildcareValue} className={classes.input_childcare} type="number"></input>
                 </label>
                 

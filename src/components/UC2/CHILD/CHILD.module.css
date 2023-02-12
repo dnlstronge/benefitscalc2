@@ -60,6 +60,22 @@
 .dropdown_childcare {
     margin-right: 1.5rem;
 }
+.childcare_label {
+    display: flex;
+    flex-direction: column;
+    font-weight: bold;
+    margin: 1rem 1rem 1rem 1rem;
+}
+.childcare_label_disabled {
+    color: rgb(168, 166, 166);
+    display: flex;
+    flex-direction: column;
+    font-weight: bold;
+    margin: 1rem 1rem 1rem 1rem;
+}
+
 .input_childcare {
-    
+    display: flex;
+    margin-top: 0.5rem;
+    margin-right: 1rem;
 }
