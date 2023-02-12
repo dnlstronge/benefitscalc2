@@ -47,7 +47,7 @@ const CHILD = ({ setPropState }) => {
             <div className={classes.container}>
                 <h4 className={classes.heading}>Child Elements</h4>
                 <label htmlFor="oldest_checkbox" className={classes.checkbox_label}> Oldest child born before 6-APR-2017
-                    <input value={oldest} onClick={handleOldest} id="oldest_checkbox" type="checkbox"></input>
+                    <input className={classes.checkbox_input} value={oldest} onClick={handleOldest} id="oldest_checkbox" type="checkbox"></input>
                 </label>
           {/* oldest born after */}     
                 <label className={classes.dropdown_labelB} htmlFor="children_selection"> The oldest 2 children plus any who are exempt from 2 child limit
@@ -118,7 +118,7 @@ const CHILD = ({ setPropState }) => {
                     </select>
                 </label>
 
-                <div>TEST: {childDLA.LOW} TEST: {childDLA.HIGH}</div>
+                
            </div>
 
             
