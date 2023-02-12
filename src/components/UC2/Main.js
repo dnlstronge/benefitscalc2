@@ -15,6 +15,19 @@ import UCElements from "./UCElements/UCElements"
 const MAIN_REDUCER = (state, action) => {
     switch(action.type) {
         
+        /* Child elements */
+
+        case "CHILD_ELEMENTS": {
+            return {...state, 
+                CHILD: action.children,
+                CHILD_D_LOW: action.disability_low,
+                CHILD_D_HIGH: action.disability_high,
+                CHILDCARE: action.childcare
+            }
+        }
+
+        /* Work Capabilty (couple) */
+        
         case "TRANS" : {
             return {...state, TA: action.val}
         }
@@ -27,21 +40,8 @@ const MAIN_REDUCER = (state, action) => {
         case "CE" : {
             return {...state, CE: action.val}
         }
-        
-        case "RESET_WCA": {
-            return {...state, WCA: '', CE: ''}
-        }
-        case "PA" : {
-            return {...state, PA: action.value}
-        }
-
-        case "COUPLE" : {
-            return {...state, COUPLE: action.COUPLE}
-        }
-        case "AGE" : {
-            return {...state, AGE: action.AGE}
-        }
-        case "NONE" : {
+          /* Work Capabilty (single) */
+          case "NONE" : {
             return {...state, WCA: action.WCA, CE: action.CE}
         }
         case "LCW_NONE" : {
@@ -56,6 +56,22 @@ const MAIN_REDUCER = (state, action) => {
         case "CARER" : {
             return {...state, WCA: action.WCA, CE: action.CE}
         }
+        /* Personal Allowances */
+
+        case "RESET_WCA": {
+            return {...state, WCA: '', CE: ''}
+        }
+        case "PA" : {
+            return {...state, PA: action.value}
+        }
+
+        case "COUPLE" : {
+            return {...state, COUPLE: action.COUPLE}
+        }
+        case "AGE" : {
+            return {...state, AGE: action.AGE}
+        }
+      
         default : {
         return }
     }
@@ -85,6 +101,10 @@ const Main = (props) => {
         LCW: 0,
         TA: 0,
         HC: 0,
+        CHILD: 0,
+        CHILD_D_LOW: 0,
+        CHILD_D_HIGH: 0,
+        CHILDCARE: 0
 
     })
 
@@ -120,6 +140,9 @@ const Main = (props) => {
 
         }, [MAIN_STATE.AGE, MAIN_STATE.COUPLE])
 
+        console.log(typeof(MAIN_STATE.CHILD_D_HIGH))
+        console.log(typeof(MAIN_STATE.CHILD_D_LOW))
+
 return (
         <React.Fragment>
             <div className={classes.container}>
@@ -136,7 +159,11 @@ return (
                 WCA={round(MAIN_STATE.WCA)}
                 LCW={round(MAIN_STATE.LCW)}
                 CE={round(MAIN_STATE.CE)} 
-                TA={round(MAIN_STATE.TA)} />
+                TA={round(MAIN_STATE.TA)}
+                CHILD={round(MAIN_STATE.CHILD)}
+                CDL={round(MAIN_STATE.CHILD_D_LOW)}
+                CDH={round(MAIN_STATE.CHILD_D_HIGH)}
+                CC={round(MAIN_STATE.CHILDCARE)}  />
             </div>
         </React.Fragment>
 )

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import classes from "./CHILD.module.css"
 import UCElements from "../UCElements/UCElements"
 
@@ -12,10 +12,10 @@ const C2 = UCElements.childcare_2
 const CHILD = ({ setPropState }) => {
 
      /* == Local state == */
-    const [childDLA, setChildDLA ] = useState({ LOW: 0, HIGH: 0})
+    const [childDLA, setChildDLA ] = useState({ LOW: '', HIGH: ''})
     const [childcare, setChildCare] = useState({children: 0, amount: 0})
     const [warning, setWarning] = useState({warn1: false, warn2: false})
-     const [oldest, setOldest] = useState(false)
+    const [oldest, setOldest] = useState(false)
     const [numChildren, setNumChildren] = useState(0)
 
     /* == handlers == */
@@ -39,6 +39,7 @@ const CHILD = ({ setPropState }) => {
         }
     }
 
+     
     const handleDLA_LOW = (e) => {
         setChildDLA({...childDLA, LOW: dlaLow * e.target.value})
     }
@@ -61,7 +62,24 @@ const CHILD = ({ setPropState }) => {
         }
     }
         
+    /* Push to reducer */
 
+    useEffect(() => {
+
+       
+        setPropState({
+
+            type: "CHILD_ELEMENTS" , 
+            children: numChildren, 
+            disability_low: childDLA.LOW,
+            disability_high: childDLA.HIGH,
+            childcare: childcare.amount })
+    }, 
+    [ numChildren, 
+      childDLA.LOW, 
+      childDLA.HIGH,
+      childcare.amount, 
+      setPropState ])
 
 
     /* conditional Style */
@@ -152,8 +170,6 @@ const CHILD = ({ setPropState }) => {
                         <option value="2">2+ children</option>
                     </select>
                 </label>
-                
-                
                 <label className={disabled} htmlFor="childcare_value"> Enter childcare amount
                     <input disabled={childcare.children === "0"} onChange={handleChildcareValue} className={classes.input_childcare} type="number"></input>
                 </label>
