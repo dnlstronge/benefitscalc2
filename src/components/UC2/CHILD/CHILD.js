@@ -41,6 +41,9 @@ const CHILD = ({ setPropState }) => {
     const handleDLA_HIGH = (e) => {
         setChildDLA({...childDLA, HIGH: dlaHigh * e.target.value})
     }
+    const handleChildcare = () => {
+        
+    }
 
     return (
         <React.Fragment>
@@ -117,7 +120,16 @@ const CHILD = ({ setPropState }) => {
                         <option value="10">10</option>
                     </select>
                 </label>
-
+        {/* Childcare Costs */}
+                <label htmlFor="childcare1" className={classes.dropdown_label}>Select childcare
+                    <select id="childcare1" onChange={handleChildcare} className={classes.dropdown_childcare}>
+                        <option value="0">--select--</option>
+                        <option value="0">None</option>
+                        <option value="1">1 child</option>
+                        <option value="2">2+ children</option>
+                    </select>
+                </label>
+                <label></label>
                 
            </div>
 
