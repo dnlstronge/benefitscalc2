@@ -1,12 +1,21 @@
 import React, { useState } from "react";
 import classes from "./Hous.module.css"
 
+
+const housing_REDUCER = (state, action) => {
+    switch(action.type) {
+        case "TYPE" : {
+            return {...state, type: action.payload}
+        }
+    }
+}
+
 const Hous = (props) => {
 
     // local state:
     
 
-    const [housing, setHousing] = useState( {
+    const [housing, dispatch] = useState(housing_REDUCER, {
         type: '',
         rent: '',
         actualRent: '',
@@ -17,8 +26,10 @@ const Hous = (props) => {
 
     //helper functions:
 
-    const findHousing = () => {
+    const handleInput = (e) => {
+        return { type: "TYPE", payload: e.target.value }
          }
+
 
 
 
@@ -38,7 +49,7 @@ const Hous = (props) => {
                     <option value="OWN">Owner Occupier</option>
                     <option value="NONE">None</option>
                 </select>
-                <input className={classes.select_amount} placeholder="Eligible Costs"type="number"/>
+                <input className={classes.select_amount} placeholder="Eligible Costs" type="number"/>
                 <select className={classes.select_freq}>
                     <option value="SELECT">--frequency--</option>
                     <option value="PW">Weekly</option>
@@ -55,7 +66,8 @@ const Hous = (props) => {
             </label>
             <label className={classes.sssc_label}htmlFor="SizeCriteria">Social Sector Size Criteria (bedroom tax)
                 <select className={classes.sssc_select} id="SizeCriteria">
-                    <option>--select--</option>
+                    <option value="0">--select--</option>
+                    <option value="0">None</option>
                     <option value="1">1 bedroom</option>
                     <option value="2">2+ bedroom</option>
                 </select>
