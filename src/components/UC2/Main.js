@@ -157,10 +157,11 @@ return (
               </div>
               <div className={classes.HOUS_container}>
                 <Hous propState={MAIN_STATE} setPropState={MAIN_DISPATCH}/>
-              </div>
-              <div className={classes.INCOME_container}>
                 <Income />
               </div>
+              
+                
+              
               <Totals 
                 PA={round(MAIN_STATE.PA)} 
                 WCA={round(MAIN_STATE.WCA)}
