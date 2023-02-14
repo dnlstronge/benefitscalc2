@@ -101,9 +101,6 @@ const WCA = ({propState, setPropState }) => {
    
     return (
         <React.Fragment>
-            
-            
-            
             <div className={classes.container}>
                 <h4 className={classes.heading}>Additional Elements</h4>
                   <label className={label_dynamic_2} htmlFor="select_WCA">Work Capabilty/Carer element: 

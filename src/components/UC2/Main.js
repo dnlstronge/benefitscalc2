@@ -141,14 +141,13 @@ const Main = (props) => {
 
         }, [MAIN_STATE.AGE, MAIN_STATE.COUPLE])
 
-        console.log(typeof(MAIN_STATE.CHILD_D_HIGH))
-        console.log(typeof(MAIN_STATE.CHILD_D_LOW))
+       
 
 return (
         <React.Fragment>
             <div className={classes.container}>
                <div className={classes.PA_container}>
-                 <PA propState={MAIN_STATE} setPropState={MAIN_DISPATCH}/>
+                <PA propState={MAIN_STATE} setPropState={MAIN_DISPATCH}/>
                 <WCA propState={MAIN_STATE} setPropState={MAIN_DISPATCH}/>
                 <Transitional propState={MAIN_STATE} setPropState={MAIN_DISPATCH}/>
               </div>

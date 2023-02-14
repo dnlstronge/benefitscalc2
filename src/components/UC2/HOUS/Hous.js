@@ -16,14 +16,14 @@ const Hous = (props) => {
         <h4 className={classes.heading}>Housing Costs</h4>
             <div className={classes.sub_container}>
                 <select className={classes.select_type}>
-                    <option>--Housing Type--</option>
+                    <option>--Type--</option>
                     <option>Social sector</option>
                     <option>Private landlord</option>
                     <option>Co-ownership</option>
                     <option>Owner Occupier</option>
                     <option>None</option>
                 </select>
-                <input className={classes.select_amount} type="number"/>
+                <input className={classes.select_amount} placeholder="Eligible Costs"type="number"/>
                 <select className={classes.select_freq}>
                     <option>--frequency--</option>
                     <option>Weekly</option>
