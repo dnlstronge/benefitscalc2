@@ -3,6 +3,13 @@ import classes from "./Hous.module.css"
 
 const Hous = (props) => {
 
+    const convertMonthly = (x) => {
+        return x / 12 * 52
+    }
+    const rentfree = (x) => {
+        return
+    }
+
     const [housing, setHousing] = useState( {
         type: '',
         rent: '',
@@ -16,17 +23,17 @@ const Hous = (props) => {
         <h4 className={classes.heading}>Housing Costs</h4>
             <div className={classes.sub_container}>
                 <select className={classes.select_type}>
-                    <option>--Type--</option>
-                    <option>Social sector</option>
-                    <option>Private landlord</option>
-                    <option>Co-ownership</option>
-                    <option>Owner Occupier</option>
-                    <option>None</option>
+                    <option value="SELECT">--Select Type--</option>
+                    <option value="SOCIAL">Social sector</option>
+                    <option value="PRIVATE">Private landlord</option>
+                    <option value="COOWN">Co-ownership</option>
+                    <option value="OWN">Owner Occupier</option>
+                    <option value="NONE">None</option>
                 </select>
                 <input className={classes.select_amount} placeholder="Eligible Costs"type="number"/>
                 <select className={classes.select_freq}>
                     <option>--frequency--</option>
-                    <option>Weekly</option>
+                    <option value="">Weekly</option>
                     <option>Monthly</option>
                 </select>
             </div>
