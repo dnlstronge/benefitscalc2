@@ -22,7 +22,7 @@ const IncomeSelect = ({ setParentState }) => {
 
     }
 
-    const handle_feq = () => {
+    const handleFreq = () => {
 
     }
     return (
@@ -36,8 +36,8 @@ const IncomeSelect = ({ setParentState }) => {
                     <option value="OTH">Other income</option>
                     <option value="CB">Child Benefit</option>
                 </select>
-                <input onChange={placeHolder} className={classes.select_amount} placeholder="Eligible Costs" type="number"/>
-                <select onChange={placeHolder} className={classes.select_freq}>
+                <input disabled={type === "SELECT"}onChange={handleAmount} className={classes.select_amount} placeholder="Eligible Costs" type="number"/>
+                <select onChange={handleFreq} className={classes.select_freq}>
                     <option value="SELECT">--frequency--</option>
                     <option value="PW">Weekly</option>
                     <option value="2W">Fortnightly</option>
