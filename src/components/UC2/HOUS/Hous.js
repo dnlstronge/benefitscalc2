@@ -7,6 +7,13 @@ const housing_REDUCER = (state, action) => {
         case "TYPE" : {
             return {...state, type: action.payload}
         }
+        case "COSTS" :{
+          return  {...state, rent: action.payload}
+        }
+        case "FREQ" : {
+            return {...state, rent: action.payload}
+        }
+    
     }
 }
 
@@ -24,11 +31,17 @@ const Hous = (props) => {
         rentFree: '',
     })
 
-    //helper functions:
+    // handlers
 
-    const handleInput = (e) => {
+    const handleType = (e) => {
         return { type: "TYPE", payload: e.target.value }
          }
+    const handleAmount = (e) => {
+        return {type: "COSTS", payload: e.target.value }
+    }
+    const handleFreq = (e) => {
+        return {type: "FREQ", payload: e.target.value }
+    }
 
 
 
@@ -41,7 +54,7 @@ const Hous = (props) => {
         <div className={classes.container}>
         <h4 className={classes.heading}>Housing Costs</h4>
             <div className={classes.sub_container}>
-                <select className={classes.select_type}>
+                <select onChange={handleType} className={classes.select_type}>
                     <option value="SELECT">--Select Type--</option>
                     <option value="SOCIAL">Social sector</option>
                     <option value="PRIVATE">Private landlord</option>
