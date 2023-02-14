@@ -4,21 +4,28 @@ import classes from "./Income.module.css"
 const Income = (props) => {
 
 
+    const [incomeValues, setIncomeValues] = useState( {
+        earnings: 0,
+        unearned: 0,
+        other: 0,
+        childbenefit: 0
+    })
+
     const placeHolder = (e) => {
 
     }
     return (
         <React.Fragment>
             <div className={classes.container}>
+            <h4 className={classes.heading}>Income</h4>
             <div className={classes.sub_container}>
-                
                 <select onChange={placeHolder} className={classes.select_type}>
                     <option value="SELECT">--Income Type--</option>
-                    <option value="SOCIAL">Wages (claimant)</option>
-                    <option value="PRIVATE">Wages(partner)</option>
-                    <option value="COOWN">Unearned Income</option>
-                    <option value="OWN">Other income</option>
-                    <option value="NONE">Child Benefit</option>
+                    <option value="WAGE">Wages (claimant)</option>
+                    <option value="WAGE">Wages (partner)</option>
+                    <option value="UNEARN">Unearned Income</option>
+                    <option value="OTH">Other income</option>
+                    <option value="CB">Child Benefit</option>
                 </select>
                 <input onChange={placeHolder} className={classes.select_amount} placeholder="Eligible Costs" type="number"/>
                 <select onChange={placeHolder} className={classes.select_freq}>
