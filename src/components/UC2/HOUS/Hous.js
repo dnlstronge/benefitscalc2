@@ -4,7 +4,7 @@ import classes from "./Hous.module.css"
 const Hous = (props) => {
 
     // local state:
-    const [rentFree, setRentFree] = useState(false)
+    
 
     const [housing, setHousing] = useState( {
         type: '',
@@ -12,6 +12,7 @@ const Hous = (props) => {
         actualRent: '',
         SSSC: '',
         rates: '',
+        rentFree: '',
     })
 
     //helper functions:
@@ -22,7 +23,7 @@ const Hous = (props) => {
 
 
     const handleRentFree = () => {
-        
+
     }        
     return (
         <React.Fragment>
@@ -59,8 +60,8 @@ const Hous = (props) => {
                     <option value="2">2+ bedroom</option>
                 </select>
             </label>
-            <label htmlForm="rent_free" className={classes.rentfree_label}>Rent-free weeks
-                <input type="checkbox" className={classes.rentfree_input}></input>
+            <label htmlForm="rent_free" className={classes.rentfree_label}>Number of rent-free weeks
+                <input type="number" className={classes.rentfree_input}></input>
             </label>
             </div>
         </React.Fragment>
