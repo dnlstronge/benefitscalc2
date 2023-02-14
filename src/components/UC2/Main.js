@@ -7,6 +7,7 @@ import Transitional from "./WCA/Transitional"
 import CHILD from "./CHILD/CHILD"
 import UCElements from "./UCElements/UCElements"
 import Hous from "./HOUS/Hous"
+import Income from "./Income/Income"
 
 
 
@@ -156,6 +157,9 @@ return (
               </div>
               <div className={classes.HOUS_container}>
                 <Hous propState={MAIN_STATE} setPropState={MAIN_DISPATCH}/>
+              </div>
+              <div className={classes.INCOME_container}>
+                <Income />
               </div>
               <Totals 
                 PA={round(MAIN_STATE.PA)} 
