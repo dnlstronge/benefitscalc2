@@ -3,12 +3,8 @@ import classes from "./Hous.module.css"
 
 const Hous = (props) => {
 
-    const convertMonthly = (x) => {
-        return x / 12 * 52
-    }
-    const rentfree = (x) => {
-        return
-    }
+    // local state:
+    const [rentFree, setRentFree] = useState(false)
 
     const [housing, setHousing] = useState( {
         type: '',
@@ -17,6 +13,17 @@ const Hous = (props) => {
         SSSC: '',
         rates: '',
     })
+
+    //helper functions:
+
+    const findHousing = () => {
+         }
+
+
+
+    const handleRentFree = () => {
+        
+    }        
     return (
         <React.Fragment>
         <div className={classes.container}>
@@ -32,9 +39,9 @@ const Hous = (props) => {
                 </select>
                 <input className={classes.select_amount} placeholder="Eligible Costs"type="number"/>
                 <select className={classes.select_freq}>
-                    <option>--frequency--</option>
-                    <option value="">Weekly</option>
-                    <option>Monthly</option>
+                    <option value="SELECT">--frequency--</option>
+                    <option value="PW">Weekly</option>
+                    <option value="PM"></option>
                 </select>
             </div>
             <label htmlFor="rates" className={classes.rates_label}>Rates: 
@@ -51,6 +58,9 @@ const Hous = (props) => {
                     <option value="1">1 bedroom</option>
                     <option value="2">2+ bedroom</option>
                 </select>
+            </label>
+            <label htmlForm="rent_free" className={classes.rentfree_label}>Rent-free weeks
+                <input type="checkbox" className={classes.rentfree_input}></input>
             </label>
             </div>
         </React.Fragment>
