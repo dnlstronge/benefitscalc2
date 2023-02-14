@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useReducer } from "react";
 import classes from "./Hous.module.css"
 
 
@@ -15,7 +15,7 @@ const Hous = (props) => {
     // local state:
     
 
-    const [housing, dispatch] = useState(housing_REDUCER, {
+    const [housing, dispatch] = useReducer(housing_REDUCER, {
         type: '',
         rent: '',
         actualRent: '',
