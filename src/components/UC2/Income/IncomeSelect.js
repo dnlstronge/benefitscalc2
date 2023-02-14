@@ -5,25 +5,23 @@ const IncomeSelect = ({ setParentState }) => {
 
     //local state:
 
-    const [type, setType] = useState("0")
-    const [amount, setAmount] = useState("0")
+    const [type, setType] = useState("SELECT")
+    const [amount, setAmount] = useState("SELECT")
     const [freq, setFreq ] = useState("0")
 
     // handlers: 
 
-    const placeHolder = (e) => {
 
-    }
-    const handleType = () => {
-
+    const handleType = (e) => {
+        setType(e.target.value)
     }
 
-    const handleAmount = () => {
-
+    const handleAmount = (e) => {
+        setAmount(e.target.value)
     }
 
-    const handleFreq = () => {
-
+    const handleFreq = (e) => {
+        setFreq(e.target.value)
     }
     return (
         <React.Fragment>
@@ -36,8 +34,8 @@ const IncomeSelect = ({ setParentState }) => {
                     <option value="OTH">Other income</option>
                     <option value="CB">Child Benefit</option>
                 </select>
-                <input disabled={type === "SELECT"}onChange={handleAmount} className={classes.select_amount} placeholder="Eligible Costs" type="number"/>
-                <select onChange={handleFreq} className={classes.select_freq}>
+                <input disabled={type === "SELECT"} onChange={handleAmount} className={classes.select_amount} placeholder="Eligible Costs" type="number"/>
+                <select disabled={amount === "SELECT"} onChange={handleFreq} className={classes.select_freq}>
                     <option value="SELECT">--frequency--</option>
                     <option value="PW">Weekly</option>
                     <option value="2W">Fortnightly</option>
