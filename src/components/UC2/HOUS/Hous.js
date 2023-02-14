@@ -42,6 +42,12 @@ const Hous = (props) => {
     const handleFreq = (e) => {
         return {type: "FREQ", payload: e.target.value }
     }
+    const handleRates = (e) => {
+        return {type: "RATES" , payload: e.target.value }
+    }
+    const handleRatesFreq = (e) => {
+        return {type: "RATESFREQ", payload: e.target.value}
+    }
 
 
 
