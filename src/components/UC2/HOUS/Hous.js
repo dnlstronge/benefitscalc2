@@ -62,8 +62,8 @@ const Hous = (props) => {
                     <option value="OWN">Owner Occupier</option>
                     <option value="NONE">None</option>
                 </select>
-                <input className={classes.select_amount} placeholder="Eligible Costs" type="number"/>
-                <select className={classes.select_freq}>
+                <input onChange={handleAmount} className={classes.select_amount} placeholder="Eligible Costs" type="number"/>
+                <select onChange={handleFreq} className={classes.select_freq}>
                     <option value="SELECT">--frequency--</option>
                     <option value="PW">Weekly</option>
                     <option value="PM"></option>
