@@ -4,10 +4,20 @@
     flex-direction: row;
     background: white;
     width: 90%;
-    height: 18rem;
+    height: 25rem;
     margin: 1rem 1rem 1rem 1rem;
     border: 2px solid black;
     border-radius: 5px;
+}
+
+.warning_container {
+    display: flex;
+    height: 2rem;
+    width: 6reml
+}
+.warning {
+    color: red;
+    margin-left: 1rem;
 }
 
 .heading {

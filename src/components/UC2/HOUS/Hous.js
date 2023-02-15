@@ -115,14 +115,29 @@ const Hous = (setPropState) => {
                     <option value="COOWN">Co-ownership</option>
                     <option value="OWN">Owner Occupier</option>
                     <option value="NONE">None</option>
-                </select>
+                </select> 
                 <input onChange={handleAmount} className={classes.select_amount} placeholder="Eligible Costs" type="number"/>
                 <select onChange={handleFreq} className={classes.select_freq}>
                     <option value="SELECT">--frequency--</option>
                     <option value="PW">Weekly</option>
                     <option value="PM">Monthly</option>
-                </select>
+                </select>   
             </div>
+            {housing.type === "" &&
+            <div className={classes.warning_container}>
+             <p className={classes.warning}>Select Housing Type</p>
+             </div>}
+                {housing.type !== "" && 
+                <div className={classes.warning_container}>
+                {housing.rent === "" &&
+                <p className={classes.warning}>Enter an amount</p>}
+                </div>}
+                {housing.rent !== "" &&
+                <div className={classes.warning_container}>
+                {housing.freq === "SELECT" && 
+                <p className={classes.warning}>Select Frequency</p>}
+                </div>}
+            
             <label htmlFor="rates" className={classes.rates_label}>Rates: 
                 <input onChange={handleRates} className={classes.rates_input} id="rates" type="number"></input>
                 <select onChange={handleRatesFreq} className={classes.rates_freq}>
