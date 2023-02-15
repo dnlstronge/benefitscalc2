@@ -1,11 +1,12 @@
 import React, { useReducer, useEffect, useState } from "react";
 import classes from "./Hous.module.css"
+import UCElements from "../UCElements/UCElements";
 
 
 
 
 
-
+const UC_elements = UCElements
 
 
 const housing_REDUCER = (state, action) => {
@@ -50,6 +51,7 @@ const Hous = ({setPropState}) => {
         RENT: "",
         RATES: "0",
         RATES_F: "",
+        NDC: "0"
     })
     
 
@@ -88,6 +90,10 @@ const Hous = ({setPropState}) => {
 
     const handleRentFree = (e) => {
         dispatchHousing({type: "RENTFREE", payload: e.target.value})
+    }
+
+    const handleNDC = (e) => {
+        setLift({...lift, NDC: e.target.value * UC_elements.NDC })
     }
     
     
@@ -142,7 +148,15 @@ const Hous = ({setPropState}) => {
     // effect lifts to main state: 
 
     useEffect(() => {
-        setPropState( {type: "HOUS", HOUSING: lift.RENT})
+        if(lift.RENT - lift.NDC < 0 ) {
+        setPropState( {type: "HOUS", HOUSING: "0"} )
+        }
+        else {
+        setPropState( {type: "HOUS", HOUSING: lift.RENT - lift.NDC} )
+            }
+            
+        
+    
     }, [lift.RENT])
 
     // conditional css: 
@@ -215,6 +229,21 @@ const Hous = ({setPropState}) => {
             </label>
             <label htmlFor="rent_free" className={rentfree_dynamic}>Number of rent-free weeks
                 <input value={housing.rentFree} disabled={housing.type !== "SOCIAL"} onChange={handleRentFree} type="number" className={classes.rentfree_input}></input>
+            </label>
+            <label htmlFor="NDC" className={rates_dynamic}> Non-dependent charges
+                <select className={}>
+                    <option></option>
+                    <option value="0">--select--</option>
+                    <option value="1">1</option>
+                    <option value="1">2</option>
+                    <option value="1">3</option>
+                    <option value="1">4</option>
+                    <option value="1">5</option>
+                    <option value="1">6</option>
+                    <option value="1">7</option>
+                    <option value="1">8</option>
+                    <option value="1">9</option>
+                </select>
             </label>
             </div>
 

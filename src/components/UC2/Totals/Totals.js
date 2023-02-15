@@ -71,6 +71,7 @@ const Totals = ({PA, WCA, LCW, CE, TA, CHILD, CDL, CDH, CC, HC}) => {
                     + CDL
                     + CDH
                     + CC
+                    + HC
                     )
                 }</p>
             </label>

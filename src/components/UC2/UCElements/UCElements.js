@@ -53,6 +53,8 @@ Higher = no eligble housing & LCW or children */
  TA_1: 120,
  TA_2: 285,
  TA_3: 405,
+
+ NDC: 77.87
 }
 
 export default UCElements;
