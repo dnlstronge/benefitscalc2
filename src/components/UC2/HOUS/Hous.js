@@ -11,15 +11,20 @@ const UC_elements = UCElements
 
 const housing_REDUCER = (state, action) => {
     switch(action.type) {
+        case "NDC" : {
+            return {...state, NDC: action.payload}
+        }
        
         case "TYPE" : {
+            
             return {...state, type: action.payload, 
             rent: '',
             freq: '',
             SSSC: '1',
             rates: '',
             ratesFreq: '',
-            rentFree: '0'}
+            rentFree: '0',
+            NDC: ''}
         }
         case "COSTS" :{
           return  {...state, rent: action.payload}
@@ -51,7 +56,7 @@ const Hous = ({setPropState}) => {
         RENT: "",
         RATES: "0",
         RATES_F: "",
-        NDC: "0"
+        NDC: ""
     })
     
 
@@ -63,6 +68,7 @@ const Hous = ({setPropState}) => {
         rates: '',
         ratesFreq: '',
         rentFree: '0',
+        NDC: ''
     })
 
     // handlers
@@ -93,7 +99,7 @@ const Hous = ({setPropState}) => {
     }
 
     const handleNDC = (e) => {
-        setLift({...lift, NDC: e.target.value * UC_elements.NDC })
+        dispatchHousing({type: "NDC", payload: e.target.value})
     }
     
     
@@ -123,41 +129,35 @@ const Hous = ({setPropState}) => {
         switch(housing.type) {
           
             case "SOCIAL" : {
-                return setLift({RENT: ROUND(RECKONER(housing.rent, housing.freq, housing.rentFree, housing.SSSC)), RATES: housing.rates, RATES_F: housing.ratesFreq})
+                return setLift({RENT: ROUND(RECKONER(housing.rent, housing.freq, housing.rentFree, housing.SSSC)), RATES: housing.rates, RATES_F: housing.ratesFreq, NDC: housing.NDC * UC_elements.NDC})
             }
             case "PRIVATE" : {
-                return setLift({RENT: ROUND(RECKONER(housing.rent, housing.freq, housing.rentFree, housing.SSSC)), RATES: housing.rates, RATES_F: housing.ratesFreq})
+                return setLift({RENT: ROUND(RECKONER(housing.rent, housing.freq, housing.rentFree, housing.SSSC)), RATES: housing.rates, RATES_F: housing.ratesFreq, NDC: housing.NDC * UC_elements.NDC})
             }
             case "COOWN" : {
-                return setLift({RENT: ROUND(RECKONER(housing.rent, housing.freq, housing.rentFree, housing.SSSC)), RATES: housing.rates, RATES_F: housing.ratesFreq})
+                return setLift({RENT: ROUND(RECKONER(housing.rent, housing.freq, housing.rentFree, housing.SSSC)), RATES: housing.rates, RATES_F: housing.ratesFreq, NDC: housing.NDC * UC_elements.NDC})
             }
             case "OWN" : {
-                return setLift({RENT: ROUND(RECKONER(housing.rent, housing.freq, housing.rentFree, housing.SSSC)), RATES: housing.rates, RATES_F: housing.ratesFreq})
+                return setLift({RENT: ROUND(RECKONER(housing.rent, housing.freq, housing.rentFree, housing.SSSC)), RATES: housing.rates, RATES_F: housing.ratesFreq, NDC: housing.NDC * UC_elements.NDC})
             }
             case "NONE" : {
-                return setLift({RENT: ROUND(RECKONER(housing.rent, housing.freq, housing.rentFree, housing.SSSC)), RATES: housing.rates, RATES_F: housing.ratesFreq})
+                return setLift({RENT: ROUND(RECKONER(housing.rent, housing.freq, housing.rentFree, housing.SSSC)), RATES: housing.rates, RATES_F: housing.ratesFreq, NDC: housing.NDC * UC_elements.NDC})
             }
             default : {
                 return
             }
         }
-    }, [ housing.type, housing.freq, housing.SSSC, housing.rentFree, housing.rates, housing.ratesFreq, housing.rent, setPropState])
+    }, [ housing.type, housing.freq, housing.SSSC, housing.NDC, housing.rentFree, housing.rates, housing.ratesFreq, housing.rent, setPropState])
 
 
 
     // effect lifts to main state: 
 
     useEffect(() => {
-        if(lift.RENT - lift.NDC < 0 ) {
-        setPropState( {type: "HOUS", HOUSING: "0"} )
-        }
-        else {
-        setPropState( {type: "HOUS", HOUSING: lift.RENT - lift.NDC} )
-            }
-            
-        
+       
+        setPropState( {type: "HOUS", HOUSING: lift.RENT, NDC: lift.NDC} )
     
-    }, [lift.RENT])
+    }, [lift.RENT, lift.NDC, setPropState])
 
     // conditional css: 
 
@@ -231,23 +231,23 @@ const Hous = ({setPropState}) => {
                 <input value={housing.rentFree} disabled={housing.type !== "SOCIAL"} onChange={handleRentFree} type="number" className={classes.rentfree_input}></input>
             </label>
             <label htmlFor="NDC" className={rates_dynamic}> Non-dependent charges
-                <select className={}>
-                    <option></option>
+                <select value={housing.NDC} onChange={handleNDC} id="NDC" disabled={housing.type === ""} className={classes.NDC_select}>
                     <option value="0">--select--</option>
+                    <option value="0">None</option>
                     <option value="1">1</option>
-                    <option value="1">2</option>
-                    <option value="1">3</option>
-                    <option value="1">4</option>
-                    <option value="1">5</option>
-                    <option value="1">6</option>
-                    <option value="1">7</option>
-                    <option value="1">8</option>
-                    <option value="1">9</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
                 </select>
             </label>
             </div>
 
-         <div>RENT: {lift.RENT}, RATES: {lift.RATES}, RATES_F: {lift.RATES_F} </div>
+         <div>RENT: {lift.RENT}, RATES: {lift.RATES}, RATES_F: {lift.RATES_F} NDD: {lift.NDC} </div>
         </React.Fragment>
     )
 }
