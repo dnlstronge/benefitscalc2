@@ -49,6 +49,9 @@ const Hous = (props) => {
     const handleAmount = (e) => {
         dispatchHousing({type: "COSTS", payload: e.target.value })
     }
+    const handleSSSC = (e) => {
+        dispatchHousing({type: "SSSC", payload: e.target.value })
+    }
     const handleFreq = (e) => {
        dispatchHousing({type: "FREQ", payload: e.target.value })
     }
@@ -83,15 +86,15 @@ const Hous = (props) => {
                 </select>
             </div>
             <label htmlFor="rates" className={classes.rates_label}>Rates: 
-                <input onChane={handleRates} className={classes.rates_input} id="rates" type="number"></input>
-                <select className={classes.rates_freq}>
+                <input onChange={handleRates} className={classes.rates_input} id="rates" type="number"></input>
+                <select onChange={handleRatesFreq} className={classes.rates_freq}>
                     <option value="0">--frequency--</option>
                     <option value="PW">--Weekly--</option>
                     <option value="PM">--Monthly--</option>
                 </select>
             </label>
             <label className={classes.sssc_label}htmlFor="SizeCriteria">Social Sector Size Criteria (bedroom tax)
-                <select onChange={handleRatesFreq} className={classes.sssc_select} id="SizeCriteria">
+                <select onChange={handleSSSC} className={classes.sssc_select} id="SizeCriteria">
                     <option value="0">--select--</option>
                     <option value="0">None</option>
                     <option value="1">1 bedroom</option>
