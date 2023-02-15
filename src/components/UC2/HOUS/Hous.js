@@ -52,6 +52,8 @@ const Hous = (setPropState) => {
 
     // handlers
 
+    
+
     const handleType = (e) => {
         dispatchHousing({ type: "TYPE", payload: e.target.value })
          }
@@ -101,7 +103,7 @@ const Hous = (setPropState) => {
                 console.log(RECKONER(housing.rent, housing.freq, housing.rentFree, housing.SSSC))
             }
         }
-    }, [housing.freq])
+    }, [housing.freq, housing.SSSC, housing.rentFree])
 
     return (
         <React.Fragment>
@@ -138,6 +140,16 @@ const Hous = (setPropState) => {
                 {housing.freq === "" && 
                 <p className={classes.warning2}>Select Frequency</p>}
                 </div>}
+                <div className={classes.info}>
+                {housing.type === "PRIVATE" &&
+                    <p>Enter LHA rate or Rent whichever is lower</p>}
+                {housing.type === "OWN"  &&
+                    <p>Owners can get help with service charge but see restrictions & 
+                    whether this affects work allowance, also see SMI</p>}
+                {housing.type === "COOWN" &&
+                    <p>Co-owners may get help with rent & service charge but this may
+                        affect work allowance </p>}
+                </div>
                 
             </div>
             <label htmlFor="rates" className={classes.rates_label}>Rates: 
