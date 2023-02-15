@@ -11,7 +11,16 @@ const housing_REDUCER = (state, action) => {
           return  {...state, rent: action.payload}
         }
         case "FREQ" : {
-            return {...state, rent: action.payload}
+            return {...state, freq: action.payload}
+        }
+        case "RATES" : {
+            return {...state, rates: action.payload}
+        }
+        case "RATESFREQ" : {
+            return {...state, ratesFreq: action.payload}
+        }
+        case "RENTFREE" : {
+            return {...state, rentFree: action.payload}
         }
     
     }
@@ -25,9 +34,10 @@ const Hous = (props) => {
     const [housing, dispatch] = useReducer(housing_REDUCER, {
         type: '',
         rent: '',
-        actualRent: '',
+        freq: '',
         SSSC: '',
         rates: '',
+        ratesFreq: '',
         rentFree: '',
     })
 
@@ -49,11 +59,8 @@ const Hous = (props) => {
         return {type: "RATESFREQ", payload: e.target.value}
     }
 
-
-
-
-    const handleRentFree = () => {
-
+    const handleRentFree = (e) => {
+        return {type: "RENTFREE", payload: e.target.value}
     }        
     return (
         <React.Fragment>
@@ -76,7 +83,7 @@ const Hous = (props) => {
                 </select>
             </div>
             <label htmlFor="rates" className={classes.rates_label}>Rates: 
-                <input className={classes.rates_input} id="rates" type="number"></input>
+                <input onChane={handleRates} className={classes.rates_input} id="rates" type="number"></input>
                 <select className={classes.rates_freq}>
                     <option value="0">--frequency--</option>
                     <option value="PW">--Weekly--</option>
@@ -84,7 +91,7 @@ const Hous = (props) => {
                 </select>
             </label>
             <label className={classes.sssc_label}htmlFor="SizeCriteria">Social Sector Size Criteria (bedroom tax)
-                <select className={classes.sssc_select} id="SizeCriteria">
+                <select onChange={handleRatesFreq} className={classes.sssc_select} id="SizeCriteria">
                     <option value="0">--select--</option>
                     <option value="0">None</option>
                     <option value="1">1 bedroom</option>
@@ -92,9 +99,13 @@ const Hous = (props) => {
                 </select>
             </label>
             <label htmlForm="rent_free" className={classes.rentfree_label}>Number of rent-free weeks
-                <input type="number" className={classes.rentfree_input}></input>
+                <input onChange={handleRentFree} type="number" className={classes.rentfree_input}></input>
             </label>
             </div>
+
+            <div> type: {housing.type} rent: {housing.rent} frequency: {housing.freq}</div>
+            <div> SSSC: {housing.SSSC} rentFree: {housing.rentFree} </div>
+            <div> Rates: {housing.rates} frequency: {housing.ratesFreq}</div>
         </React.Fragment>
     )
 }
