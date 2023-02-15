@@ -1,4 +1,4 @@
-import React, { useReducer } from "react";
+import React, { useReducer, useEffect } from "react";
 import classes from "./Hous.module.css"
 
 
@@ -13,6 +13,9 @@ const housing_REDUCER = (state, action) => {
         case "FREQ" : {
             return {...state, freq: action.payload}
         }
+        case "SSSC" :{
+            return  {...state, SSSC: action.payload}
+          }
         case "RATES" : {
             return {...state, rates: action.payload}
         }
@@ -64,7 +67,12 @@ const Hous = (props) => {
 
     const handleRentFree = (e) => {
         dispatchHousing({type: "RENTFREE", payload: e.target.value})
-    }        
+    }
+    
+    
+    // get eligible housing: 
+
+    useEffect(() => {}, [])
     return (
         <React.Fragment>
         <div className={classes.container}>
@@ -82,7 +90,7 @@ const Hous = (props) => {
                 <select onChange={handleFreq} className={classes.select_freq}>
                     <option value="SELECT">--frequency--</option>
                     <option value="PW">Weekly</option>
-                    <option value="PM"></option>
+                    <option value="PM">Monthly</option>
                 </select>
             </div>
             <label htmlFor="rates" className={classes.rates_label}>Rates: 
