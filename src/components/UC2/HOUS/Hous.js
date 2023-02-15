@@ -72,7 +72,16 @@ const Hous = (props) => {
     
     // get eligible housing: 
 
-    useEffect(() => {}, [])
+    useEffect(() => {
+        switch(housing.type) {
+            case "SELECT" : {
+                return
+            }
+            case "SOCIAL" : {
+                
+            }
+        }
+    }, [])
     return (
         <React.Fragment>
         <div className={classes.container}>
