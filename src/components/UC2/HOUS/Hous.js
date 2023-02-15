@@ -2,6 +2,12 @@ import React, { useReducer, useEffect } from "react";
 import classes from "./Hous.module.css"
 
 
+
+
+
+
+
+
 const housing_REDUCER = (state, action) => {
     switch(action.type) {
         case "TYPE" : {
@@ -29,7 +35,7 @@ const housing_REDUCER = (state, action) => {
     }
 }
 
-const Hous = (props) => {
+const Hous = (setPropState) => {
 
     // local state:
     
@@ -73,15 +79,30 @@ const Hous = (props) => {
     // get eligible housing: 
 
     useEffect(() => {
+        const RECKONER = (amount, freq, rentFree, sssc) => {
+            let findweekly = amount / 52 * 12 
+            if(freq === "PW") {
+                let value = (amount / 12 * (52 - rentFree)) * sssc
+                return value 
+                }
+        
+            if(freq === "PM") {
+                let value = (findweekly * (52 - rentFree)) / 12
+                return value
+            }
+        }
+
+
         switch(housing.type) {
             case "SELECT" : {
                 return
             }
             case "SOCIAL" : {
-                
+                console.log(RECKONER(housing.rent, housing.freq, housing.rentFree, housing.SSSC))
             }
         }
-    }, [])
+    }, [housing.freq])
+
     return (
         <React.Fragment>
         <div className={classes.container}>
@@ -112,10 +133,10 @@ const Hous = (props) => {
             </label>
             <label className={classes.sssc_label}htmlFor="SizeCriteria">Social Sector Size Criteria (bedroom tax)
                 <select onChange={handleSSSC} className={classes.sssc_select} id="SizeCriteria">
-                    <option value="0">--select--</option>
-                    <option value="0">None</option>
-                    <option value="1">1 bedroom</option>
-                    <option value="2">2+ bedroom</option>
+                    <option value="1">--select--</option>
+                    <option value="1">None</option>
+                    <option value="0.86">1 bedroom</option>
+                    <option value="0.75">2+ bedroom</option>
                 </select>
             </label>
             <label htmlForm="rent_free" className={classes.rentfree_label}>Number of rent-free weeks
