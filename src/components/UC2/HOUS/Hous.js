@@ -31,7 +31,7 @@ const Hous = (props) => {
     // local state:
     
 
-    const [housing, dispatch] = useReducer(housing_REDUCER, {
+    const [housing, dispatchHousing] = useReducer(housing_REDUCER, {
         type: '',
         rent: '',
         freq: '',
@@ -44,23 +44,23 @@ const Hous = (props) => {
     // handlers
 
     const handleType = (e) => {
-        return { type: "TYPE", payload: e.target.value }
+        dispatchHousing({ type: "TYPE", payload: e.target.value })
          }
     const handleAmount = (e) => {
-        return {type: "COSTS", payload: e.target.value }
+        dispatchHousing({type: "COSTS", payload: e.target.value })
     }
     const handleFreq = (e) => {
-        return {type: "FREQ", payload: e.target.value }
+       dispatchHousing({type: "FREQ", payload: e.target.value })
     }
     const handleRates = (e) => {
-        return {type: "RATES" , payload: e.target.value }
+        dispatchHousing({type: "RATES" , payload: e.target.value })
     }
     const handleRatesFreq = (e) => {
-        return {type: "RATESFREQ", payload: e.target.value}
+        dispatchHousing({type: "RATESFREQ", payload: e.target.value})
     }
 
     const handleRentFree = (e) => {
-        return {type: "RENTFREE", payload: e.target.value}
+        dispatchHousing({type: "RENTFREE", payload: e.target.value})
     }        
     return (
         <React.Fragment>
