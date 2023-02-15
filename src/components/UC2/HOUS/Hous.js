@@ -105,6 +105,12 @@ const Hous = (setPropState) => {
         }
     }, [housing.freq, housing.SSSC, housing.rentFree])
 
+    // conditional css: 
+
+    const rentfree_dynamic = housing.type === "" ? classes.rentfree_label_disabled : classes.rentfree_label
+    const SSSC_dynamic = housing.type === "" ? classes.SSSC_label_disabled : classes.SSSC_label
+    const rates_dynamic = housing.type === "" ? classes.rates_label_disabled : classes.rates_label
+
     return (
         <React.Fragment>
         <div className={classes.container}>
@@ -151,7 +157,7 @@ const Hous = (setPropState) => {
                     <p>Co-owners may get help with rent & service charge but this may
                         affect work allowance </p>}
                 </div>
-            <label htmlFor="rates" className={classes.rates_label}>Rates: 
+            <label htmlFor="rates" className={rates_dynamic}>Rates: 
                 <input disabled={housing.type === ""} onChange={handleRates} className={classes.rates_input} id="rates" type="number"></input>
                 <select disabled={housing.type === ""} onChange={handleRatesFreq} className={classes.rates_freq}>
                     <option value="">--frequency--</option>
@@ -159,7 +165,7 @@ const Hous = (setPropState) => {
                     <option value="PM">--Monthly--</option>
                 </select>
             </label>
-            <label className={classes.sssc_label}htmlFor="SizeCriteria">Social Sector Size Criteria (bedroom tax)
+            <label className={SSSC_dynamic} htmlFor="SizeCriteria">Social Sector Size Criteria (bedroom tax)
                 <select disabled={housing.type !== "SOCIAL"} onChange={handleSSSC} className={classes.sssc_select} id="SizeCriteria">
                     <option value="1">--select--</option>
                     <option value="1">None</option>
@@ -167,7 +173,7 @@ const Hous = (setPropState) => {
                     <option value="0.75">2+ bedroom</option>
                 </select>
             </label>
-            <label htmlFor="rent_free" className={classes.rentfree_label}>Number of rent-free weeks
+            <label htmlFor="rent_free" className={rentfree_dynamic}>Number of rent-free weeks
                 <input disabled={housing.type !== "SOCIAL"} onChange={handleRentFree} type="number" className={classes.rentfree_input}></input>
             </label>
             </div>

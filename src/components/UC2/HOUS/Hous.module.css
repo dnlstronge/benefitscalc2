@@ -73,6 +73,16 @@
     padding-left: 1rem;
     margin-top: 2rem;
 }
+
+.rates_label_disabled {
+    color: rgb(226, 221, 221);
+    display: flex;
+    font-weight: bold;
+    width: 90%;
+    padding-right: 1rem;
+    padding-left: 1rem;
+    margin-top: 2rem;
+}
 .rates_input {
     display: flex;
     margin-left: 1rem;
@@ -94,7 +104,25 @@
     width: auto;
 }
 
+.sssc_label_disabled {
+    color: rgb(226, 221, 221);
+    display: flex;
+    flex-direction: row;
+    font-weight: bold;
+    margin: 1rem 1rem 1rem 1rem;
+    height: 1.6rem;
+    width: auto;
+}
+
 .rentfree_label {
+    display: flex;
+    font-weight: bold; 
+    margin: 2rem 1rem 1rem 1rem;
+    height: 2rem;
+
+}
+.rentfree_label_disabled {
+    color: rgb(226, 221, 221);
     display: flex;
     font-weight: bold; 
     margin: 2rem 1rem 1rem 1rem;
