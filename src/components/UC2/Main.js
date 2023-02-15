@@ -16,6 +16,12 @@ import Income from "./Income/Income"
 
 const MAIN_REDUCER = (state, action) => {
     switch(action.type) {
+
+        /* Housing */
+
+        case "HOUS" : {
+            return {...state, HC: action.housing_value, RATES: action.rates_value, RATES_FREQ: action.rates_freq }
+        }
         
         /* Child elements */
 
@@ -103,6 +109,8 @@ const Main = (props) => {
         LCW: 0,
         TA: 0,
         HC: 0,
+        RATES: 0,
+        RATES_FREQ: 0,
         CHILD: 0,
         CHILD_D_LOW: 0,
         CHILD_D_HIGH: 0,

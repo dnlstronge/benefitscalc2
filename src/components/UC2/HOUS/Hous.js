@@ -1,4 +1,4 @@
-import React, { useReducer, useEffect } from "react";
+import React, { useReducer, useEffect, useState } from "react";
 import classes from "./Hous.module.css"
 
 
@@ -10,8 +10,15 @@ import classes from "./Hous.module.css"
 
 const housing_REDUCER = (state, action) => {
     switch(action.type) {
+       
         case "TYPE" : {
-            return {...state, type: action.payload}
+            return {...state, type: action.payload, 
+            rent: '',
+            freq: '',
+            SSSC: '1',
+            rates: '',
+            ratesFreq: '',
+            rentFree: '0'}
         }
         case "COSTS" :{
           return  {...state, rent: action.payload}
@@ -38,6 +45,12 @@ const housing_REDUCER = (state, action) => {
 const Hous = (setPropState) => {
 
     // local state:
+
+    const [lift, setLift] = useState({
+        RENT: "0",
+        RATES: "0",
+        RATES_F: "",
+    })
     
 
     const [housing, dispatchHousing] = useReducer(housing_REDUCER, {
@@ -81,6 +94,12 @@ const Hous = (setPropState) => {
     // get eligible housing: 
 
     useEffect(() => {
+
+        const ROUND = (x) => {
+
+            return Math.ceil( x * 100) /100
+         
+         }
         const RECKONER = (amount, freq, rentFree, sssc) => {
             let findweekly = amount / 52 * 12 
             if(freq === "PW") {
@@ -96,19 +115,32 @@ const Hous = (setPropState) => {
 
 
         switch(housing.type) {
-            case "SELECT" : {
+          
+            case "SOCIAL" : {
+                return setLift({RENT: ROUND(RECKONER(housing.rent, housing.freq, housing.rentFree, housing.SSSC)), RATES: housing.rates, RATES_F: housing.ratesFreq})
+            }
+            case "PRIVATE" : {
+                return setLift({RENT: ROUND(RECKONER(housing.rent, housing.freq, housing.rentFree, housing.SSSC)), RATES: housing.rates, RATES_F: housing.ratesFreq})
+            }
+            case "COOWN" : {
+                return setLift({RENT: ROUND(RECKONER(housing.rent, housing.freq, housing.rentFree, housing.SSSC)), RATES: housing.rates, RATES_F: housing.ratesFreq})
+            }
+            case "OWN" : {
+                return setLift({RENT: ROUND(RECKONER(housing.rent, housing.freq, housing.rentFree, housing.SSSC)), RATES: housing.rates, RATES_F: housing.ratesFreq})
+            }
+            case "NONE" : {
+                return setLift({RENT: ROUND(RECKONER(housing.rent, housing.freq, housing.rentFree, housing.SSSC)), RATES: housing.rates, RATES_F: housing.ratesFreq})
+            }
+            default : {
                 return
             }
-            case "SOCIAL" : {
-                console.log(RECKONER(housing.rent, housing.freq, housing.rentFree, housing.SSSC))
-            }
         }
-    }, [housing.freq, housing.SSSC, housing.rentFree])
+    }, [ housing.type, housing.freq, housing.SSSC, housing.rentFree, housing.rates, housing.ratesFreq, housing.rent, setPropState])
 
     // conditional css: 
 
-    const rentfree_dynamic = housing.type === "" ? classes.rentfree_label_disabled : classes.rentfree_label
-    const SSSC_dynamic = housing.type === "" ? classes.SSSC_label_disabled : classes.SSSC_label
+    const rentfree_dynamic = housing.type === "SOCIAL" ? classes.rentfree_label : classes.rentfree_label_disabled
+    const SSSC_dynamic = housing.type === "SOCIAL" ? classes.sssc_label : classes.sssc_label_disabled
     const rates_dynamic = housing.type === "" ? classes.rates_label_disabled : classes.rates_label
 
     return (
@@ -124,9 +156,9 @@ const Hous = (setPropState) => {
                     <option value="OWN">Owner Occupier</option>
                     <option value="">None</option>
                 </select> 
-                <input disabled={housing.type === "" } onChange={handleAmount} className={classes.select_amount} placeholder="Eligible Costs" type="number"/>
-                <select disabled={housing.type === "" } onChange={handleFreq} className={classes.select_freq}>
-                    <option value="SELECT">--frequency--</option>
+                <input value={housing.rent} disabled={housing.type === "" } onChange={handleAmount} className={classes.select_amount} placeholder="Eligible Costs" type="number"/>
+                <select value={housing.freq} disabled={housing.type === "" } onChange={handleFreq} className={classes.select_freq}>
+                    <option value="">--frequency--</option>
                     <option value="PW">Weekly</option>
                     <option value="PM">Monthly</option>
                 </select>   
@@ -158,15 +190,15 @@ const Hous = (setPropState) => {
                         affect work allowance </p>}
                 </div>
             <label htmlFor="rates" className={rates_dynamic}>Rates: 
-                <input disabled={housing.type === ""} onChange={handleRates} className={classes.rates_input} id="rates" type="number"></input>
-                <select disabled={housing.type === ""} onChange={handleRatesFreq} className={classes.rates_freq}>
+                <input value={housing.rates} disabled={housing.type === ""} onChange={handleRates} className={classes.rates_input} id="rates" type="number"></input>
+                <select  value={housing.ratesFreq} disabled={housing.type === ""} onChange={handleRatesFreq} className={classes.rates_freq}>
                     <option value="">--frequency--</option>
                     <option value="PW">--Weekly--</option>
                     <option value="PM">--Monthly--</option>
                 </select>
             </label>
             <label className={SSSC_dynamic} htmlFor="SizeCriteria">Social Sector Size Criteria (bedroom tax)
-                <select disabled={housing.type !== "SOCIAL"} onChange={handleSSSC} className={classes.sssc_select} id="SizeCriteria">
+                <select value={housing.SSSC} disabled={housing.type !== "SOCIAL"} onChange={handleSSSC} className={classes.sssc_select} id="SizeCriteria">
                     <option value="1">--select--</option>
                     <option value="1">None</option>
                     <option value="0.86">1 bedroom</option>
@@ -174,13 +206,11 @@ const Hous = (setPropState) => {
                 </select>
             </label>
             <label htmlFor="rent_free" className={rentfree_dynamic}>Number of rent-free weeks
-                <input disabled={housing.type !== "SOCIAL"} onChange={handleRentFree} type="number" className={classes.rentfree_input}></input>
+                <input value={housing.rentFree} disabled={housing.type !== "SOCIAL"} onChange={handleRentFree} type="number" className={classes.rentfree_input}></input>
             </label>
             </div>
 
-            <div> type: {housing.type} rent: {housing.rent} frequency: {housing.freq}</div>
-            <div> SSSC: {housing.SSSC} rentFree: {housing.rentFree} </div>
-            <div> Rates: {housing.rates} frequency: {housing.ratesFreq}</div>
+         <div>RENT: {lift.RENT}, RATES: {lift.RATES}, RATES_F: {lift.RATES_F} </div>
         </React.Fragment>
     )
 }
