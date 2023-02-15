@@ -4,7 +4,7 @@ import classes from "./Totals.module.css"
 
 
 
-const Totals = ({PA, WCA, LCW, CE, TA, CHILD, CDL, CDH, CC}) => {
+const Totals = ({PA, WCA, LCW, CE, TA, CHILD, CDL, CDH, CC, HC}) => {
    
         //local state 
     const round = (x) => {
@@ -35,6 +35,9 @@ const Totals = ({PA, WCA, LCW, CE, TA, CHILD, CDL, CDH, CC}) => {
              <label className={classes.label_amount} htmlFor="amount">Carer element: 
                 <p className={classes.label_p} id="amount">{CE}</p>
             </label>
+            <label className={classes.label_amount} htmlFor="amount">Eligible Housing: 
+                <p className={classes.label_p} id="amount">{HC}</p>
+            </label>
             <div className={classes.children_container}>
                 <h4 className={classes.heading_children}>Child elements</h4>
                 
@@ -55,6 +58,7 @@ const Totals = ({PA, WCA, LCW, CE, TA, CHILD, CDL, CDH, CC}) => {
                     <p className={classes.p_children} id="section">{CC}</p> 
                 </div>
                     
+                
             </div>
             <label className={classes.label_amount} htmlFor="amount">Max UC: 
                 <p className={classes.label_p} id="amount">{

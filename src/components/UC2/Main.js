@@ -12,7 +12,7 @@ import Income from "./Income/Income"
 
 
       
-
+// RATES: action.rates_value, RATES_FREQ: action.rates_freq 
 
 const MAIN_REDUCER = (state, action) => {
     switch(action.type) {
@@ -20,7 +20,7 @@ const MAIN_REDUCER = (state, action) => {
         /* Housing */
 
         case "HOUS" : {
-            return {...state, HC: action.housing_value, RATES: action.rates_value, RATES_FREQ: action.rates_freq }
+            return {...state, HC: action.HOUSING, }
         }
         
         /* Child elements */
@@ -179,7 +179,8 @@ return (
                 CHILD={round(MAIN_STATE.CHILD)}
                 CDL={round(MAIN_STATE.CHILD_D_LOW)}
                 CDH={round(MAIN_STATE.CHILD_D_HIGH)}
-                CC={round(MAIN_STATE.CHILDCARE)}  />
+                CC={round(MAIN_STATE.CHILDCARE)}
+                HC={MAIN_STATE.HC}  />
             </div>
         </React.Fragment>
 )

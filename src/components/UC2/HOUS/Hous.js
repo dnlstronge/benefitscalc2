@@ -42,12 +42,12 @@ const housing_REDUCER = (state, action) => {
     }
 }
 
-const Hous = (setPropState) => {
+const Hous = ({setPropState}) => {
 
     // local state:
 
     const [lift, setLift] = useState({
-        RENT: "0",
+        RENT: "",
         RATES: "0",
         RATES_F: "",
     })
@@ -136,6 +136,14 @@ const Hous = (setPropState) => {
             }
         }
     }, [ housing.type, housing.freq, housing.SSSC, housing.rentFree, housing.rates, housing.ratesFreq, housing.rent, setPropState])
+
+
+
+    // effect lifts to main state: 
+
+    useEffect(() => {
+        setPropState( {type: "HOUS", HOUSING: lift.RENT})
+    }, [lift.RENT])
 
     // conditional css: 
 
