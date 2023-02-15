@@ -111,15 +111,15 @@ const Hous = (setPropState) => {
         <h4 className={classes.heading}>Housing Costs</h4>
             <div className={classes.sub_container}>
                 <select onChange={handleType} className={classes.select_type}>
-                    <option value="SELECT">--Select Type--</option>
+                    <option value="">--Select Type--</option>
                     <option value="SOCIAL">Social sector</option>
                     <option value="PRIVATE">Private landlord</option>
                     <option value="COOWN">Co-ownership</option>
                     <option value="OWN">Owner Occupier</option>
-                    <option value="NONE">None</option>
+                    <option value="">None</option>
                 </select> 
-                <input onChange={handleAmount} className={classes.select_amount} placeholder="Eligible Costs" type="number"/>
-                <select onChange={handleFreq} className={classes.select_freq}>
+                <input disabled={housing.type === "" } onChange={handleAmount} className={classes.select_amount} placeholder="Eligible Costs" type="number"/>
+                <select disabled={housing.type === "" } onChange={handleFreq} className={classes.select_freq}>
                     <option value="SELECT">--frequency--</option>
                     <option value="PW">Weekly</option>
                     <option value="PM">Monthly</option>
@@ -140,7 +140,8 @@ const Hous = (setPropState) => {
                 {housing.freq === "" && 
                 <p className={classes.warning2}>Select Frequency</p>}
                 </div>}
-                <div className={classes.info}>
+            </div>
+            <div className={classes.info}>
                 {housing.type === "PRIVATE" &&
                     <p>Enter LHA rate or Rent whichever is lower</p>}
                 {housing.type === "OWN"  &&
@@ -150,26 +151,24 @@ const Hous = (setPropState) => {
                     <p>Co-owners may get help with rent & service charge but this may
                         affect work allowance </p>}
                 </div>
-                
-            </div>
             <label htmlFor="rates" className={classes.rates_label}>Rates: 
-                <input onChange={handleRates} className={classes.rates_input} id="rates" type="number"></input>
-                <select onChange={handleRatesFreq} className={classes.rates_freq}>
+                <input disabled={housing.type === ""} onChange={handleRates} className={classes.rates_input} id="rates" type="number"></input>
+                <select disabled={housing.type === ""} onChange={handleRatesFreq} className={classes.rates_freq}>
                     <option value="">--frequency--</option>
                     <option value="PW">--Weekly--</option>
                     <option value="PM">--Monthly--</option>
                 </select>
             </label>
             <label className={classes.sssc_label}htmlFor="SizeCriteria">Social Sector Size Criteria (bedroom tax)
-                <select onChange={handleSSSC} className={classes.sssc_select} id="SizeCriteria">
+                <select disabled={housing.type !== "SOCIAL"} onChange={handleSSSC} className={classes.sssc_select} id="SizeCriteria">
                     <option value="1">--select--</option>
                     <option value="1">None</option>
                     <option value="0.86">1 bedroom</option>
                     <option value="0.75">2+ bedroom</option>
                 </select>
             </label>
-            <label htmlForm="rent_free" className={classes.rentfree_label}>Number of rent-free weeks
-                <input onChange={handleRentFree} type="number" className={classes.rentfree_input}></input>
+            <label htmlFor="rent_free" className={classes.rentfree_label}>Number of rent-free weeks
+                <input disabled={housing.type !== "SOCIAL"} onChange={handleRentFree} type="number" className={classes.rentfree_input}></input>
             </label>
             </div>
 

@@ -11,7 +11,7 @@
 }
 .warning_box {
     display: flex;
-    height: 6rem;
+    height: 4rem;
     width: 90%;
 }
 
@@ -28,7 +28,10 @@
     color: red;
     margin-left: 4rem;
 }
-
+.info {
+    margin-left: 1rem;
+    font-weight: bold;
+}
 .heading {
     text-align: center;
 }
