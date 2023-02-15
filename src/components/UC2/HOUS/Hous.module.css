@@ -9,15 +9,24 @@
     border: 2px solid black;
     border-radius: 5px;
 }
+.warning_box {
+    display: flex;
+    height: 6rem;
+    width: 90%;
+}
 
 .warning_container {
     display: flex;
     height: 2rem;
-    width: 6reml
+    width: 90%;
 }
 .warning {
     color: red;
     margin-left: 1rem;
+}
+.warning2 {
+    color: red;
+    margin-left: 4rem;
 }
 
 .heading {

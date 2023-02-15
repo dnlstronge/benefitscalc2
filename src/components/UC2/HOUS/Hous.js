@@ -44,10 +44,10 @@ const Hous = (setPropState) => {
         type: '',
         rent: '',
         freq: '',
-        SSSC: '',
+        SSSC: '1',
         rates: '',
         ratesFreq: '',
-        rentFree: '',
+        rentFree: '0',
     })
 
     // handlers
@@ -123,6 +123,7 @@ const Hous = (setPropState) => {
                     <option value="PM">Monthly</option>
                 </select>   
             </div>
+            <div className={classes.warning_box}>
             {housing.type === "" &&
             <div className={classes.warning_container}>
              <p className={classes.warning}>Select Housing Type</p>
@@ -134,14 +135,15 @@ const Hous = (setPropState) => {
                 </div>}
                 {housing.rent !== "" &&
                 <div className={classes.warning_container}>
-                {housing.freq === "SELECT" && 
-                <p className={classes.warning}>Select Frequency</p>}
+                {housing.freq === "" && 
+                <p className={classes.warning2}>Select Frequency</p>}
                 </div>}
-            
+                
+            </div>
             <label htmlFor="rates" className={classes.rates_label}>Rates: 
                 <input onChange={handleRates} className={classes.rates_input} id="rates" type="number"></input>
                 <select onChange={handleRatesFreq} className={classes.rates_freq}>
-                    <option value="0">--frequency--</option>
+                    <option value="">--frequency--</option>
                     <option value="PW">--Weekly--</option>
                     <option value="PM">--Monthly--</option>
                 </select>
