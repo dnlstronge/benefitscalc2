@@ -13,19 +13,31 @@ const incomeREDUCER = (state, action) => {
             if(state.earnings_claimant > 0) {
                 return {...state, error: true}
             }
-            return {...state, earnings_claimant:Number(action.payload) }
+            return {...state, earnings_claimant: Number(action.payload), error: false }
         }
         case "WAGE_PARTNER": {
-            return {...state, earnings_partner: Number(action.payload)}
+            if(state.earnings_partner > 0) {
+                return {...state, error: true}
+            }
+            return {...state, earnings_partner: Number(action.payload), error: false}
         }
         case "UNEARN": {
-            return {...state, unearned: Number(action.payload)}
+            if(state.unearned > 0) {
+                return {...state, error: true}
+            }
+            return {...state, unearned: Number(action.payload), error: false}
         }
         case "OTH": {
-            return {...state, other: Number(action.payload)}
+            if(state.other > 0) {
+                return {...state, error: true}
+            }
+            return {...state, other: Number(action.payload), error: false}
         }
         case "CB": {
-            return {...state, childbenefit: Number(action.payload)}
+            if(state.childbenefit > 0) {
+                return {...state, error: true}
+            }
+            return {...state, childbenefit: Number(action.payload), error: false}
         }
         default: {
             return
@@ -56,16 +68,15 @@ const Income = (propState) => {
         
             <div className={classes.container}>
             <h4 className={classes.heading}>Income</h4>
-            {error && 
-            <div className={classes.select_warning}> Error: Duplicate selected </div>}
+            {ERROR && 
+            <div className={classes.select_warning}> Error: Duplicate income value selected </div>}
             <IncomeSelect GLOBAL={incomeValues} setParentState={dispatchIncome} />
             <IncomeSelect GLOBAL={incomeValues} setParentState={dispatchIncome} />
             <IncomeSelect GLOBAL={incomeValues} setParentState={dispatchIncome} />
             <IncomeSelect GLOBAL={incomeValues} setParentState={dispatchIncome} />
             <IncomeSelect GLOBAL={incomeValues} setParentState={dispatchIncome} />
             </div>
-           
-
+               
         </React.Fragment>
     )
 }

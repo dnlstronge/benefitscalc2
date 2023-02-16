@@ -13,7 +13,11 @@
 .heading {
     text-align: center;
 }
-
+.select_warning {
+    margin-left: 1rem;
+    font-weight: bold;
+    color: red;
+}
 
 
 
