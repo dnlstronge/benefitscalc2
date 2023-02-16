@@ -16,9 +16,7 @@ const IncomeSelect = ({ GLOBAL, setParentState, ERROR }) => {
 
 
     const handleType = (e) => {
-        if(e.target.value && GLOBAL.earnings_claimant > 0) {
-            ERROR(true)
-        }
+      
         setAmount("")
         setActual("")
         setFreq("")
@@ -50,15 +48,6 @@ const IncomeSelect = ({ GLOBAL, setParentState, ERROR }) => {
         }
         
     }
-
-    // duplicate error
-    // useEffect(() => {
-    //     type === "WAGE_CLAIMANT" && GLOBAL.earnings_claimant > 0 ? ERROR(true) : ERROR(false)
-    //     type === "WAGE_PARTNER" && GLOBAL.earnings_partner > 0 ? ERROR(true) : ERROR(false)
-    //     type === "UNEARN" && GLOBAL.unearned > 0 ? ERROR(true) : ERROR(false)
-    //     type === "OTH" && GLOBAL.earnings_partner > 0 ? ERROR(true) : ERROR(false)
-    //     type === "CB" && GLOBAL.earnings_partner > 0 ? ERROR(true) : ERROR(false)
-    // }, [type, GLOBAL, ERROR])
 
     // finds actual
     useEffect(() => {

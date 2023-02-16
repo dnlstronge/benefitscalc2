@@ -8,7 +8,9 @@ const incomeREDUCER = (state, action) => {
             return
         }
         case "WAGE_CLAIMANT": {
-            
+            if(earnings_claimant > 0) {
+                return setERROR(true)
+            }
             return {...state, earnings_claimant:Number(action.payload) }
         }
         case "WAGE_PARTNER": {
