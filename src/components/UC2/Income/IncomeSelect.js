@@ -46,8 +46,13 @@ const IncomeSelect = ({ setParentState }) => {
     }
 
     useEffect(() => {
+        const round = (x) => {
 
-    }, [])
+            return Math.ceil( x * 100) /100
+         
+         }
+       return setParentState({type: type, payload: round(amount)} )
+    }, [type, amount, setParentState])
 
     return (
         <React.Fragment>
@@ -60,7 +65,7 @@ const IncomeSelect = ({ setParentState }) => {
                     <option value="OTH">Other income</option>
                     <option value="CB">Child Benefit</option>
                 </select>
-                <input disabled={type === "SELECT"} onChange={handleAmount} className={classes.select_amount} placeholder="Eligible Costs" type="number"/>
+                <input value={amount} disabled={type === "SELECT"} onChange={handleAmount} className={classes.select_amount} placeholder="Eligible Costs" type="number"/>
                 <select disabled={amount === "SELECT"} onChange={handleFreq} className={classes.select_freq}>
                     <option value="SELECT">--frequency--</option>
                     <option value="PW">Weekly</option>
@@ -69,6 +74,12 @@ const IncomeSelect = ({ setParentState }) => {
                     <option value="PM">Monthly</option>
                 </select>
             </div>
+            <div>TEST DIVS:
+                <p>type: {type} --- freq: {freq}</p> 
+                <p>state amount: {amount}</p>
+                <p>actual amount: {actual}</p>
+                <p></p>
+                </div>
         </React.Fragment>
     )
 }

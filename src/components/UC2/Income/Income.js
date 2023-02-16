@@ -4,9 +4,25 @@ import IncomeSelect from "./IncomeSelect"
 
 const incomeREDUCER = (state, action) => {
     switch(action.type) {
-        case "WAGES_CLAIMANT": {
+        case "SELECT" : {
             return
         }
+        case "WAGES_CLAIMANT": {
+            return {...state, earnings_claimant: action.payload}
+        }
+        case "WAGES_PARTNER": {
+            return {...state, earnings_partner: action.payload}
+        }
+        case "UNEARN": {
+            return {...state, unearned: action.payload}
+        }
+        case "OTH": {
+            return {...state, other: action.payload}
+        }
+        case "CB": {
+            return {...state, childbenefit: action.payload}
+        }
+
     }
 }
 

@@ -245,8 +245,6 @@ const Hous = ({setPropState}) => {
                 </select>
             </label>
             </div>
-
-         <div>RENT: {lift.RENT}, RATES: {lift.RATES}, RATES_F: {lift.RATES_F} NDD: {lift.NDC} </div>
         </React.Fragment>
     )
 }
