@@ -48,7 +48,7 @@ const incomeREDUCER = (state, action) => {
 }
 
 const Income = (setPropState) => {
-
+    const [WA, setWA] = useState("")
 
     const [incomeValues, dispatchIncome] = useReducer(incomeREDUCER, {
         earnings_claimant: "",
@@ -68,15 +68,15 @@ const Income = (setPropState) => {
 
     // lift up to main state
 
-    // useEffect(() => {
-    //     setPropState({
-            
-    //     })
-    // }, [incomeValues.earnings_claimant, 
-    //     incomeValues.earnings_partner, 
-    //     incomeValues.unearned,
-    //     incomeValues.other,
-    //     incomeValues.childbenefit, setPropState])
+    useEffect(() => {
+        setPropState({
+           type: "EARNED INCOME", WAGE1: incomeValues.earnings_claimant, WAGE2: incomeValues.earnings_partner }
+        )
+    }, [incomeValues.earnings_claimant, 
+        incomeValues.earnings_partner, 
+        incomeValues.unearned,
+        incomeValues.other,
+        incomeValues.childbenefit, setPropState])
 
     return (
         <React.Fragment>
