@@ -7,15 +7,18 @@ const IncomeSelect = ({ setParentState }) => {
 
     
 
-    const [type, setType] = useState("SELECT")
-    const [amount, setAmount] = useState("SELECT")
-    const [actual, setActual] = useState("0")
-    const [freq, setFreq ] = useState("0")
+    const [type, setType] = useState("")
+    const [amount, setAmount] = useState("")
+    const [actual, setActual] = useState("")
+    const [freq, setFreq ] = useState("")
 
     // handlers: 
 
 
     const handleType = (e) => {
+        setAmount("")
+        setActual("")
+        setFreq("")
         setType(e.target.value)
     }
 
@@ -33,7 +36,7 @@ const IncomeSelect = ({ setParentState }) => {
                 return setActual(amount / 12 * 26)
             }
             case "4W": {
-                return setActual( amount / 12 * 13)
+                return setActual(amount / 12 * 13)
             }
             case "PM": {
                 return setActual(amount)
@@ -51,8 +54,8 @@ const IncomeSelect = ({ setParentState }) => {
             return Math.ceil( x * 100) /100
          
          }
-       return setParentState({type: type, payload: round(amount)} )
-    }, [type, amount, setParentState])
+       return setParentState({type: type, payload: round(actual)} )
+    }, [type, actual, setParentState])
 
     return (
         <React.Fragment>
@@ -65,8 +68,8 @@ const IncomeSelect = ({ setParentState }) => {
                     <option value="OTH">Other income</option>
                     <option value="CB">Child Benefit</option>
                 </select>
-                <input value={amount} disabled={type === "SELECT"} onChange={handleAmount} className={classes.select_amount} placeholder="Eligible Costs" type="number"/>
-                <select disabled={amount === "SELECT"} onChange={handleFreq} className={classes.select_freq}>
+                <input value={amount} disabled={type === ""} onChange={handleAmount} className={classes.select_amount} placeholder="Eligible Costs" type="number"/>
+                <select value={freq} disabled={amount === ""} onChange={handleFreq} className={classes.select_freq}>
                     <option value="SELECT">--frequency--</option>
                     <option value="PW">Weekly</option>
                     <option value="2W">Fortnightly</option>
@@ -74,12 +77,7 @@ const IncomeSelect = ({ setParentState }) => {
                     <option value="PM">Monthly</option>
                 </select>
             </div>
-            <div>TEST DIVS:
-                <p>type: {type} --- freq: {freq}</p> 
-                <p>state amount: {amount}</p>
-                <p>actual amount: {actual}</p>
-                <p></p>
-                </div>
+                
         </React.Fragment>
     )
 }
