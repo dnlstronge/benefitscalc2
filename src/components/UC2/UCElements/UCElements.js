@@ -43,6 +43,7 @@ Higher = no eligble housing & LCW or children */
 
   work_allowance_higher: 573.00,
   work_allowance: 344.00,
+  WA_NULL: 0,
 
  /* capital tarfiff - if capital >6k & <16k */
 

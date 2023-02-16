@@ -1,8 +1,9 @@
 import React, { useEffect, useReducer, useState} from "react";
 import classes from "./Income.module.css"
 import IncomeSelect from "./IncomeSelect"
+import UCElements from "../UCElements/UCElements"
 
-
+const UC_elements = UCElements
 
 const incomeREDUCER = (state, action) => {
     switch(action.type) {
@@ -46,7 +47,7 @@ const incomeREDUCER = (state, action) => {
     }
 }
 
-const Income = (propState) => {
+const Income = (setPropState) => {
 
 
     const [incomeValues, dispatchIncome] = useReducer(incomeREDUCER, {
@@ -59,9 +60,23 @@ const Income = (propState) => {
     })
     const [ERROR, setERROR] = useState(false)
 
+    // handles duplicate income values
+
     useEffect(() => {
         incomeValues.error ? setERROR(true) : setERROR(false)
     }, [incomeValues.error])
+
+    // lift up to main state
+
+    useEffect(() => {
+        setPropState({
+            
+        })
+    }, [incomeValues.earnings_claimant, 
+        incomeValues.earnings_partner, 
+        incomeValues.unearned,
+        incomeValues.other,
+        incomeValues.childbenefit, setPropState])
 
     return (
         <React.Fragment>
@@ -69,7 +84,16 @@ const Income = (propState) => {
             <div className={classes.container}>
             <h4 className={classes.heading}>Income</h4>
             {ERROR && 
+
             <div className={classes.select_warning}> Error: Duplicate income value selected </div>}
+            <label htmlFor="workallowance" className={classes.WA_label} >
+                <select>
+                    <option>--select Work Allowance--</option>
+                    <option value={UC_elements.WA_NULL}>None</option>
+                    <option value={UC_elements.work_allowance_higher}>£{UC_elements.work_allowance_higher} (no housing costs) £{}</option>
+                    <option value={UC_elements.work_allowance}>£{UC_elements.work_allowance} (LCW or Children) £{} </option>
+                </select>
+            </label>
             <IncomeSelect GLOBAL={incomeValues} setParentState={dispatchIncome} />
             <IncomeSelect GLOBAL={incomeValues} setParentState={dispatchIncome} />
             <IncomeSelect GLOBAL={incomeValues} setParentState={dispatchIncome} />
