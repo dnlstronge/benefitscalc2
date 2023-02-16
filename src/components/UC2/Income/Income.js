@@ -1,4 +1,4 @@
-import React, { useReducer} from "react";
+import React, { useReducer, useState} from "react";
 import classes from "./Income.module.css"
 import IncomeSelect from "./IncomeSelect"
 
@@ -41,24 +41,21 @@ const Income = (propState) => {
         childbenefit: ""
     })
 
- 
+    const [error, setError] = useState(false)
     return (
         <React.Fragment>
         
             <div className={classes.container}>
             <h4 className={classes.heading}>Income</h4>
-            <IncomeSelect GLOBAL={incomeValues} setParentState={dispatchIncome} />
-            <IncomeSelect GLOBAL={incomeValues} setParentState={dispatchIncome} />
-            <IncomeSelect GLOBAL={incomeValues} setParentState={dispatchIncome} />
-            <IncomeSelect GLOBAL={incomeValues} setParentState={dispatchIncome} />
-            <IncomeSelect GLOBAL={incomeValues} setParentState={dispatchIncome} />
+            {error && 
+            <div className={classes.select_warning}> Error: Duplicate selected </div>}
+            <IncomeSelect GLOBAL={incomeValues} ERROR={setError} setParentState={dispatchIncome} />
+            <IncomeSelect GLOBAL={incomeValues} ERROR={setError} setParentState={dispatchIncome} />
+            <IncomeSelect GLOBAL={incomeValues} ERROR={setError} setParentState={dispatchIncome} />
+            <IncomeSelect GLOBAL={incomeValues} ERROR={setError} setParentState={dispatchIncome} />
+            <IncomeSelect GLOBAL={incomeValues} ERROR={setError} setParentState={dispatchIncome} />
             </div>
-            
-            <div> TEST WAGES CLAIMANT: {incomeValues.earnings_claimant}</div>
-            <div> TEST WAGES PARTNER: {incomeValues.earnings_partner}</div>
-            <div> TEST WAGES unearned {incomeValues.unearned}</div>
-            <div> TEST WAGES other: {incomeValues.other}</div>
-            <div> TEST WAGES childbenefit: {incomeValues.childbenefit}</div>
+           
 
         </React.Fragment>
     )

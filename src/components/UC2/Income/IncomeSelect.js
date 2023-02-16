@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import classes from "./IncomeSelect.module.css"
 
-const IncomeSelect = ({ GLOBAL, setParentState }) => {
+const IncomeSelect = ({ GLOBAL, setParentState, ERROR }) => {
 
     //local state:
 
@@ -16,6 +16,9 @@ const IncomeSelect = ({ GLOBAL, setParentState }) => {
 
 
     const handleType = (e) => {
+        if(e.target.value && GLOBAL.earnings_claimant > 0) {
+            ERROR(true)
+        }
         setAmount("")
         setActual("")
         setFreq("")
@@ -48,6 +51,16 @@ const IncomeSelect = ({ GLOBAL, setParentState }) => {
         
     }
 
+    // duplicate error
+    // useEffect(() => {
+    //     type === "WAGE_CLAIMANT" && GLOBAL.earnings_claimant > 0 ? ERROR(true) : ERROR(false)
+    //     type === "WAGE_PARTNER" && GLOBAL.earnings_partner > 0 ? ERROR(true) : ERROR(false)
+    //     type === "UNEARN" && GLOBAL.unearned > 0 ? ERROR(true) : ERROR(false)
+    //     type === "OTH" && GLOBAL.earnings_partner > 0 ? ERROR(true) : ERROR(false)
+    //     type === "CB" && GLOBAL.earnings_partner > 0 ? ERROR(true) : ERROR(false)
+    // }, [type, GLOBAL, ERROR])
+
+    // finds actual
     useEffect(() => {
         const round = (x) => {
 
@@ -64,16 +77,18 @@ const IncomeSelect = ({ GLOBAL, setParentState }) => {
                 <select value={type} onChange={handleType} className={classes.select_type}>
                     <option value="SELECT">--Income Type--</option>
                     
-                    <option display={GLOBAL.wages_claimant > 0 ? "none" : ""} value="WAGE_CLAIMANT">Wages (claimant)</option>
-                    {GLOBAL.earnings_partner === "" && 
-                    <option value="WAGE_PARTNER">Wages (partner)</option>}
-                    {GLOBAL.unearned === "" && 
-                    <option value="UNEARN">Unearned Income</option>}
-                    {GLOBAL.other === "" && 
-                    <option value="OTH">Other income</option>}
-                    {GLOBAL.childbenefit === "" && 
-                    <option value="CB">Child Benefit</option>}
+                    <option value="WAGE_CLAIMANT">Wages (claimant)</option>
+                    
+                    <option value="WAGE_PARTNER">Wages (partner)</option>
+                    
+                    <option value="UNEARN">Unearned Income</option>
+                    
+                    <option value="OTH">Other income</option>
+                    
+                    <option value="CB">Child Benefit</option>
+                    
                 </select>
+                
                 <input value={amount} disabled={type === ""} onChange={handleAmount} className={classes.select_amount} placeholder="Eligible Costs" type="number"/>
                 <select value={freq} disabled={amount === ""} onChange={handleFreq} className={classes.select_freq}>
                     <option value="SELECT">--frequency--</option>
@@ -82,7 +97,9 @@ const IncomeSelect = ({ GLOBAL, setParentState }) => {
                     <option value="4W">Four-weekly</option>
                     <option value="PM">Monthly</option>
                 </select>
+                
             </div>
+           
                 
         </React.Fragment>
     )
