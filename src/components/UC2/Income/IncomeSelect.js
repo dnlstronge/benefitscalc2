@@ -1,12 +1,15 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import classes from "./IncomeSelect.module.css"
 
 const IncomeSelect = ({ setParentState }) => {
 
     //local state:
 
+    
+
     const [type, setType] = useState("SELECT")
     const [amount, setAmount] = useState("SELECT")
+    const [actual, setActual] = useState("0")
     const [freq, setFreq ] = useState("0")
 
     // handlers: 
@@ -22,7 +25,30 @@ const IncomeSelect = ({ setParentState }) => {
 
     const handleFreq = (e) => {
         setFreq(e.target.value)
+        switch(e.target.value) {
+            case "PW": {
+                return setActual(amount / 12 * 52)
+            }
+            case "2W": {
+                return setActual(amount / 12 * 26)
+            }
+            case "4W": {
+                return setActual( amount / 12 * 13)
+            }
+            case "PM": {
+                return setActual(amount)
+            }
+            default : {
+                return
+            }
+        }
+        
     }
+
+    useEffect(() => {
+
+    }, [])
+
     return (
         <React.Fragment>
             <div className={classes.sub_container}>
