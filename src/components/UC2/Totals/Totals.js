@@ -4,7 +4,7 @@ import classes from "./Totals.module.css"
 
 
 
-const Totals = ({PA, WCA, LCW, CE, TA, CHILD, CDL, CDH, CC, HC}) => {
+const Totals = ({PA, WCA, LCW, CE, TA, CHILD, CDL, CDH, CC, HC, W1, W2, UI, OI, CB, WA}) => {
    
         //local state 
     const round = (x) => {
@@ -16,6 +16,7 @@ const Totals = ({PA, WCA, LCW, CE, TA, CHILD, CDL, CDH, CC, HC}) => {
 
 
     return (
+        <React.Fragment>
         <div className={classes.container}>
             
             <label className={classes.label_amount} htmlFor="amount">
@@ -77,6 +78,37 @@ const Totals = ({PA, WCA, LCW, CE, TA, CHILD, CDL, CDH, CC, HC}) => {
             </label>
          
         </div>
+        <div className={classes.container}>
+
+      
+                <div className={classes.children_sub_container}>
+                <label className={classes.label_children} htmlFor="section">Wages Claimant</label>
+                    <p className={classes.p_children} id="section">{W1}</p> 
+                </div>
+                <div className={classes.children_sub_container}>
+                <label className={classes.label_children} htmlFor="section">Wages Partner</label>
+                    <p className={classes.p_children} id="section">{W2}</p> 
+                </div>
+                <div className={classes.children_sub_container}>
+                <label className={classes.label_children} htmlFor="section">Unearned Income</label>
+                    <p className={classes.p_children} id="section">{UI}</p> 
+                </div>
+                <div className={classes.children_sub_container}>
+                <label className={classes.label_children} htmlFor="section">Other Income</label>
+                    <p className={classes.p_children} id="section">{OI}</p> 
+                </div>
+                <div className={classes.children_sub_container}>
+                <label className={classes.label_children} htmlFor="section">Child Benefit</label>
+                    <p className={classes.p_children} id="section">{CB}</p> 
+                </div>
+                <div className={classes.children_sub_container}>
+                <label className={classes.label_children} htmlFor="section">Work Allowance</label>
+                    <p className={classes.p_children} id="section">{WA}</p> 
+                </div>
+               
+        </div>
+</React.Fragment>
+        
     )
 }
 

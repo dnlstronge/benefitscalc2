@@ -17,6 +17,18 @@ import Income from "./Income/Income"
 const MAIN_REDUCER = (state, action) => {
     switch(action.type) {
 
+        /* Income  */
+
+        case "INCOME" : {
+            return {...state, 
+                WAGE_CLAIMANT: action.WAGE1,
+                WAGE_PARTNER: action.WAGE2,
+                UNEARNED: action.UNEARNED,
+                OTHER: action.OTHER,
+                CB: action.CHILD,
+                WORKALLOWANCE: action.WORKALLOWANCE }
+        }
+
         /* Housing */
 
         case "HOUS" : {
@@ -120,7 +132,14 @@ const Main = (props) => {
         CHILD: 0,
         CHILD_D_LOW: 0,
         CHILD_D_HIGH: 0,
-        CHILDCARE: 0
+        CHILDCARE: 0, 
+        WAGE_CLAIMANT: 0,
+        WAGE_PARTNER: 0,
+        UNEARNED: 0,
+        OTHER: 0,
+        CB: 0,
+        WORKALLOWANCE: 0,
+
 
     })
 
@@ -186,7 +205,13 @@ return (
                 CDL={round(MAIN_STATE.CHILD_D_LOW)}
                 CDH={round(MAIN_STATE.CHILD_D_HIGH)}
                 CC={round(MAIN_STATE.CHILDCARE)}
-                HC={MAIN_STATE.HC}  />
+                HC={MAIN_STATE.HC}
+                W1={MAIN_STATE.WAGE_CLAIMANT}
+                W2={MAIN_STATE.WAGE_PARTNER}
+                UI={MAIN_STATE.UNEARNED}
+                OI={MAIN_STATE.OTHER}
+                CB={MAIN_STATE.CB}
+                WA={MAIN_STATE.WORKALLOWANCE}  />
             </div>
         </React.Fragment>
 )
