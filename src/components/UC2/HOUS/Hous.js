@@ -3,9 +3,6 @@ import classes from "./Hous.module.css"
 import UCElements from "../UCElements/UCElements";
 
 
-
-
-
 const UC_elements = UCElements
 
 
@@ -44,7 +41,9 @@ const housing_REDUCER = (state, action) => {
         case "RENTFREE" : {
             return {...state, rentFree: action.payload}
         }
-    
+        default : {
+            return;
+        }
     }
 }
 
@@ -155,9 +154,9 @@ const Hous = ({setPropState}) => {
 
     useEffect(() => {
        
-        setPropState( {type: "HOUS", HOUSING: lift.RENT, NDC: lift.NDC} )
+        setPropState( {type: "HOUS", HOUSING: lift.RENT, RATES: lift.RATES, RATES_FREQ: lift.RATES_F, NDC: lift.NDC} )
     
-    }, [lift.RENT, lift.NDC, setPropState])
+    }, [lift.RENT, lift.NDC, lift.RATES, lift.RATES_F, setPropState])
 
     // conditional css: 
 

@@ -20,7 +20,12 @@ const MAIN_REDUCER = (state, action) => {
         /* Housing */
 
         case "HOUS" : {
-            return {...state, HC: action.HOUSING, }
+            return {...state, 
+                HC: action.HOUSING, 
+                RATES: action.RATES,
+                RATES_F: action.RATES_FREQ,
+                NDC: action.NDC
+             }
         }
         
         /* Child elements */
@@ -111,6 +116,7 @@ const Main = (props) => {
         HC: 0,
         RATES: 0,
         RATES_FREQ: 0,
+        NDC: 0,
         CHILD: 0,
         CHILD_D_LOW: 0,
         CHILD_D_HIGH: 0,
