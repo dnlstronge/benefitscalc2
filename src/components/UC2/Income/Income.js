@@ -68,15 +68,15 @@ const Income = (setPropState) => {
 
     // lift up to main state
 
-    useEffect(() => {
-        setPropState({
+    // useEffect(() => {
+    //     setPropState({
             
-        })
-    }, [incomeValues.earnings_claimant, 
-        incomeValues.earnings_partner, 
-        incomeValues.unearned,
-        incomeValues.other,
-        incomeValues.childbenefit, setPropState])
+    //     })
+    // }, [incomeValues.earnings_claimant, 
+    //     incomeValues.earnings_partner, 
+    //     incomeValues.unearned,
+    //     incomeValues.other,
+    //     incomeValues.childbenefit, setPropState])
 
     return (
         <React.Fragment>
@@ -87,7 +87,7 @@ const Income = (setPropState) => {
 
             <div className={classes.select_warning}> Error: Duplicate income value selected </div>}
             <label htmlFor="workallowance" className={classes.WA_label} >
-                <select>
+                <select className={classes.WA_select}>
                     <option>--select Work Allowance--</option>
                     <option value={UC_elements.WA_NULL}>None</option>
                     <option value={UC_elements.work_allowance_higher}>£{UC_elements.work_allowance_higher} (no housing costs) £{}</option>

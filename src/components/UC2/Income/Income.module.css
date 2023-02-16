@@ -18,7 +18,18 @@
     font-weight: bold;
     color: red;
 }
-
+.WA_label {
+    display: flex;
+    width: 90%;
+}
+.WA_select {
+    justify-content: center;
+    display: flex;
+    width: 60%;
+    height: 2rem;
+    margin-left: 2rem;
+    margin-right: 2rem;
+}
 
 
 
