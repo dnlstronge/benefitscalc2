@@ -54,7 +54,8 @@ const IncomeSelect = ({ setParentState }) => {
             return Math.ceil( x * 100) /100
          
          }
-       return setParentState({type: type, payload: round(actual)} )
+         if(type !== "" && actual !== "") {
+       return setParentState({type: type, payload: round(actual)} )}
     }, [type, actual, setParentState])
 
     return (
