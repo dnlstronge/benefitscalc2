@@ -171,7 +171,7 @@ return (
               </div>
               <div className={classes.HOUS_container}>
                 <Hous propState={MAIN_STATE} setPropState={MAIN_DISPATCH}/>
-                <Income />
+                <Income setPropState={MAIN_DISPATCH} />
               </div>
               
                 

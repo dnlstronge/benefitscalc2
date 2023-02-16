@@ -11,6 +11,7 @@
     height: 2rem;
     margin-left: 1rem;
     margin-top: 1rem;
+    background-color: rgb(191, 228, 241);
     
 
 }
@@ -20,6 +21,7 @@
     height: 1.7rem;
     margin-left: 1rem;
     margin-top: 1rem;
+    background-color: lightyellow;
 }
 .select_freq {
     display: flex;
@@ -28,4 +30,5 @@
     margin-left: 1rem;
     margin-top: 1rem;
     margin-right: 1rem;
+    background-color: lightgrey;
 }

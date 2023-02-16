@@ -9,19 +9,19 @@ const incomeREDUCER = (state, action) => {
         }
         case "WAGE_CLAIMANT": {
             
-            return {...state, earnings_claimant: Number(state.earnings_claimant) + Number(action.payload) }
+            return {...state, earnings_claimant:Number(action.payload) }
         }
         case "WAGE_PARTNER": {
-            return {...state, earnings_partner: Number(state.earnings_partner) + Number(action.payload)}
+            return {...state, earnings_partner: Number(action.payload)}
         }
         case "UNEARN": {
-            return {...state, Nunearned: Number(state.unerned) + Number(action.payload)}
+            return {...state, unearned: Number(action.payload)}
         }
         case "OTH": {
-            return {...state, other: Number(state.other) + Number(action.payload)}
+            return {...state, other: Number(action.payload)}
         }
         case "CB": {
-            return {...state, childbenefit: Number(state.childbenefit) + Number(action.payload)}
+            return {...state, childbenefit: Number(action.payload)}
         }
         default: {
             return
@@ -30,7 +30,7 @@ const incomeREDUCER = (state, action) => {
     }
 }
 
-const Income = (props) => {
+const Income = (propState) => {
 
 
     const [incomeValues, dispatchIncome] = useReducer(incomeREDUCER, {
@@ -47,11 +47,19 @@ const Income = (props) => {
         
             <div className={classes.container}>
             <h4 className={classes.heading}>Income</h4>
-            <IncomeSelect setParentState={dispatchIncome} />
-            <IncomeSelect setParentState={dispatchIncome} />
+            <IncomeSelect GLOBAL={incomeValues} setParentState={dispatchIncome} />
+            <IncomeSelect GLOBAL={incomeValues} setParentState={dispatchIncome} />
+            <IncomeSelect GLOBAL={incomeValues} setParentState={dispatchIncome} />
+            <IncomeSelect GLOBAL={incomeValues} setParentState={dispatchIncome} />
+            <IncomeSelect GLOBAL={incomeValues} setParentState={dispatchIncome} />
             </div>
-            {incomeValues.earnings_claimant !== undefined &&
-            <div> TEST WAGES CLAIMANT: {incomeValues.earnings_claimant}</div>}
+            
+            <div> TEST WAGES CLAIMANT: {incomeValues.earnings_claimant}</div>
+            <div> TEST WAGES PARTNER: {incomeValues.earnings_partner}</div>
+            <div> TEST WAGES unearned {incomeValues.unearned}</div>
+            <div> TEST WAGES other: {incomeValues.other}</div>
+            <div> TEST WAGES childbenefit: {incomeValues.childbenefit}</div>
+
         </React.Fragment>
     )
 }
