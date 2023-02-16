@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import classes from "./IncomeSelect.module.css"
 
-const IncomeSelect = ({ GLOBAL, setParentState, ERROR }) => {
+const IncomeSelect = ({ setParentState }) => {
 
     //local state:
 
