@@ -63,13 +63,18 @@ const IncomeSelect = ({ setParentState, workAllowance, toggleReset }) => {
     // if reset 
 
     useEffect(() => {
-
-    }, [])
+        if(toggleReset === true) {
+            setAmount("")
+            setActual("")
+            setFreq("")
+            setType("")
+        }
+    }, [toggleReset])
 
     return (
         <React.Fragment>
             <div className={classes.sub_container}>
-                <select disabled={ workAllowance === ""} value={type} onChange={handleType} className={classes.select_type}>
+                <select disabled={ workAllowance === "" || type !== ""} value={type} onChange={handleType} className={classes.select_type}>
                     <option value="SELECT">--Income Type--</option>
                     
                     <option value="WAGE_CLAIMANT">Wages (claimant)</option>

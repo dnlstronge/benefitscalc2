@@ -9,7 +9,18 @@
     border: 2px solid black;
     border-radius: 5px;
 }
-
+.btn_reset {
+    font-weight: bold;
+    background: rgb(244, 216, 244);
+    margin-left: 2rem;
+    border-radius: 5%;
+}
+.btn_reset:hover {
+    font-weight: bold;
+    background: rgb(204, 134, 204);
+    margin-left: 2rem;
+    border-radius: 5%;
+}
 .heading {
     text-align: center;
 }

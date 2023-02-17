@@ -114,7 +114,7 @@ const Income = ({setPropState}) => {
 
             <div className={classes.select_warning}> Error: Duplicate income value selected </div>}
             <label htmlFor="workallowance" className={classes.WA_label} >
-            <button onClick={handleReset} className="btn_reset">Reset</button>
+            <button onClick={handleReset} className={classes.btn_reset}>Reset</button>
                 <select value={WA} onChange={handleWA} id="workallowance" className={classes.WA_select}>
                     <option value="">--select Work Allowance--</option>
                     <option value={UC_elements.WA_NULL}>None</option>
