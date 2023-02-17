@@ -87,7 +87,7 @@ const MAIN_REDUCER = (state, action) => {
             return {...state, WCA: '', CE: ''}
         }
         case "PA" : {
-            return {...state, PA: action.value}
+            return {...state, PA: Number(action.value)}
         }
 
         case "COUPLE" : {
@@ -117,7 +117,7 @@ const Main = (props) => {
         CE: 0,
         LCW: 0,
         TA: 0,
-        HC: 0,
+        HC: "",
         RATES: 0,
         RATES_FREQ: 0,
         NDC: 0,
@@ -198,6 +198,7 @@ return (
                 CDH={round(MAIN_STATE.CHILD_D_HIGH)}
                 CC={round(MAIN_STATE.CHILDCARE)}
                 HC={MAIN_STATE.HC}
+                NDD={MAIN_STATE.NDC}
                 W1={MAIN_STATE.WAGE_CLAIMANT}
                 W2={MAIN_STATE.WAGE_PARTNER}
                 UI={MAIN_STATE.UNEARNED}

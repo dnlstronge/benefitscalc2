@@ -1,15 +1,16 @@
 .container {
     display: flex;
     flex-direction: column;
-    background: white;
+    background: rgb(207, 204, 204);
     width: 18rem;
     height: 50rem;
     margin: 1rem 1rem 1rem 1rem;
-    border: 2px solid black;
+    
     border-radius: 5px;
 }
 
 .label_amount {
+    background: whitesmoke;
     display: flex;
     flex-direction: row;
     font-weight: bold;
@@ -18,7 +19,7 @@
     padding-right: 1rem;
     width: 80%;
     height: 2.5rem;
-    border: 1px solid black;
+    border-radius: 5%;
 }
 
 .label_p {

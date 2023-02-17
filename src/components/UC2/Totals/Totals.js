@@ -1,21 +1,56 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import classes from "./Totals.module.css"
 
 
 
 
-const Totals = ({PA, WCA, LCW, CE, TA, CHILD, CDL, CDH, CC, HC, W1, W2, UI, OI, CB, WA}) => {
-   
+const Totals = ({PA, WCA, LCW, CE, TA, CHILD, CDL, CDH, CC, HC, NDD, W1, W2, UI, OI, CB, WA}) => {
+    
         //local state 
     const round = (x) => {
                 return Math.ceil( x * 100) /100
              }
 
+    const [checknumber, setchecknumber] = useState("0")   
+    const [housing, setHousing] = useState("0")
+    const [total, setTotal] = useState("")
+    /*housing less non dependents */
+    useEffect(() => {
+        if(HC === isNaN) {
+            setHousing("0")
+        }
+        if(HC - NDD < 0) {
+            setHousing("0")
+        }
+        else {
+            setHousing(HC - NDD)
+        }
+
+    }, [HC, NDD] )
+
+
+    /* Returns Total */
+
+    useEffect(() => {
         
-     
+        let value = PA + WCA + LCW + CE + TA + CHILD + CDL + CDH + housing + NDD
+        setTotal(value)
+    }, [PA, WCA, LCW, CE, TA, CHILD, CDL, CDH, CC, housing, NDD])
 
+    /* isNaN  */
 
+    useEffect(() => {
+        
+        if(isNaN(total)) {
+            setchecknumber((prev) => prev)
+        }
+        if(!isNaN(total)) {
+            setchecknumber(Number(total))
+        }
+    }, [total])
     return (
+
+        
         <React.Fragment>
         <div className={classes.container}>
             {PA > 0 && 
@@ -41,7 +76,7 @@ const Totals = ({PA, WCA, LCW, CE, TA, CHILD, CDL, CDH, CC, HC, W1, W2, UI, OI, 
             </label>}
             {HC > 0 &&
             <label className={classes.label_amount} htmlFor="amount">Eligible Housing: 
-                <p className={classes.label_p} id="amount">+{HC}</p>
+                <p className={classes.label_p} id="amount">+{round(housing)}</p>
             </label>}
             {CHILD > 0 && 
             <div className={classes.children_container}>
@@ -68,19 +103,7 @@ const Totals = ({PA, WCA, LCW, CE, TA, CHILD, CDL, CDH, CC, HC, W1, W2, UI, OI, 
                 </div>}
             </div>}
             <label className={classes.label_amount} htmlFor="amount">Max UC: 
-                <p className={classes.label_p} id="amount">{
-                    round(PA
-                    + WCA
-                    + LCW
-                    + CE
-                    + TA
-                    + CHILD
-                    + CDL
-                    + CDH
-                    + CC
-                    + HC
-                    )
-                }</p>
+                    <p className={classes.label_p} id="amount">{checknumber}</p>
             </label>
          
         </div>
