@@ -1,0 +1,22 @@
+.container {
+    background: rgb(204, 237, 218);
+    font-weight: bold;
+    display: flex;
+    flex-direction: row;
+    padding-top: 0.5rem;
+    padding-left: 1rem;
+    margin: 0.5rem 1rem 0.5rem 1rem;
+    border-radius: 5%;
+    height: 3rem;
+}
+.income_label {
+    display: flex;
+    height: 1.5rem;
+    margin-top: 0.5rem;
+}
+.income_p {
+    display: flex;
+    margin-left: 3rem;
+    margin-top: 0.5rem;
+    height: 1.5rem;
+}

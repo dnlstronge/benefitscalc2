@@ -116,33 +116,13 @@ const Totals = ({PA, WCA, LCW, CE, TA, CHILD, CDL, CDH, CC, HC, NDD, W1, W2, UI,
          
         </div>
         <div className={classes.container}>
-                <ShowIncome wages1={W1} wages2={W2} unearned={UI} other={OI} childbenefit={CB} workAllowance={WA} />
-      
-                <div className={classes.children_sub_container}>
-                <label className={classes.label_children} htmlFor="section">Wages Claimant</label>
-                    <p className={classes.p_children} id="section">{W1}</p> 
-                </div>
-                <div className={classes.children_sub_container}>
-                <label className={classes.label_children} htmlFor="section">Wages Partner</label>
-                    <p className={classes.p_children} id="section">{W2}</p> 
-                </div>
-                <div className={classes.children_sub_container}>
-                <label className={classes.label_children} htmlFor="section">Unearned Income</label>
-                    <p className={classes.p_children} id="section">{UI}</p> 
-                </div>
-                <div className={classes.children_sub_container}>
-                <label className={classes.label_children} htmlFor="section">Other Income</label>
-                    <p className={classes.p_children} id="section">{OI}</p> 
-                </div>
-                <div className={classes.children_sub_container}>
-                <label className={classes.label_children} htmlFor="section">Child Benefit</label>
-                    <p className={classes.p_children} id="section">{CB}</p> 
-                </div>
-                <div className={classes.children_sub_container}>
-                <label className={classes.label_children} htmlFor="section">Work Allowance</label>
-                    <p className={classes.p_children} id="section">{WA}</p> 
-                </div>
-               
+                <ShowIncome 
+                wages1={W1} 
+                wages2={W2} 
+                unearned={UI} 
+                other={OI} 
+                childbenefit={CB} 
+                workAllowance={WA} />
         </div>
 </React.Fragment>
         
