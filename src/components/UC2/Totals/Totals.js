@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import classes from "./Totals.module.css"
+import ShowIncome from "./ShowIncome";
 
 
 
@@ -115,7 +116,7 @@ const Totals = ({PA, WCA, LCW, CE, TA, CHILD, CDL, CDH, CC, HC, NDD, W1, W2, UI,
          
         </div>
         <div className={classes.container}>
-
+                <ShowIncome wages1={W1} wages2={W2} unearned={UI} other={OI} childbenefit={CB} workAllowance={WA} />
       
                 <div className={classes.children_sub_container}>
                 <label className={classes.label_children} htmlFor="section">Wages Claimant</label>
