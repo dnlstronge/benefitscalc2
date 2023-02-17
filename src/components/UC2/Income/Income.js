@@ -10,6 +10,16 @@ const incomeREDUCER = (state, action) => {
         case "SELECT" : {
             return
         }
+        case "RESET" : {
+            return {
+                ...state,   earnings_claimant: "",
+                earnings_partner: "",
+                unearned: "",
+                other: "",
+                childbenefit: "",
+                error: false
+            }
+        }
         case "WAGE_CLAIMANT": {
             if(state.earnings_claimant > 0) {
                 return {...state, error: true}
@@ -49,7 +59,7 @@ const incomeREDUCER = (state, action) => {
 
 const Income = ({setPropState}) => {
     const [WA, setWA] = useState("")
-
+    const [toggleRESET, setTOGGLERESET] = useState(false)
     const [incomeValues, dispatchIncome] = useReducer(incomeREDUCER, {
         earnings_claimant: "",
         earnings_partner: "",
@@ -89,6 +99,11 @@ const Income = ({setPropState}) => {
         const handleWA = (e) => {
             setWA(e.target.value)
         }
+        const handleReset = () => {
+            toggleRESET ? setTOGGLERESET(false) : setTOGGLERESET(true)
+            setWA("")
+            dispatchIncome({type: "RESET"})
+        }
 
     return (
         <React.Fragment>
@@ -99,18 +114,20 @@ const Income = ({setPropState}) => {
 
             <div className={classes.select_warning}> Error: Duplicate income value selected </div>}
             <label htmlFor="workallowance" className={classes.WA_label} >
-                <select onChange={handleWA} id="workallowance" className={classes.WA_select}>
-                    <option value={UC_elements.WA_NULL}>--select Work Allowance--</option>
+            <button onClick={handleReset} className="btn_reset">Reset</button>
+                <select value={WA} onChange={handleWA} id="workallowance" className={classes.WA_select}>
+                    <option value="">--select Work Allowance--</option>
                     <option value={UC_elements.WA_NULL}>None</option>
                     <option value={UC_elements.work_allowance_higher}>£{UC_elements.work_allowance_higher} (no housing costs) £{}</option>
                     <option value={UC_elements.work_allowance}>£{UC_elements.work_allowance} (LCW or Children) £{} </option>
                 </select>
             </label>
-            <IncomeSelect GLOBAL={incomeValues} setParentState={dispatchIncome} />
-            <IncomeSelect GLOBAL={incomeValues} setParentState={dispatchIncome} />
-            <IncomeSelect GLOBAL={incomeValues} setParentState={dispatchIncome} />
-            <IncomeSelect GLOBAL={incomeValues} setParentState={dispatchIncome} />
-            <IncomeSelect GLOBAL={incomeValues} setParentState={dispatchIncome} />
+            <IncomeSelect toggleReset={toggleRESET} workAllowance={WA} GLOBAL={incomeValues} setParentState={dispatchIncome} />
+            <IncomeSelect toggleReset={toggleRESET} workAllowance={WA} GLOBAL={incomeValues} setParentState={dispatchIncome} />
+            <IncomeSelect toggleReset={toggleRESET} workAllowance={WA} GLOBAL={incomeValues} setParentState={dispatchIncome} />
+            <IncomeSelect toggleReset={toggleRESET} workAllowance={WA} GLOBAL={incomeValues} setParentState={dispatchIncome} />
+            <IncomeSelect toggleReset={toggleRESET} workAllowance={WA} GLOBAL={incomeValues} setParentState={dispatchIncome} />
+            
             </div>
                
         </React.Fragment>

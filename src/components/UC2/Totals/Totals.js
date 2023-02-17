@@ -120,9 +120,13 @@ const Totals = ({PA, WCA, LCW, CE, TA, CHILD, CDL, CDH, CC, HC, NDD, W1, W2, UI,
             <label className={classes.label_amount} htmlFor="amount">Total deductions: 
                     <p className={classes.label_p} id="amount">-{round(totalDeductions)}</p>
             </label>}
-            {checknumber > 0 && 
+            {checknumber - totalDeductions > 0 && 
             <label className={classes.label_amount} htmlFor="amount">UC awarded: 
                     <p className={classes.label_p} id="amount">{round(checknumber - totalDeductions)}</p>
+            </label>}
+            {checknumber - totalDeductions <= 0 && 
+            <label className={classes.label_amount} htmlFor="amount">UC awarded: 
+                    <p className={classes.label_p} id="amount">0</p>
             </label>}
             
          

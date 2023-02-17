@@ -9,6 +9,9 @@
     border-radius: 5%;
     height: 3rem;
 }
+.heading {
+    text-align: center;
+}
 .income_label {
     display: flex;
     height: 1.5rem;

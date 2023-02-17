@@ -20,7 +20,8 @@ const ShowIncome = ({ wages1, wages2, unearned, other, childbenefit, workAllowan
 
     useEffect(() => {
         setTotalWAGE(wages1 + wages2)
-        setEarningsFOR((wages1 + wages2 - workAllowance) * 0.55)
+        if(wages1 + wages2 - workAllowance < 0) {setEarningsFOR(0)}
+        else {setEarningsFOR((wages1 + wages2 - workAllowance) * 0.55)}
         setUnearnedI(unearned + other)
         setCB(childbenefit)
         setTOTALDEDUCT(earningsFOR + unearned)
@@ -28,31 +29,38 @@ const ShowIncome = ({ wages1, wages2, unearned, other, childbenefit, workAllowan
 
     /* pass total deductions */
     useEffect(() => {
+        
         deduct(totalDEDUCT)
     },[totalDEDUCT, deduct])
 
     return (
         <React.Fragment>
+        <h4 className={classes.heading}>Income & deductions</h4>
+        {totalWAGE> 0 &&  
             <div className={classes.container}>
                 <label className={classes.income_label} htmlFor="earnings">Total wages: </label>
                 <p id="earnings" className={classes.income_p}>{totalWAGE}</p>
-            </div>
+            </div>}
+        {workAllowance > 0 && 
             <div className={classes.container}>
                 <label className={classes.income_label} htmlFor="earnings">Work Allowance: </label>
                 <p id="earnings" className={classes.income_p}>-{workAllowance}</p>
-            </div>
+            </div>}
+        {earningsFOR > 0 && 
             <div className={classes.container}>
                 <label className={classes.income_label} htmlFor="earnings">Earnings for UC:</label>
                 <p id="earnings" className={classes.income_p}>{round(earningsFOR)}</p>
-            </div>
+            </div>}
+        {unearnedI > 0 && 
             <div className={classes.container}>
                 <label className={classes.income_label} htmlFor="earnings">Unearned Income:</label>
                 <p id="earnings" className={classes.income_p}>{round(unearnedI)}</p>
-            </div>
+            </div>}
+        {totalDEDUCT > 0 && 
             <div className={classes.container}>
                 <label className={classes.income_label} htmlFor="earnings">Total Deductions</label>
                 <p id="earnings" className={classes.income_p}>{round(totalDEDUCT)}</p>
-            </div>
+            </div>}
             
 
         </React.Fragment>

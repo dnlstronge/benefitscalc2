@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import classes from "./IncomeSelect.module.css"
 
-const IncomeSelect = ({ setParentState }) => {
+const IncomeSelect = ({ setParentState, workAllowance, toggleReset }) => {
 
     //local state:
 
@@ -60,10 +60,16 @@ const IncomeSelect = ({ setParentState }) => {
        return setParentState({type: type, payload: round(actual)} )}
     }, [type, actual, setParentState])
 
+    // if reset 
+
+    useEffect(() => {
+
+    }, [])
+
     return (
         <React.Fragment>
             <div className={classes.sub_container}>
-                <select value={type} onChange={handleType} className={classes.select_type}>
+                <select disabled={ workAllowance === ""} value={type} onChange={handleType} className={classes.select_type}>
                     <option value="SELECT">--Income Type--</option>
                     
                     <option value="WAGE_CLAIMANT">Wages (claimant)</option>
@@ -78,8 +84,8 @@ const IncomeSelect = ({ setParentState }) => {
                     
                 </select>
                 
-                <input value={amount} disabled={type === ""} onChange={handleAmount} className={classes.select_amount} placeholder="Eligible Costs" type="number"/>
-                <select value={freq} disabled={amount === ""} onChange={handleFreq} className={classes.select_freq}>
+                <input value={amount} disabled={type === "" || freq !== ""} onChange={handleAmount} className={classes.select_amount} placeholder="Eligible Costs" type="number"/>
+                <select value={freq} disabled={amount === "" || freq !== ""} onChange={handleFreq} className={classes.select_freq}>
                     <option value="SELECT">--frequency--</option>
                     <option value="PW">Weekly</option>
                     <option value="2W">Fortnightly</option>
