@@ -35,34 +35,38 @@ const Totals = ({PA, WCA, LCW, CE, TA, CHILD, CDL, CDH, CC, HC, W1, W2, UI, OI, 
             <label className={classes.label_amount} htmlFor="amount">Legacy transitional amount: 
                 <p className={classes.label_p} id="amount">+{TA}</p>
             </label>}
+            {CE > 0 && 
              <label className={classes.label_amount} htmlFor="amount">Carer element: 
-                <p className={classes.label_p} id="amount">{CE}</p>
-            </label>
+                <p className={classes.label_p} id="amount">+{CE}</p>
+            </label>}
+            {HC > 0 &&
             <label className={classes.label_amount} htmlFor="amount">Eligible Housing: 
-                <p className={classes.label_p} id="amount">{HC}</p>
-            </label>
+                <p className={classes.label_p} id="amount">+{HC}</p>
+            </label>}
+            {CHILD > 0 && 
             <div className={classes.children_container}>
                 <h4 className={classes.heading_children}>Child elements</h4>
                 
                 <div className={classes.children_sub_container}>
                     <label className={classes.label_children} htmlFor="section">Eligible Children:</label> 
-                    <p className={classes.p_children} id="section">{CHILD}</p> 
+                    <p className={classes.p_children} id="section">+{CHILD}</p> 
                 </div>
+                {CDL > 0 &&
                 <div className={classes.children_sub_container}>
                 <label className={classes.label_children} htmlFor="section">Disabilty (low):</label>
-                    <p className={classes.p_children} id="section">{CDL}</p> 
-                </div>
+                    <p className={classes.p_children} id="section">+{CDL}</p> 
+                </div>}
+                {CDH > 0 && 
                 <div className={classes.children_sub_container}>
                     <label className={classes.label_children} htmlFor="section">Disabilty (High):</label>
-                    <p className={classes.p_children} id="section">{CDH}</p> 
-                </div>
+                    <p className={classes.p_children} id="section">+{CDH}</p> 
+                </div>}
+                {CC > 0 && 
                 <div className={classes.children_sub_container}>
                     <label className={classes.label_children} htmlFor="section">Eligible childcare:</label> 
                     <p className={classes.p_children} id="section">{CC}</p> 
-                </div>
-                    
-                
-            </div>
+                </div>}
+            </div>}
             <label className={classes.label_amount} htmlFor="amount">Max UC: 
                 <p className={classes.label_p} id="amount">{
                     round(PA
