@@ -18,21 +18,23 @@ const Totals = ({PA, WCA, LCW, CE, TA, CHILD, CDL, CDH, CC, HC, W1, W2, UI, OI, 
     return (
         <React.Fragment>
         <div className={classes.container}>
-            
+            {PA > 0 && 
             <label className={classes.label_amount} htmlFor="amount">
                 Personal Allowance:
                 <p className={classes.label_p} id="amount">{PA}</p>
-            </label>
-            
+            </label>}
+            {LCW > 0 && 
             <label className={classes.label_amount} htmlFor="amount">Limited Capabilty for Work: 
-                <p className={classes.label_p} id="amount">{LCW}</p>
-            </label>
+                <p className={classes.label_p} id="amount">+{LCW}</p>
+            </label>}
+            {WCA > 0 && 
             <label className={classes.label_amount} htmlFor="amount">LCW + Work Related Activity: 
-                <p className={classes.label_p} id="amount">{WCA}</p>
-            </label>
+                <p className={classes.label_p} id="amount">+{WCA}</p>
+            </label>}
+            {TA > 0 &&
             <label className={classes.label_amount} htmlFor="amount">Legacy transitional amount: 
-                <p className={classes.label_p} id="amount">{TA}</p>
-            </label>
+                <p className={classes.label_p} id="amount">+{TA}</p>
+            </label>}
              <label className={classes.label_amount} htmlFor="amount">Carer element: 
                 <p className={classes.label_p} id="amount">{CE}</p>
             </label>

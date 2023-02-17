@@ -107,14 +107,6 @@ const round = (x) => {
  }
 
 const Main = (props) => {
-
-    // const [ MAINSTATE, SET_MAINSTATE ] = useState (
-    //     {
-    //      PA: 0
-    //     }
-    // )
-
-   
   
 
     const [MAIN_STATE, MAIN_DISPATCH] = useReducer(MAIN_REDUCER, {
@@ -146,8 +138,8 @@ const Main = (props) => {
     useEffect(() => {
 
       
-         const rs = MAIN_STATE.COUPLE
-         const age = MAIN_STATE.AGE
+        const rs = MAIN_STATE.COUPLE
+        const age = MAIN_STATE.AGE
        
         let S_UNDER = UCElements.single_under25
         let S_OVER = UCElements.single_over25
