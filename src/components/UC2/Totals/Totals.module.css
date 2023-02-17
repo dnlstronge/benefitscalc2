@@ -11,7 +11,7 @@
 
 .label_amount {
     font-size: 13px;
-    background: whitesmoke;
+    background: rgb(181, 224, 252);
     display: flex;
     flex-direction: row;
     font-weight: bold;

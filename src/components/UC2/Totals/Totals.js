@@ -36,7 +36,7 @@ const Totals = ({PA, WCA, LCW, CE, TA, CHILD, CDL, CDH, CC, HC, NDD, W1, W2, UI,
 
     useEffect(() => {
         
-        let value = PA + WCA + LCW + CE + TA + CHILD + CDL + CDH + housing + NDD - totalDeductions
+        let value = PA + WCA + LCW + CE + TA + CHILD + CDL + CDH + housing + NDD
         setTotal(value)
     }, [PA, WCA, LCW, CE, TA, CHILD, CDL, CDH, CC, housing, totalDeductions, NDD])
 
@@ -112,13 +112,18 @@ const Totals = ({PA, WCA, LCW, CE, TA, CHILD, CDL, CDH, CC, HC, NDD, W1, W2, UI,
                     <p className={classes.p_children} id="section">{CC}</p> 
                 </div>}
             </div>}
+            
+            <label className={classes.label_amount} htmlFor="amount">Max UC: 
+                    <p className={classes.label_p} id="amount">{round(checknumber)}</p>
+            </label>
             {totalDeductions > 0 && 
             <label className={classes.label_amount} htmlFor="amount">Total deductions: 
                     <p className={classes.label_p} id="amount">-{round(totalDeductions)}</p>
             </label>}
-            <label className={classes.label_amount} htmlFor="amount">Max UC: 
-                    <p className={classes.label_p} id="amount">{round(checknumber)}</p>
-            </label>
+            {checknumber > 0 && 
+            <label className={classes.label_amount} htmlFor="amount">UC awarded: 
+                    <p className={classes.label_p} id="amount">{round(checknumber - totalDeductions)}</p>
+            </label>}
             
          
         </div>
