@@ -10,6 +10,7 @@
 }
 
 .label_amount {
+    font-size: 13px;
     background: whitesmoke;
     display: flex;
     flex-direction: row;
@@ -18,12 +19,44 @@
     padding-left: 1rem;
     padding-right: 1rem;
     width: 80%;
-    height: 2.5rem;
+    height: 2.8rem;
     border-radius: 5%;
+}
+
+.housing_container {
+    display: flex;
+    flex-direction: column;
+}
+
+.housing_label {
+    text-align: center;
+    font-size: 13px;
+    background: whitesmoke;
+    display: flex;
+    flex-direction: row;
+    font-weight: bold;
+    margin: 0.5rem 1rem 0.5rem 1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    width: 80%;
+    height: auto;
+    border-radius: 5%;
+
+}
+.housing_p {
+    margin-left: 2rem;
+    margin-right: 2rem;
+    color: red;
+}
+.NDD_list {
+    display: flex;
+    height: auto;
+    flex-direction: column;
 }
 
 .label_p {
     margin-left: 2rem;
+    margin-right: 2rem;
     color: red;
 }
 .children_container {
@@ -43,6 +76,7 @@
     flex-direction: row;
 }
 .label_children {
+    font-size: 13px;
     display: flex;
     flex-direction: row;
     height: 2rem;

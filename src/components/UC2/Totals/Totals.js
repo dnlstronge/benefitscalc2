@@ -74,10 +74,17 @@ const Totals = ({PA, WCA, LCW, CE, TA, CHILD, CDL, CDH, CC, HC, NDD, W1, W2, UI,
              <label className={classes.label_amount} htmlFor="amount">Carer element: 
                 <p className={classes.label_p} id="amount">+{CE}</p>
             </label>}
-            {HC > 0 &&
-            <label className={classes.label_amount} htmlFor="amount">Eligible Housing: 
-                <p className={classes.label_p} id="amount">+{round(housing)}</p>
-            </label>}
+            {!isNaN(housing) && housing > 0 && 
+            <div className={classes.housing_container}>
+            {!isNaN(housing) &&
+            <label className={classes.housing_label} htmlFor="amount">Eligble Housing<p  className={classes.label_p}>{round(housing)}</p></label>}
+            {NDD > 0 && 
+            <label className={classes.housing_label} htmlFor="ndd">minus NDD <p className={classes.label_p}> -{NDD}</p></label>}
+           
+            </div>}
+            
+            
+               
             {CHILD > 0 && 
             <div className={classes.children_container}>
                 <h4 className={classes.heading_children}>Child elements</h4>
@@ -103,7 +110,7 @@ const Totals = ({PA, WCA, LCW, CE, TA, CHILD, CDL, CDH, CC, HC, NDD, W1, W2, UI,
                 </div>}
             </div>}
             <label className={classes.label_amount} htmlFor="amount">Max UC: 
-                    <p className={classes.label_p} id="amount">{checknumber}</p>
+                    <p className={classes.label_p} id="amount">{round(checknumber)}</p>
             </label>
          
         </div>
