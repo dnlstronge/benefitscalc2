@@ -110,8 +110,8 @@ const Main = (props) => {
   
 
     const [MAIN_STATE, MAIN_DISPATCH] = useReducer(MAIN_REDUCER, {
-        AGE: "",
-        COUPLE: "",
+        AGE: 0,
+        COUPLE: 0,
         PA: 0,
         WCA: 0,
         CE: 0,

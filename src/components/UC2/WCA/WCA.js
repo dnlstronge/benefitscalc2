@@ -105,7 +105,7 @@ const WCA = ({propState, setPropState }) => {
                 <h4 className={classes.heading}>Additional Elements</h4>
                   <label className={label_dynamic_2} htmlFor="select_WCA">Work Capabilty/Carer element: 
                          <select className={classes.dropdown_select} 
-                                disabled={propState.COUPLE !== "RS_SINGLE"} 
+                                disabled={propState.COUPLE !== "RS_SINGLE" || propState.AGE === 0} 
                                 onChange={handleElements}>
                             <option value="NONE">--select--</option>
                             <option value="NONE">None</option>

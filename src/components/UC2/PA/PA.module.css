@@ -13,17 +13,20 @@
     font-size: 11px;
 }
 .warning_container {
-   
-    width: 3rem;
-    height: 1rem;
+    display: flex;
+    width: 7rem;
+    height: 1.5rem;
 }
 
 .warning {
-    font-size: 8px;;
+    font-weight: bold;
+    display: flex;
+    font-size: 9px;
     display: flex;
     color: red;
     height: 1rem;
-    width: 4rem;
+    width: 6rem;
+    margin-left: 0.3rem;
 
 
     

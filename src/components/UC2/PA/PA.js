@@ -32,6 +32,12 @@ const PA = ({propState, setPropState}) => {
                         <option value="RS_COUPLE">Couple</option>
                     </select>
                 </label>
+                
+                {propState.COUPLE !== 0 &&
+                <div className={classes.warning_container}>
+                    {propState.AGE === 0 &&
+                        <p className={classes.warning}>Select an age group</p>}
+               </div>}
 
                 <label className={classes.dropdown_label} htmlFor="select_status">Age group:
                     <select onChange={handleAge} className={classes.dropdown_select}>
@@ -41,11 +47,7 @@ const PA = ({propState, setPropState}) => {
                     </select>
                 </label>
 
-                 {propState.COUPLE !== 0 &&
-                <div className={classes.warning_container}>
-                    {propState.AGE === 0 &&
-                        <p className={classes.warning}>Select an age group</p>}
-               </div>}
+                
             </div>
           
         </React.Fragment>
