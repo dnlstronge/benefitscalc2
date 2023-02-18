@@ -5,14 +5,19 @@
     background: white;
     width: 90%;
     height: 25rem;
-    margin: 1rem 1rem 1rem 1rem;
+    margin: 0.3rem 0.3rem 0.3rem 0.3rem;
     border: 2px solid black;
     border-radius: 5px;
 }
 .btn_reset {
+    display: flex;
+    height: 1.4rem;
+    width: 3rem;
+    font-size: 10px;
     font-weight: bold;
     background: rgb(244, 216, 244);
-    margin-left: 2rem;
+    margin-left: 0.6rem;
+    padding: 0.2rem;
     border-radius: 5%;
 }
 .btn_reset:hover {
@@ -23,6 +28,7 @@
 }
 .heading {
     text-align: center;
+    font-size: 11px;
 }
 .select_warning {
     margin-left: 1rem;
@@ -32,15 +38,18 @@
 }
 .WA_label {
     display: flex;
-    width: 90%;
+    width: 10rem;
+    height: 1.6rem;
 }
 .WA_select {
+    font-size: 10px;
+    font-weight: bold;
     justify-content: center;
     display: flex;
-    width: 60%;
-    height: 2rem;
-    margin-left: 2rem;
-    margin-right: 2rem;
+    width: 8.5rem;
+    height: 1.6rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
 }
 
 
