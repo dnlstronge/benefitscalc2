@@ -178,7 +178,7 @@ const Hous = ({setPropState}) => {
                     <option value="OWN">Owner Occupier</option>
                     <option value="">None</option>
                 </select> 
-                <input value={housing.rent} disabled={housing.type === "" } onChange={handleAmount} className={classes.select_amount} placeholder="Eligible Costs" type="number"/>
+                <input value={housing.rent} disabled={housing.type === "" } onChange={handleAmount} className={classes.select_amount} placeholder="Amount" type="number"/>
                 <select value={housing.freq} disabled={housing.type === "" } onChange={handleFreq} className={classes.select_freq}>
                     <option value="">--frequency--</option>
                     <option value="PW">Weekly</option>
