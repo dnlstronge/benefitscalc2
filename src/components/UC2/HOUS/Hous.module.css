@@ -96,9 +96,7 @@
     font-size: 10px;
     display: flex;
     font-weight: bold;
-    width: 90%;
-
-    margin-top: 0.3rem;
+    width: 90%; margin-top: 0.3rem;
     margin-left: 0.6rem;
 }
 .rates_input {
@@ -110,28 +108,37 @@
 }
 .rates_freq {
    display: flex;
-   width: 6rem;
+   width: 4rem;
    height: 1.2rem
    
 }
 
 .sssc_label {
+    font-size: 10px;
     display: flex;
     flex-direction: row;
     font-weight: bold;
-    margin: 1rem 1rem 1rem 1rem;
+    margin: 0.3rem 0.3rem 0.3rem 0.6rem;
     height: 1.6rem;
     width: auto;
 }
 
 .sssc_label_disabled {
     color: rgb(226, 221, 221);
+    font-size: 10px;
     display: flex;
     flex-direction: row;
     font-weight: bold;
-    margin: 1rem 1rem 1rem 1rem;
+    margin: 0.3rem 0.3rem 0.3rem 0.6rem;
     height: 1.6rem;
     width: auto;
+}
+.sssc_select {
+    display: flex;
+    width: 4rem;
+    margin-left: 1rem;
+    font-size: 10px;
+    font-weight: bold;
 }
 
 .rentfree_label {
