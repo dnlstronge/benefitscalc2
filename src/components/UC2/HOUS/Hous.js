@@ -130,7 +130,7 @@ const Hous = ({setPropState}) => {
             case "SOCIAL" : {
                 if(housing.rent > 0) {
                 return setLift({RENT: ROUND(RECKONER(housing.rent, housing.freq, housing.rentFree, housing.SSSC)), RATES: housing.rates, RATES_F: housing.ratesFreq, NDC: housing.NDC * UC_elements.NDC})
-            }}
+            } break }
             case "PRIVATE" : {
                 return setLift({RENT: ROUND(RECKONER(housing.rent, housing.freq, housing.rentFree, housing.SSSC)), RATES: housing.rates, RATES_F: housing.ratesFreq, NDC: housing.NDC * UC_elements.NDC})
             }

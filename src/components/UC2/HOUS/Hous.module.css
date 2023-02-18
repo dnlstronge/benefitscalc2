@@ -11,7 +11,7 @@
 }
 .warning_box {
     display: flex;
-    height: 4rem;
+    height: 2rem;
     width: 90%;
 }
 
@@ -47,7 +47,7 @@
     font-weight: bold;
     font-size: 10px;
     display: flex;
-    width: 6rem;
+    width: 5.5rem;
     height: 2rem;
     margin-left: 0.6rem;
     margin-top: 0.3rem;
@@ -55,15 +55,17 @@
 
 }
 .select_amount {
+    background: lightyellow;
     font-weight: bold;
     font-size: 10px;
     display: flex;
-    width: 3rem;
+    width: 3.5rem;
     height: 1.7rem;
     margin-left: 0.3rem;
     margin-top: 0.3rem;
 }
 .select_freq {
+    background: lightgray;
     font-weight: bold;
     font-size: 10px;
     display: flex;
