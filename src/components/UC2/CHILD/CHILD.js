@@ -94,7 +94,7 @@ const CHILD = ({ setPropState }) => {
                     <input className={classes.checkbox_input} value={oldest} onClick={handleOldest} id="oldest_checkbox" type="checkbox"></input>
                 </label>
           {/* oldest born after */}     
-                <label className={classes.dropdown_labelB} htmlFor="children_selection"> The oldest 2 children plus any who are exempt from 2 child limit
+                <label className={classes.dropdown_labelB} htmlFor="children_selection"> Eligible children + any exempt from 2 child limit
                   {!oldest && 
                    <select onChange={handleChildren} className={classes.dropdown_select} id="children_selection">
                     <option value="0">--select--</option>
@@ -162,7 +162,7 @@ const CHILD = ({ setPropState }) => {
                     </select>
                 </label>
         {/* Childcare Costs */}
-                <label htmlFor="childcare1" className={classes.dropdown_label}>Enter monthly childcare
+                <label htmlFor="childcare1" className={classes.dropdown_label}>Select Childcare
                     <select id="childcare1" onChange={handleChildcare} className={classes.dropdown_childcare}>
                         <option value="0">--select--</option>
                         <option value="0">None</option>
