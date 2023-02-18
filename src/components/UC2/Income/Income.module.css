@@ -21,9 +21,14 @@
     border-radius: 5%;
 }
 .btn_reset:hover {
+    display: flex;
+    height: 1.4rem;
+    width: 3rem;
+    font-size: 10px;
     font-weight: bold;
-    background: rgb(204, 134, 204);
-    margin-left: 2rem;
+    background: rgb(225, 167, 225);
+    margin-left: 0.6rem;
+    padding: 0.2rem;
     border-radius: 5%;
 }
 .heading {

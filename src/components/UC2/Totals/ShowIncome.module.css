@@ -3,23 +3,27 @@
     font-weight: bold;
     display: flex;
     flex-direction: row;
-    padding-top: 0.5rem;
-    padding-left: 1rem;
-    margin: 0.5rem 1rem 0.5rem 1rem;
+ 
+    margin: 0.3rem 3rem 0.3rem 3rem;
     border-radius: 5%;
-    height: 3rem;
+    height: 1.8rem;
+    width: 8rem;
 }
 .heading {
+    font-size: 11px;;
     text-align: center;
 }
 .income_label {
+    font-size: 10px;
+    font-weight: bold;
     display: flex;
     height: 1.5rem;
+    width: 7rem;
     margin-top: 0.5rem;
 }
 .income_p {
     display: flex;
-    margin-left: 3rem;
+    margin-left: 1rem;
     margin-top: 0.5rem;
     height: 1.5rem;
 }

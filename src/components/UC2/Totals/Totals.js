@@ -36,7 +36,7 @@ const Totals = ({PA, WCA, LCW, CE, TA, CHILD, CDL, CDH, CC, HC, NDD, W1, W2, UI,
 
     useEffect(() => {
         
-        let value = PA + WCA + LCW + CE + TA + CHILD + CDL + CDH + housing + NDD
+        let value = PA + WCA + LCW + CE + TA + CHILD + CDL + CDH + housing - NDD
         setTotal(value)
     }, [PA, WCA, LCW, CE, TA, CHILD, CDL, CDH, CC, housing, totalDeductions, NDD])
 
@@ -66,7 +66,7 @@ const Totals = ({PA, WCA, LCW, CE, TA, CHILD, CDL, CDH, CC, HC, NDD, W1, W2, UI,
                 <p className={classes.label_p} id="amount">+{LCW}</p>
             </label>}
             {WCA > 0 && 
-            <label className={classes.label_amount} htmlFor="amount">LCW + Work Related Activity: 
+            <label className={classes.label_amount} htmlFor="amount">LCWRA: 
                 <p className={classes.label_p} id="amount">+{WCA}</p>
             </label>}
             {TA > 0 &&

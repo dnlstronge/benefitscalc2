@@ -89,7 +89,7 @@ const IncomeSelect = ({ setParentState, workAllowance, toggleReset }) => {
                     
                 </select>
                 
-                <input value={amount} disabled={type === "" || freq !== ""} onChange={handleAmount} className={classes.select_amount} placeholder="Eligible Costs" type="number"/>
+                <input value={amount} disabled={type === "" || freq !== ""} onChange={handleAmount} className={classes.select_amount} placeholder="Amount" type="number"/>
                 <select value={freq} disabled={amount === "" || freq !== ""} onChange={handleFreq} className={classes.select_freq}>
                     <option value="SELECT">--frequency--</option>
                     <option value="PW">Weekly</option>
