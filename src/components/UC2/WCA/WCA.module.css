@@ -43,6 +43,7 @@
 }
 
 .dropdown_select {
+    font-size: 10px;
     display: flex;
     flex-direction: column;
     height: 1.8rem;
@@ -52,6 +53,7 @@
 }
 
 .dropdown_select_grey {
+    font-size: 10px;
     color: grey;
     display: flex;
     flex-direction: column;
