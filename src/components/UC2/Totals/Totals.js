@@ -56,6 +56,7 @@ const Totals = ({PA, WCA, LCW, CE, TA, CHILD, CDL, CDH, CC, HC, NDD, W1, W2, UI,
         
         <React.Fragment>
         <div className={classes.container}>
+          <h4 className={classes.heading}>Totals</h4>
             {PA > 0 && 
             <label className={classes.label_amount} htmlFor="amount">
                 Personal Allowance:

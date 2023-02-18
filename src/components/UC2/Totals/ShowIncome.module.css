@@ -1,27 +1,21 @@
-.container {
-    background: rgb(204, 237, 218);
-    font-weight: bold;
-    display: flex;
-    flex-direction: row;
- 
-    margin: 0.3rem 3rem 0.3rem 3rem;
-    border-radius: 5%;
-    height: 1.8rem;
-    width: 8rem;
-}
+
 .heading {
     font-size: 11px;;
     text-align: center;
 }
 .income_label {
+    background: rgb(203, 223, 203);
     font-size: 10px;
     font-weight: bold;
     display: flex;
     height: 1.5rem;
-    width: 7rem;
-    margin-top: 0.5rem;
+    width: 8rem;
+    margin: 0.3rem 0.3rem 0.3rem 0.3rem;
+    padding: 0.3rem 0.3rem 0.3rem 0.3rem;
+    border-radius: 5%;
 }
 .income_p {
+    font-size: 10px;
     display: flex;
     margin-left: 1rem;
     margin-top: 0.5rem;
