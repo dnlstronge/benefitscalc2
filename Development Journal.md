@@ -1,7 +1,7 @@
 
 ====================UPDATE FEB 20th 2023 ==========================
 
-The UC calculator/reckoner is now functional and deployed as a live demo, sceens below: 
+The UC calculator/reckoner is now functional, I have deploed a live demo https://uccalc-11c98.web.app , sceens below: 
 
 There are a few qwerks and additional functionality I want to add, as well as info modals which will give a more detailed explanation regarding certain elements
 I'd like to implement a simple calculator, and rate rebate calculation (which is contingent on the UC awarded) - I have figures stored in state for this also,
