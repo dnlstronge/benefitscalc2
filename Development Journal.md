@@ -12,7 +12,7 @@ The state which is managed by a reducer is quite complex, in future I would also
 
 <img src="/ucapp01.png" alt="Image 1"/>
 <img src="/ucapp02.png" alt="Image 2"/>
-<img src="/ucapp03" alt="Image 3"/>
+<img src="/ucapp03.png" alt="Image 3"/>
 
 ======================UPDATE FEB 13th 2023=======================
 
