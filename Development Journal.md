@@ -10,8 +10,14 @@ another feature would to determine whether benefit cap applies - this would need
 The state which is managed by a reducer is quite complex, in future I would also consider using the context app and wrapping content providers, I did not use this as in terms of prop drilling the nesting depth is no greater than parent child for the most part. This is something I would reconsider if building again. 
 
 
+{Text to follow}
 <img src="/ucapp01.png" alt="Image 1"/>
+
+{Text to follow}
 <img src="/ucapp02.png" alt="Image 2"/>
+
+
+{Text to follow}
 <img src="/ucapp03.png" alt="Image 3"/>
 
 ======================UPDATE FEB 13th 2023=======================
