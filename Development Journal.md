@@ -409,8 +409,8 @@ I still like the idea of rendering form data based on whether a variable is acti
 
                           <select onChange={handleCouple}name="couple" id="couple-select">
                               <option value="">--Please choose an option--</option>
-                              <option value="dog">Single</option>
-                              <option value="cat">Couple</option>
+                              <option value="single">Single</option>
+                              <option value="couple">Couple</option>
 
                           </select>
 
